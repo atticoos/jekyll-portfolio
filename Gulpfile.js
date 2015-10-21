@@ -45,7 +45,12 @@ gulp.task('images', function () {
   .pipe(gulp.dest(path.join(paths.dist, 'images')));
 });
 
-gulp.task('build', ['less', 'images', 'html']);
+gulp.task('fonts', function () {
+  gulp.src('./bower_components/font-awesome/fonts/**/*')
+  .pipe(gulp.dest(path.join(paths.dist, 'fonts')));
+});
+
+gulp.task('build', ['fonts', 'less', 'images', 'html']);
 
 gulp.task('watch', ['build'], function () {
   gulp.watch([

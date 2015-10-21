@@ -1,12 +1,13 @@
 .home {
   section {
-    height: 800px;
+    position: relative;
+    min-height: 800px;
     background-repeat: no-repeat;
     background-size: cover;
     &.me {
       background-image: url(/dist/images/hero.jpg);
       color: #fff;
-      padding-top: 100px;
+      padding: 100px 0;
       &:before {
         position: absolute;
         content: ' ';
@@ -26,145 +27,155 @@
           text-align: center;
         }
 
+        .typed {
+          text-align: center;
+        }
 
-    .circles {
-      margin: 50px 0;
-      width: 100%;
-      > div {
-        .make-md-column(4);
-
-        .circle {
-          position: relative;
-          border-radius: 50%;
-          overflow: hidden;
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center center;
-          border: 15px solid @black;
-          height: 300px;
-          width: 300px;
+        p {
+          text-align: center;
+          width: 80%;
           margin: auto;
-          margin-bottom: 10px;
-          cursor: pointer;
-          box-shadow: inset 0px 0px 23px 2px rgba(0,0,0,0.75);
-          &:before {
-            content: ' ';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            opacity: 0;
-            transition: .5s;
-            border-radius: 50%;
-          }
-          &:hover {
-            &:before {
-              opacity: 0.5;
+        }
+
+
+        .circles {
+          margin: 50px 0;
+          width: 100%;
+          > div {
+            .make-md-column(4);
+
+            .circle {
+              position: relative;
+              border-radius: 50%;
+              overflow: hidden;
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center center;
+              border: 15px solid @black;
+              height: 300px;
+              width: 300px;
+              margin: auto;
+              margin-bottom: 10px;
+              cursor: pointer;
+              box-shadow: inset 0px 0px 23px 2px rgba(0,0,0,0.75);
+              &:before {
+                content: ' ';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: #000;
+                opacity: 0;
+                transition: .5s;
+                border-radius: 50%;
+              }
+              &:hover {
+                &:before {
+                  opacity: 0.5;
+                }
+              }
+              span {
+                position: absolute;
+                top: 120px;
+                width: 100%;
+                left: 0;
+                color: #fff;
+                text-align: center;
+                font-size: 24px;
+                transition: 0.7s;
+              }
             }
           }
-          span {
-            position: absolute;
-            top: 120px;
-            width: 100%;
-            left: 0;
-            color: #fff;
+
+          h2 {
             text-align: center;
-            font-size: 24px;
-            transition: 0.7s;
+            margin-top: 30px;
           }
-        }
-      }
 
-      h2 {
-        text-align: center;
-        margin-top: 30px;
-      }
+          .skills {
+            .circle {
+              background-image:url(/dist/images/home/code-scroll.jpg);
+              background-size: inherit;
+              background-position: 0 10px;
+              background-repeat: repeat-y;
+              -webkit-animation: CodeScroll 600s linear infinite;
 
-      .skills {
-        .circle {
-          background-image:url(/dist/images/home/code-scroll.jpg);
-          background-size: inherit;
-          background-position: 0 10px;
-          background-repeat: repeat-y;
-          -webkit-animation: CodeScroll 600s linear infinite;
-
-          span {
-            transform: rotate(270deg);
-            transform-origin: 0 0;
-            opacity: 0;
-          }
-          &:hover {
-            span {
-              transform: rotate(0deg);
-              opacity: 1;
-            }
-          }
-        }
-      }
-      .me {
-        .circle {
-          background-image:url(/dist/images/me.jpeg);
-
-          span {
-            position: absolute;
-            top: 120px;
-            left: 0;
-            font-size: 34px;
-            width: 100%;
-            text-align: center;
-            a {
-              position: absolute;
-              transition: 0.7s;
-              color: #fff;
-              &.ln {
-                left: -100px;
+              span {
+                transform: rotate(270deg);
+                transform-origin: 0 0;
+                opacity: 0;
               }
-              &.tw {
-                left: -100px;
-              }
-              &.gh {
-                left: -100px;
+              &:hover {
+                span {
+                  transform: rotate(0deg);
+                  opacity: 1;
+                }
               }
             }
           }
-          &:hover {
-            a {
-              &.ln {
-                right: inherit;
-                left: 15%;
-              }
-              &.tw {
-                left: 45%;
-              }
-              &.gh {
-                left: 75%;
-              }
-            }
-          }
-        }
-      }
-      .work {
-        .circle {
-          background-image:url(/dist/images/home/work.jpg);
-          span {
-            top: -100px;
-            width: 100%;
-            text-align: center;
-            left: 0;
-            color: #fff;
-            opacity: 0;
-          }
-          &:hover {
-            span {
-              top: 120px;
-              opacity: 1;
-            }
-          }
-        }
-      }
+          .me {
+            .circle {
+              background-image:url(/dist/images/me.jpeg);
 
-      .clearfix();
-    }
+              span {
+                position: absolute;
+                top: 120px;
+                left: 0;
+                font-size: 34px;
+                width: 100%;
+                text-align: center;
+                a {
+                  position: absolute;
+                  transition: 0.7s;
+                  color: #fff;
+                  &.ln {
+                    left: -100px;
+                  }
+                  &.tw {
+                    left: -100px;
+                  }
+                  &.gh {
+                    left: -100px;
+                  }
+                }
+              }
+              &:hover {
+                a {
+                  &.ln {
+                    right: inherit;
+                    left: 15%;
+                  }
+                  &.tw {
+                    left: 45%;
+                  }
+                  &.gh {
+                    left: 75%;
+                  }
+                }
+              }
+            }
+          }
+          .work {
+            .circle {
+              background-image:url(/dist/images/home/work.jpg);
+              span {
+                top: -100px;
+                width: 100%;
+                text-align: center;
+                left: 0;
+                color: #fff;
+                opacity: 0;
+              }
+              &:hover {
+                span {
+                  top: 120px;
+                  opacity: 1;
+                }
+              }
+            }
+          }
+
+          .clearfix();
+        }
       }
     }
   }
