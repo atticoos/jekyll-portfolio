@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-jekyll",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ajwhite/jekyll-portfolio",
+  "authors": [
+    "Atticus White <contact@atticuswhite.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}

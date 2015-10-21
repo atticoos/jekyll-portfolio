@@ -14,3 +14,10 @@ github_username:  jekyll
 markdown: kramdown
 gems:
 - jekyll-sitemap
+exclude:
+- bower_components
+- node_modules
+- package.json
+- bower.json
+- Gemfile
+- Gemfile.lock
