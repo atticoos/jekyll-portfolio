@@ -1,0 +1,31 @@
+@backgroundColor: #FAFAFA;
+@minPageWidth: 980px;
+
+/* Colors */
+@black: #32383e;
+
+.clearfix {
+  &:before, &:after{
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear:both;
+  }
+  zoom: 1;
+}
+
+.vertical-center {
+  position: relative;
+  top:50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+@mobile: ~"(max-width: @{screen-xs-max})";
+@tablet: ~"(min-width: @{screen-sm-min}) and (max-width: @{screen-sm-max})";
+@desktop: ~"(min-width: @{screen-md-min}) and (max-width: @{screen-md-max})";
+@tablet-max: ~"(max-width: @{screen-sm-max})";
+@no-mobile: ~"(min-width: @{screen-md-min})";

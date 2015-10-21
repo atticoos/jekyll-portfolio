@@ -4,21 +4,35 @@ layout: default
 
 <div class="home">
 
-  <br /><br /><br /><br /><br />
-  <h1 class="page-heading">Welcome!!</h1>
+  <section class="me">
+    <div class="container">
+      <h1>Hey, I'm Atticus.</h1>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+      <div class="circles">
+        <div class="skills">
+          <div class="circle">
+            <span>Love to code</span>
+          </div>
+          <h2>My Skills</h2>
+        </div>
+        <div class="me">
+          <div class="circle">
+            <span>
+              <a href="https://www.linkedin.com/in/atticuswhite" title="Connect with Atticus on LinkedIn" target="_blank" class="ln"><i class="fa fa-linkedin"></i></a>
+              <a href="https://twitter.com/atticoos" title="Follow Atticus on Twitter" target="_blank" class="tw"><i class="fa fa-twitter"></i></a>
+              <a href="https://github.com/ajwhite" title="See open source work by Atticus on Github" target="_bank"class="gh"><i class="fa fa-github"></i></a>
+            </span>
+          </div>
+          <h2>Me</h2>
+        </div>
+        <div class="work">
+          <div class="circle">
+            <span>Can make cool things</span>
+          </div>
+          <h2>My Work</h2>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </div>

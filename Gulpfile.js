@@ -2,6 +2,9 @@ var gulp = require('gulp'),
     less = require('gulp-less'),
     concat = require('gulp-concat'),
     htmlmin = require('gulp-htmlmin'),
+    imagemin = require('gulp-imagemin'),
+    pngquant = require('imagemin-pngquant'),
+    autoprefixer = require('gulp-autoprefixer'),
     path = require('path'),
     paths = {
       source: './src',
@@ -12,6 +15,9 @@ var gulp = require('gulp'),
 gulp.task('less', function () {
   gulp.src(path.join(paths.source, '_assets/less/main.less'))
   .pipe(less())
+  .pipe(autoprefixer({
+    browsers: '> 5%'
+  }))
   .pipe(gulp.dest(paths.dist));
 });
 
@@ -29,7 +35,17 @@ gulp.task('html', ['jekyll'], function () {
   .pipe(gulp.dest(paths.site));
 });
 
-gulp.task('build', ['less', 'html']);
+gulp.task('images', function () {
+  gulp.src(path.join(paths.source, '_assets/images/**/*'))
+  .pipe(imagemin({
+    progressive: true,
+    svgoPlugins: [{removeViewBox: false}],
+    use: [pngquant()]
+  }))
+  .pipe(gulp.dest(path.join(paths.dist, 'images')));
+});
+
+gulp.task('build', ['less', 'images', 'html']);
 
 gulp.task('watch', ['build'], function () {
   gulp.watch([
@@ -38,4 +54,5 @@ gulp.task('watch', ['build'], function () {
     path.join(paths.source, 'index.html')
   ], ['html']);
   gulp.watch(path.join(paths.source, '_assets/less/**/*.less'), ['less']);
+  gulp.watch(path.join(paths.source, '_assets/images/**/*'), ['images']);
 });
