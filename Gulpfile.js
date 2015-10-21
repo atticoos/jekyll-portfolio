@@ -4,14 +4,15 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     path = require('path'),
     paths = {
-      site: './_site',
-      dist: './dist'
+      source: './src',
+      site: './public',
+      dist: './public/dist'
     };
 
 gulp.task('less', function () {
-  gulp.src('_assets/less/main.less')
+  gulp.src(path.join(paths.source, '_assets/less/main.less'))
   .pipe(less())
-  .pipe(gulp.dest('dist/'));
+  .pipe(gulp.dest(paths.dist));
 });
 
 gulp.task('jekyll', function (done) {
@@ -29,3 +30,12 @@ gulp.task('html', ['jekyll'], function () {
 });
 
 gulp.task('build', ['less', 'html']);
+
+gulp.task('watch', ['build'], function () {
+  gulp.watch([
+    path.join(paths.source, '_includes/**/*.html'),
+    path.join(paths.source, '_layouts/**/*.html'),
+    path.join(paths.source, 'index.html')
+  ], ['html']);
+  gulp.watch(path.join(paths.source, '_assets/less/**/*.less'), ['less']);
+});
