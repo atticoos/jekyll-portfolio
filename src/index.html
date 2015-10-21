@@ -1,5 +1,30 @@
 ---
 layout: default
+featured_projects:
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
+- tweetdrive
+- microsoft-dreamhome
 ---
 
 <div class="home">
@@ -207,6 +232,32 @@ layout: default
     </div>
 
     <a href="#" class="more">More</a>
+  </section>
+
+  <section class="background"></section>
+
+  <section class="projects">
+    <div class="container">
+      <h1 class="title">Featured Work</h1>
+    </div>
+
+    <div class="portfolio-items">
+      {% for featuredProject in page.featured_projects %}
+        {% cycle 'add row' : '<div class="portfolio-row">', nil, nil, nil, nil %}
+        {% for project in site.projects %}
+          {% if featuredProject == project.slug %}
+          <div class="item">
+            <div class="image">
+              <img src="/dist/images/{{project.icon}}" />
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+        {% cycle 'end row' : nil, nil, nil, nil, '</div>' %}
+      {% endfor %}
+      {% cycle 'end row' : nil, '</div>', '</div>', '</div>', '</div>' %}
+    </div>
+
   </section>
 
 

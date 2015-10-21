@@ -1,7 +1,6 @@
 .home {
   section {
     position: relative;
-    min-height: 800px;
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -23,6 +22,11 @@
     &.collapsed .more {
       display: block;
     }
+
+    &.background {
+      background-image: url(/dist/images/hero.jpg);
+      height: 300px;
+    }
   }
 }
 
@@ -30,6 +34,7 @@
   background-image: url(/dist/images/hero.jpg);
   color: #fff;
   padding: 100px 0;
+  min-height: 800px;
   &:before {
     position: absolute;
     content: ' ';
@@ -265,6 +270,26 @@
 
       h2 { margin: 20px 0; }
 
+    }
+  }
+}
+
+.home section.projects {
+  .portfolio-items {
+    .portfolio-row {
+      .clearfix;
+      .item {
+        width: 20%;
+        background-color: orange;
+        float:left;
+
+        .image {
+          img {
+            width: 100%;
+            display: block;
+          }
+        }
+      }
     }
   }
 }
