@@ -1,9 +1,10 @@
 (function ($) {
   'use strict';
 
-  var MAX_DIAMETER = 8;
-  var NUMBER_OF_DOTS = 70;
-  var COLORS = ['#FF9900', '#424242', '#BCBCBC', '#3299BB'];
+  var MAX_DIAMETER = 8,
+      NUMBER_OF_DOTS = 70,
+      VELOCITY = 0.7,
+      COLORS = ['#FF9900', '#424242', '#BCBCBC', '#3299BB'];
 
   /**
    * The canvas control
@@ -84,8 +85,8 @@
     this.x = Math.round(Math.random() * canvasWidth);
     this.y = Math.round(Math.random() * canvasHeight);
     this.d = Math.random() * MAX_DIAMETER;
-    this.dx = (Math.random() < 0.5 ? 1 : -1) * Math.random() * 0.7;
-    this.dy = (Math.random() < 0.5 ? 1 : -1) * Math.random() * 0.7;
+    this.dx = (Math.random() < 0.5 ? 1 : -1) * Math.random() * VELOCITY;
+    this.dy = (Math.random() < 0.5 ? 1 : -1) * Math.random() * VELOCITY;
     this.color = _.sample(COLORS);
   }
 
