@@ -6,16 +6,19 @@
       WAVE_VELOCITY = 20,
       WAVE_DENSITY = .75,
       WAVE_FRICTION = 1.14,
+      BUBBLE_PARTICLES = 20,
       MIN_BUBBLE_DIAMETER = 10,
       MAX_BUBBLE_DIAMETER = 30,
+      LARGE_BUBBLE_DISSOLVE = 20,
+      SMALL_BUBBLE_DISSOLVE = 6,
       BUBBLE_VELOCITY = 30,
       WATER_DENSITY = 1.07,
       AIR_DENSITY = 1.02,
       MOUSE_PULL = 0.09,
       AOE = 200;
 
-
   function WaveCanvas ($container) {
+    var self = this;
     this.$container = $container;
     this.canvas = document.createElement('canvas');
     this.context = this.canvas.getContext('2d');
@@ -31,15 +34,9 @@
         this.canvas.height / 2
       );
     }, this);
-    this.particles.bubbles = _.times(10, function () {
-      return new BubbleParticle(this.canvas.width, this.canvas.height);
-    }, this);
-    console.log('particles', this.particles.waves);
-    // this.render();
+    this.particles.bubbles = [];
+    this.addBubble();
 
-
-
-    var self = this;
     $(this.canvas).mousemove(function (e) {
       self.mouseMove(e);
     });
@@ -49,15 +46,51 @@
     this.twitchInterval = setInterval(function () {
       self.twitch();
     }, 2000);
+    this.bubbleInterval = setInterval(function () {
+      self.addBubble();
+    }, 500);
+    this.render();
   }
 
   WaveCanvas.prototype.twitch = function () {
     var forceRange = 5;
     var particle = _.sample(this.particles.waves),
         forceY = (Math.random() * (forceRange * 2) - forceRange);
-    // console.log('twitching from', particle.force.y, 'to', forceY);
     particle.force.y += forceY;
   };
+
+  WaveCanvas.prototype.addBubble = function () {
+    if (this.particles.bubbles.length > BUBBLE_PARTICLES) {
+      var i = 0;
+      if (this.particles.bubbles[i].dissolved) {
+        for(; i < this.particles.bubbles.length; i++) {
+          if (!this.particles.bubbles[i].dissolved) {
+            this.particles.bubbles[i].dissolveSize = SMALL_BUBBLE_DISSOLVE;
+            this.dissolveBubble(this.particles.bubbles[i]);
+            break;
+          }
+        }
+      } else {
+        this.dissolveBubble(this.particles.bubbles[i]);
+      }
+    }
+    this.particles.bubbles.push(new BubbleParticle(this.canvas.width, this.canvas.height));
+  };
+
+  WaveCanvas.prototype.dissolveBubble = function (bubbleParticle) {
+    var self = this;
+    if (!bubbleParticle.dissolved ) {
+      bubbleParticle.dissolved = true;
+      setTimeout(function () {
+        for (var i = 0; i < self.particles.bubbles.length; i++) {
+          if (bubbleParticle === self.particles.bubbles[i]) {
+            self.particles.bubbles.splice(i, 1);
+            break;
+          }
+        }
+      }, 2000);
+    }
+  }
 
   WaveCanvas.prototype.mouseMove = function (e) {
     var x = e.layerX || e.offsetX,
@@ -97,8 +130,48 @@
         Math.max(bubbleParticle.velocity.x, 0.8/bubbleParticle.mass);
       bubbleParticle.x += bubbleParticle.velocity.x;
 
-      this.context.moveTo(bubbleParticle.x, bubbleParticle.y);
-      this.context.arc(bubbleParticle.x, bubbleParticle.y, bubbleParticle.currentSize, 0, Math.PI * 2, true);
+      if (!bubbleParticle.dissolved) {
+        this.context.moveTo(bubbleParticle.x, bubbleParticle.y);
+        this.context.arc(bubbleParticle.x, bubbleParticle.y, bubbleParticle.currentSize, 0, Math.PI * 2, true);
+      } else {
+        bubbleParticle.velocity.x /= 1.15;
+        bubbleParticle.velocity.y /= 1.05;
+
+        while (bubbleParticle.children.length < bubbleParticle.dissolveSize) {
+          bubbleParticle.children.push({
+            x: 0,
+            y: 0,
+            size: Math.random() * bubbleParticle.dissolveSize,
+            velocity: {
+              x: (Math.random() * 20) - 10,
+              y: -(Math.random() * 10)
+            }
+          });
+        }
+
+        _.forEach(bubbleParticle.children, function (childParticle) {
+          childParticle.x += childParticle.velocity.x;
+          childParticle.y += childParticle.velocity.y;
+          childParticle.velocity.x /= 1.1;
+          childParticle.velocity.y += 0.4;
+          childParticle.size /= 1.1;
+
+          this.context.moveTo(
+            bubbleParticle.x + childParticle.x,
+            bubbleParticle.y + childParticle.y
+          );
+          this.context.arc(
+            bubbleParticle.x + childParticle.x,
+            bubbleParticle.y + childParticle.y,
+            childParticle.size,
+            0,
+            Math.PI * 2,
+            true
+          );
+        }, this);
+      }
+
+
     }, this);
     this.context.fill();
   };
@@ -213,6 +286,8 @@
       x: (Math.random() * BUBBLE_VELOCITY) - BUBBLE_VELOCITY / 2,
       y: 0
     };
+    this.dissolveSize = LARGE_BUBBLE_DISSOLVE;
+    this.children = [];
   }
 
   function distanceBetween (a, b) {
