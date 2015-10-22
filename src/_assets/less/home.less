@@ -26,6 +26,16 @@
     &.background {
       background-image: url(/dist/images/hero.jpg);
       height: 300px;
+
+      &:before {
+        position: absolute;
+        content: ' ';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
     }
   }
 }
@@ -342,4 +352,10 @@
     }
   }
 
+}
+
+#dots {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
