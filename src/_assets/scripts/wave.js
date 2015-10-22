@@ -1,30 +1,82 @@
-// http://hakim.se/experiments/html5/wave/03/js/hakim.wave.js
+/**
+ * Inspired by @hakimel
+ * http://hakim.se/experiments/html5/wave/03/
+ */
 (function ($) {
   'use strict';
 
+      // the number of wave particles
   var WAVE_PARTICLES = 20,
+      // the starting velocity of the wave
       WAVE_VELOCITY = 2,
+
+      // the density of the wave
       WAVE_DENSITY = .75,
+
+      // the friction to apply to the wave
       WAVE_FRICTION = 1.14,
+
+      // the mass of a wave particle
       WAVE_MASS = 10,
+
+      // the number of bubble particles
       BUBBLE_PARTICLES = 15,
+
+      // the friction to apply to a bubble particle
       BUBBLE_FRICTION = 1.04,
+
+      // the minimum diameter of a bubble
       MIN_BUBBLE_DIAMETER = 10,
+
+      // the maximum diameter of a bubble
       MAX_BUBBLE_DIAMETER = 30,
+
+      // a large size of a dissolving bubble
       LARGE_BUBBLE_DISSOLVE = 20,
+
+      // a small size of a dissolving bubble
       SMALL_BUBBLE_DISSOLVE = 6,
+
+      // the initial velocity to apply to a bubble
       BUBBLE_VELOCITY = 15,
+
+      // the horizontal velocity to apply to a bubble when dissolving
       DISSOLVED_BUBBLE_HORIZONTAL_VELOCITY = 1.15,
+
+      // the vertical velocity to apply to a bubble when dissolving
       DISSOLVED_BUBBLE_VERTICAL_VELOCITY = 1.05,
+
+      // the horizontal velocity to apply to a child bubble particle
       CHILD_BUBBLE_HORIZONTAL_VELOCITY = 1.1,
+
+      // the vertical velocity to apply to a child bubble particle
       CHILD_BUBBLE_VERTICAL_VELOCITY = 0.4,
+
+      // the velocity to apply to the diameter of a child particle
       CHILD_BUBBLE_SHRINK_VELOCITY = 1.1,
+
+      // the density to apply to particles inside the water
       WATER_DENSITY = 1.07,
+
+      // the density to apply to particles outside the water
       AIR_DENSITY = 1.02,
+
+      // the strength that the mouse pulls wave particles
       MOUSE_PULL = 0.09,
-      RIPPLE_FORCE = 5,
-      RIPPLE_INTERVAL = 1000,
+
+      // the zone the mouse intersects with a wave particle
       AOE = 150,
+
+      // the minimum speed of a mouse movement
+      MOUSE_SPEED_THRESHOLD = 6,
+
+      // the force when applying a ripple
+      RIPPLE_FORCE = 5,
+
+      // the interval between ripples
+      RIPPLE_INTERVAL = 1000,
+
+      //colors
       WAVE_COLOR_START = '#00AABB',
       WAVE_COLOR_END = 'rgba(0, 200, 250, 0)',
       BUBBLE_COLOR = '#rgba(0,200,255,0)';
@@ -66,7 +118,7 @@
    */
   WaveCanvas.prototype.ripple = function () {
     var waveParticle;
-    if (this.mouseSpeed.x > 5 || this.mouseSpeed.y > 5) {
+    if (this.mouseSpeed.x > MOUSE_SPEED_THRESHOLD || this.mouseSpeed.y > MOUSE_SPEED_THRESHOLD) {
       return;
     }
     // grab a random wave particle to manipulate
