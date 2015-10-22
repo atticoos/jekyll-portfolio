@@ -6,12 +6,19 @@
       WAVE_VELOCITY = 2,
       WAVE_DENSITY = .75,
       WAVE_FRICTION = 1.14,
-      BUBBLE_PARTICLES = 2,
+      WAVE_MASS = 10,
+      BUBBLE_PARTICLES = 15,
+      BUBBLE_FRICTION = 1.04,
       MIN_BUBBLE_DIAMETER = 10,
       MAX_BUBBLE_DIAMETER = 30,
       LARGE_BUBBLE_DISSOLVE = 20,
       SMALL_BUBBLE_DISSOLVE = 6,
       BUBBLE_VELOCITY = 15,
+      DISSOLVED_BUBBLE_HORIZONTAL_VELOCITY = 1.15,
+      DISSOLVED_BUBBLE_VERTICAL_VELOCITY = 1.05,
+      CHILD_BUBBLE_HORIZONTAL_VELOCITY = 1.1,
+      CHILD_BUBBLE_VERTICAL_VELOCITY = 0.4,
+      CHILD_BUBBLE_SHRINK_VELOCITY = 1.1,
       WATER_DENSITY = 1.07,
       AIR_DENSITY = 1.02,
       MOUSE_PULL = 0.09,
@@ -125,6 +132,9 @@
     });
   };
 
+  /**
+   * Render the bubble particles
+   */
   WaveCanvas.prototype.renderBubbleParticles = function () {
     this.context.fillStyle = BUBBLE_COLOR;
     this.context.beginPath();
@@ -132,29 +142,51 @@
       var waveParticle = this.getClosestWaveParticle(bubbleParticle),
           distance = distanceBetween(this.mousePosition, bubbleParticle);
 
+      // the velocity should be factor of water or air depending on if it's above or below the water line
       bubbleParticle.velocity.y /= (bubbleParticle.y > waveParticle.y) ? WATER_DENSITY : AIR_DENSITY;
-      bubbleParticle.velocity.y += (waveParticle.y > bubbleParticle.y) ? (1 / bubbleParticle.mass) : -((bubbleParticle.y - waveParticle.y) * 0.01) / bubbleParticle.mass;
+
+      if (waveParticle.y > bubbleParticle.y) {
+        // if the bubble is below the waterline, it should rise by its density
+        bubbleParticle.velocity.y += (1 / bubbleParticle.mass);
+      } else {
+        // if the bubble is above the waterline, it should fall based on its mass
+        bubbleParticle.velocity.y -= ((bubbleParticle.y - waveParticle.y) * 0.01) / bubbleParticle.mass;
+      }
+
+      // transition the bubble by vertical velocity
       bubbleParticle.y += bubbleParticle.velocity.y;
 
-      if (bubbleParticle.x > this.canvas.width - bubbleParticle.currentSize) {
+
+      // if the bubble exceeds a boundary of the canvas, reverse its direction
+      if (bubbleParticle.x > this.canvas.width - bubbleParticle.currentSize ||
+          bubbleParticle.x < bubbleParticle.currentSize) {
         bubbleParticle.velocity.x = -bubbleParticle.velocity.x;
       }
-      if (bubbleParticle.x < bubbleParticle.currentSize) {
-        bubbleParticle.velocity.x = Math.abs(bubbleParticle.velocity.x);
+
+      // apply a slight friction to the bubble
+      bubbleParticle.velocity.x /= BUBBLE_FRICTION;
+
+      if (bubbleParticle.velocity.x < 0) {
+        // if the bubble is moving to the left, take the negative velocity as a factor of the mass
+        bubbleParticle.velocity.x = Math.min(bubbleParticle.velocity.x, -0.8 / bubbleParticle.mass);
+      } else {
+        // if the bubble is moving to the right, take the positive velocity as a factor of the mass
+        bubbleParticle.velocity.x = Math.max(bubbleParticle.velocity.x, 0.8 / bubbleParticle.mass);
       }
 
-      bubbleParticle.velocity.x /= 1.04;
-      bubbleParticle.velocity.x = bubbleParticle.velocity.x < 0 ? Math.min(bubbleParticle.velocity.x, -0.8/bubbleParticle.mass) :
-        Math.max(bubbleParticle.velocity.x, 0.8/bubbleParticle.mass);
+      // transition the bubble by the horizontal velocity
       bubbleParticle.x += bubbleParticle.velocity.x;
 
       if (!bubbleParticle.dissolved) {
+        // if the bubble is not dissolved, draw it
         this.context.moveTo(bubbleParticle.x, bubbleParticle.y);
         this.context.arc(bubbleParticle.x, bubbleParticle.y, bubbleParticle.currentSize, 0, Math.PI * 2, true);
       } else {
-        bubbleParticle.velocity.x /= 1.15;
-        bubbleParticle.velocity.y /= 1.05;
+        // if the bubble is disolved, reduce the velocity for the next render
+        bubbleParticle.velocity.x /= DISSOLVED_BUBBLE_HORIZONTAL_VELOCITY;
+        bubbleParticle.velocity.y /= DISSOLVED_BUBBLE_VERTICAL_VELOCITY;
 
+        // create the child particles
         while (bubbleParticle.children.length < bubbleParticle.dissolveSize) {
           bubbleParticle.children.push({
             x: 0,
@@ -168,12 +200,16 @@
         }
 
         _.forEach(bubbleParticle.children, function (childParticle) {
+          // transition the child particle
           childParticle.x += childParticle.velocity.x;
           childParticle.y += childParticle.velocity.y;
-          childParticle.velocity.x /= 1.1;
-          childParticle.velocity.y += 0.4;
-          childParticle.size /= 1.1;
 
+          // apply the velocity
+          childParticle.velocity.x /= CHILD_BUBBLE_HORIZONTAL_VELOCITY;
+          childParticle.velocity.y += CHILD_BUBBLE_VERTICAL_VELOCITY;
+          childParticle.size /= CHILD_BUBBLE_SHRINK_VELOCITY;
+
+          // draw the child particle
           this.context.moveTo(
             bubbleParticle.x + childParticle.x,
             bubbleParticle.y + childParticle.y
@@ -194,20 +230,29 @@
     this.context.fill();
   };
 
+  /**
+   * Find the closest wave particle for a given point
+   * - map the collection into pairs of wave particles and distances from the point
+   * - sort the collection by the distance
+   * - take the first item
+   * - return the wave particle
+   */
   WaveCanvas.prototype.getClosestWaveParticle = function (point) {
-    var closest = _.first(this.particles.waves),
-        closestDistance = 1000;
-
-    _.forEach(this.particles.waves, function (waveParticle) {
-      var distance = distanceBetween(waveParticle, point);
-      if (distance < closestDistance) {
-        closest = waveParticle;
-        closestDistance = distance;
-      }
-    });
-    return closest;
+    return _(this.particles.waves)
+      .map(function (waveParticle) {
+        return {
+          distance: distanceBetween(waveParticle, point),
+          waveParticle: waveParticle
+        }
+      })
+      .sortBy('distance')
+      .first()
+      .waveParticle;
   };
 
+  /**
+   * Render the wave
+   */
   WaveCanvas.prototype.renderWaveParticles = function () {
     var gradientFill = this.context.createLinearGradient(
       this.canvas.width * 0.5,
@@ -235,17 +280,22 @@
         return;
       }
 
+      // derive the vertical force to apply for elasticity and to come back to the original point
       forceY += -WAVE_DENSITY * (previous.y - current.y);
       forceY += WAVE_DENSITY * (current.y - next.y);
       forceY += WAVE_DENSITY/15 * (current.y - current.original.y);
 
+      // apply the vertical force and friction
       current.velocity.y += - (forceY / current.mass) + current.force.y;
       current.velocity.y /= WAVE_FRICTION;
       current.force.y /= WAVE_FRICTION;
+
+      // transition the wave node
       current.y += current.velocity.y;
 
       distance = distanceBetween(this.mousePosition, current);
 
+      // apply any mouse interactions
       if (distance < AOE) {
         distance = distanceBetween(this.mousePosition, current.original);
         this.mouseSpeed.x = this.mouseSpeed.x * 0.98;
@@ -254,6 +304,7 @@
         current.force.y += (MOUSE_PULL * (1 - (distance / AOE))) * this.mouseSpeed.y;
       }
 
+      // draw the curve
       this.context.quadraticCurveTo(
         previous.x,
         previous.y,
@@ -262,13 +313,17 @@
       );
     }, this);
 
+    // fill the last point
     this.context.lineTo(
       _.last(this.particles.waves).x,
       _.last(this.particles.waves).y
     );
 
+    // fill the body
     this.context.lineTo(this.canvas.width, this.canvas.height);
     this.context.lineTo(0, this.canvas.height);
+
+    // fill the first point
     this.context.lineTo(
       _.first(this.particles.waves).x,
       _.first(this.particles.waves).y
@@ -276,10 +331,13 @@
     this.context.fill();
   };
 
+  /**
+   * A wave particle
+   */
   function WaveParticle (x, y) {
+    this.mass = WAVE_MASS;
     this.x = x;
     this.y = y;
-    this.mass = 10;
     this.original = {
       x: this.x,
       y: this.y
@@ -294,6 +352,9 @@
     };
   }
 
+  /**
+   * A bubble particle
+   */
   function BubbleParticle (canvasWidth, canvasHeight) {
     this.x = Math.round(Math.random() * canvasWidth);
     this.y = canvasHeight;
@@ -309,6 +370,9 @@
     this.children = [];
   }
 
+  /**
+   * Find the distance between two points
+   */
   function distanceBetween (a, b) {
     var dx = b.x - a.x,
         dy = b.y - a.y;
