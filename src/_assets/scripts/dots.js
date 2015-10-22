@@ -135,7 +135,7 @@
 
   $(window).on('load', function () {
     var canvases = [];
-    $('.background').each(function () {
+    $('.background.dots').each(function () {
       canvases.push(new DotCanvas($(this)));
     });
 
