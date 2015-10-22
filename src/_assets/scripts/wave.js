@@ -6,7 +6,7 @@
       WAVE_VELOCITY = 2,
       WAVE_DENSITY = .75,
       WAVE_FRICTION = 1.14,
-      BUBBLE_PARTICLES = 20,
+      BUBBLE_PARTICLES = 2,
       MIN_BUBBLE_DIAMETER = 10,
       MAX_BUBBLE_DIAMETER = 30,
       LARGE_BUBBLE_DISSOLVE = 20,
@@ -15,7 +15,12 @@
       WATER_DENSITY = 1.07,
       AIR_DENSITY = 1.02,
       MOUSE_PULL = 0.09,
-      AOE = 150;
+      RIPPLE_FORCE = 5,
+      RIPPLE_INTERVAL = 1000,
+      AOE = 150,
+      WAVE_COLOR_START = '#00AABB',
+      WAVE_COLOR_END = 'rgba(0, 200, 250, 0)',
+      BUBBLE_COLOR = '#rgba(0,200,255,0)';
 
   function WaveCanvas ($container) {
     var self = this;
@@ -40,58 +45,64 @@
     $(this.canvas).mousemove(function (e) {
       self.mouseMove(e);
     });
-    this.twitchInterval = setInterval(function () {
-      self.twitch();
-    }, 1000);
+    this.rippleInterval = setInterval(function () {
+      self.ripple();
+    }, RIPPLE_INTERVAL);
     this.bubbleInterval = setInterval(function () {
       self.addBubble();
     }, 500);
     this.render();
   }
 
-  WaveCanvas.prototype.twitch = function () {
+  /**
+   * Invoke a random ripple
+   */
+  WaveCanvas.prototype.ripple = function () {
+    var waveParticle;
     if (this.mouseSpeed.x > 5 || this.mouseSpeed.y > 5) {
       return;
     }
-    var forceRange = 5;
-    var particle = _.sample(this.particles.waves),
-        forceY = (Math.random() * (forceRange * 2) - forceRange);
-    particle.force.y += forceY;
+    // grab a random wave particle to manipulate
+    waveParticle = _.sample(this.particles.waves);
+    // apply a force to the particle to cause a ripple
+    waveParticle.force.y += (Math.random() * (RIPPLE_FORCE * 2) - RIPPLE_FORCE);
   };
 
+  /**
+   * Add a bubble to the wave
+   */
   WaveCanvas.prototype.addBubble = function () {
+    var dissolvedBubbleParticle;
+    // if we exceed the number of bubble particles, blow one up
     if (this.particles.bubbles.length > BUBBLE_PARTICLES) {
-      var i = 0;
-      if (this.particles.bubbles[i].dissolved) {
-        for(; i < this.particles.bubbles.length; i++) {
-          if (!this.particles.bubbles[i].dissolved) {
-            this.particles.bubbles[i].dissolveSize = SMALL_BUBBLE_DISSOLVE;
-            this.dissolveBubble(this.particles.bubbles[i]);
-            break;
-          }
-        }
-      } else {
-        this.dissolveBubble(this.particles.bubbles[i]);
+      dissolvedBubbleParticle = _.find(this.particles.bubbles, {dissolved: false});
+      if (dissolvedBubbleParticle !== _.first(this.particles.bubbles)) {
+        dissolvedBubbleParticle.dissolveSize = SMALL_BUBBLE_DISSOLVE;
       }
+      this.dissolveBubble(dissolvedBubbleParticle);
     }
+
+    // create a new bubble particle
     this.particles.bubbles.push(new BubbleParticle(this.canvas.width, this.canvas.height));
   };
 
+  /**
+   * Dissolve a bubble
+   */
   WaveCanvas.prototype.dissolveBubble = function (bubbleParticle) {
     var self = this;
-    if (!bubbleParticle.dissolved ) {
+    if (!bubbleParticle.dissolved) {
       bubbleParticle.dissolved = true;
       setTimeout(function () {
-        for (var i = 0; i < self.particles.bubbles.length; i++) {
-          if (bubbleParticle === self.particles.bubbles[i]) {
-            self.particles.bubbles.splice(i, 1);
-            break;
-          }
-        }
+        // remove the bubble from the collection
+        _.remove(self.particles.bubbles, bubbleParticle);
       }, 2000);
     }
   }
 
+  /**
+   * Receive mouse move events and track the current position and the speed based on the last position
+   */
   WaveCanvas.prototype.mouseMove = function (e) {
     var x = e.layerX || e.offsetX,
         y = e.layerY || e.offsetY;
@@ -101,6 +112,9 @@
     this.mousePosition.y = e.offsetY;
   };
 
+  /**
+   * The rendering cycle of the canvas
+   */
   WaveCanvas.prototype.render = function () {
     var self = this;
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -112,7 +126,7 @@
   };
 
   WaveCanvas.prototype.renderBubbleParticles = function () {
-    this.context.fillStyle = '#rgba(0,200,255,0)';
+    this.context.fillStyle = BUBBLE_COLOR;
     this.context.beginPath();
     _.forEach(this.particles.bubbles, function (bubbleParticle) {
       var waveParticle = this.getClosestWaveParticle(bubbleParticle),
@@ -201,8 +215,8 @@
       this.canvas.width * 0.5,
       this.canvas.height
     );
-    gradientFill.addColorStop(0, '#00AABB');
-    gradientFill.addColorStop(1, 'rgba(0, 200, 250, 0)');
+    gradientFill.addColorStop(0, WAVE_COLOR_START);
+    gradientFill.addColorStop(1, WAVE_COLOR_END);
 
     this.context.fillStyle = gradientFill;
     this.context.beginPath();
@@ -290,6 +304,7 @@
       x: (Math.random() * BUBBLE_VELOCITY) - BUBBLE_VELOCITY / 2,
       y: 0
     };
+    this.dissolved = false;
     this.dissolveSize = LARGE_BUBBLE_DISSOLVE;
     this.children = [];
   }
