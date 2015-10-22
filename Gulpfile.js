@@ -21,6 +21,20 @@ gulp.task('less', function () {
   .pipe(gulp.dest(paths.dist));
 });
 
+gulp.task('js:site', function () {
+  gulp.src(path.join(paths.source, '_assets/scripts/**/*.js'))
+  .pipe(concat('site.js'))
+  .pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('js:vendor', function () {
+  gulp.src([
+    'bower_components/jquery/dist/jquery.js'
+  ])
+  .pipe(concat('vendor.js'))
+  .pipe(gulp.dest(paths.dist));
+});
+
 gulp.task('jekyll', function (done) {
   var spawn = require('child_process').spawn,
       jekyll = spawn('jekyll', ['build'], {stdio: 'inherit'});
@@ -50,7 +64,8 @@ gulp.task('fonts', function () {
   .pipe(gulp.dest(path.join(paths.dist, 'fonts')));
 });
 
-gulp.task('build', ['fonts', 'less', 'images', 'html']);
+gulp.task('js', ['js:vendor', 'js:site']);
+gulp.task('build', ['fonts', 'less', 'js', 'images', 'html']);
 
 gulp.task('watch', ['build'], function () {
   gulp.watch([
@@ -58,6 +73,7 @@ gulp.task('watch', ['build'], function () {
     path.join(paths.source, '_layouts/**/*.html'),
     path.join(paths.source, 'index.html')
   ], ['html']);
+  gulp.watch(path.join(paths.source, '_assets/scripts/**/*.js'), ['js:site']);
   gulp.watch(path.join(paths.source, '_assets/less/**/*.less'), ['less']);
   gulp.watch(path.join(paths.source, '_assets/images/**/*'), ['images']);
 });

@@ -66,9 +66,12 @@
 
 
     .circles {
+      position: relative;
       margin: 50px 0;
       width: 100%;
-      > div {
+      .skills,
+      .me,
+      .work {
         .make-md-column(4);
 
         .circle {
@@ -292,4 +295,47 @@
       }
     }
   }
+}
+
+
+@media @no-mobile {
+  .home section.me .container .circles.animated {
+    height: 325px;
+    .skills,
+    .me,
+    .work {
+      position: absolute;
+      float: none;
+      top: 0;
+      left: 385px;
+      display: none;
+      h2 {
+        position: relative;
+        top: -50px;
+        display: none;
+      }
+    }
+
+    .me {
+      z-index: 100;
+    }
+
+    &.done {
+      .me {
+        z-index: auto;
+      }
+    }
+
+    .skills.animate {
+      transition: left 300ms ease-out;
+      // transform: translate(0, 0);
+      left: 0;
+    }
+    .work.animate {
+      transition: left 300ms ease-out;
+      left: 66.66666%;
+      // transform: translate(0, 0);
+    }
+  }
+
 }
