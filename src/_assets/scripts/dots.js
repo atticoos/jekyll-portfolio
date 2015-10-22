@@ -11,17 +11,26 @@
    * This acts as a manager for rendering and managing particles
    */
   function DotCanvas ($container) {
+    var self = this;
     this.$container = $container;
     this.canvas = document.createElement('canvas');
     this.canvas.width = $container.outerWidth();
     this.canvas.height = $container.outerHeight();
     this.context = this.canvas.getContext('2d');
-    this.animating = true;
+    this.animating = false;
     this.dots = _.times(NUMBER_OF_DOTS, function () {
       return new Dot(this.canvas.width, this.canvas.height);
     }, this);
     this.$container.prepend(this.canvas);
-    this.render();
+
+    // only render the animation when in view
+    this.$container.bind('inview', function (e, isInView) {
+      if (isInView) {
+        self.resume();
+      } else {
+        self.pause();
+      }
+    });
   }
 
   /**
@@ -115,16 +124,5 @@
     $('.background').each(function () {
       canvases.push(new DotCanvas($(this)));
     });
-
-    // only perform the animations when visible
-    $(window).on('scroll', function () {
-      _.forEach(canvases, function (canvas) {
-        if (canvas.$container.visible()) {
-          canvas.resume();
-        } else {
-          canvas.pause();
-        }
-      });
-    })
   });
 }).call(this, jQuery);
