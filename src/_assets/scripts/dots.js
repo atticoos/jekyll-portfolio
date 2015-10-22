@@ -20,7 +20,7 @@
     this.dots = _.times(NUMBER_OF_DOTS, function () {
       return new Dot(this.canvas.width, this.canvas.height);
     }, this);
-    this.$container.append(this.canvas);
+    this.$container.prepend(this.canvas);
     this.render();
   }
 
@@ -67,7 +67,7 @@
     this.dots = _.map(this.dots, function (dot) {
       if (this.isDotOutOfBounds(dot)) {
         // you are out of bounds. Here, take a new dot
-        return new Dot();
+        return new Dot(this.canvas.width, this.canvas.height);
       }
       return dot;
     }, this);
@@ -75,6 +75,18 @@
     requestAnimationFrame(function () {
       self.render();
     });
+  };
+
+  DotCanvas.prototype.pause = function () {
+    this.animating = false;
+  };
+
+  DotCanvas.prototype.resume = function () {
+    if (this.animating) {
+      return;
+    }
+    this.animating = true;
+    this.render();
   };
 
   /**
@@ -103,5 +115,16 @@
     $('.background').each(function () {
       canvases.push(new DotCanvas($(this)));
     });
+
+    // only perform the animations when visible
+    $(window).on('scroll', function () {
+      _.forEach(canvases, function (canvas) {
+        if (canvas.$container.visible()) {
+          canvas.resume();
+        } else {
+          canvas.pause();
+        }
+      });
+    })
   });
 }).call(this, jQuery);

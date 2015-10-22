@@ -235,14 +235,10 @@ featured_projects:
   </section>
 
   <section class="background">
-    <canvas id="dots"></canvas>
+    <h1>Featured Work</h1>
   </section>
 
   <section class="projects">
-    <div class="container">
-      <h1 class="title">Featured Work</h1>
-    </div>
-
     <div class="portfolio-items">
       {% for featuredProject in page.featured_projects %}
         {% cycle 'add row' : '<div class="portfolio-row">', nil, nil, nil, nil %}
@@ -261,6 +257,10 @@ featured_projects:
     </div>
 
   </section>
+  <section class="background">
+    <h1>Open Source Projects</h1>
+  </section>
 
+<br/><br/><br/>
 
 </div>
