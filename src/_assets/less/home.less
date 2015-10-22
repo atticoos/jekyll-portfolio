@@ -56,6 +56,10 @@
 
     .typed {
       text-align: center;
+      .typed-cursor {
+        opacity: 1;
+        animation: blink 800ms infinite;
+      }
     }
 
     p {
@@ -99,6 +103,7 @@
             border-radius: 50%;
           }
           &:hover {
+            filter: blur(5px);
             &:before {
               opacity: 0.5;
             }

@@ -1,4 +1,5 @@
 (function ($) {
+  'use strict';
 
   function animateCircles () {
     var $circles = {
@@ -7,10 +8,8 @@
       right: $('.circles .work')
     };
 
-
     $('.circles').addClass('animated');
     $circles.center.fadeIn();
-
 
     setTimeout(function () {
       $circles.left.show(); //('display', 'block').css('color', 'red');
