@@ -86,10 +86,24 @@
     });
   };
 
+  /**
+   * Updates the boundaires of the canvas
+   */
+  DotCanvas.prototype.updateContainerDimensions = function () {
+    this.canvas.width = this.$container.outerWidth();
+    this.canvas.height = this.$container.outerHeight();
+  };
+
+  /**
+   * Pauses the rendering cycle
+   */
   DotCanvas.prototype.pause = function () {
     this.animating = false;
   };
 
+  /**
+   * Resumes the rendering cycle
+   */
   DotCanvas.prototype.resume = function () {
     if (this.animating) {
       return;
@@ -124,5 +138,11 @@
     $('.background').each(function () {
       canvases.push(new DotCanvas($(this)));
     });
+
+    $(window).on('resize', function () {
+      _.forEach(canvases, function (canvas) {
+        canvas.updateContainerDimensions();
+      });
+    })
   });
 }).call(this, jQuery);
