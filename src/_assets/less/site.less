@@ -36,12 +36,12 @@ p {
 
 .site-header {
   position: fixed;
-  // background-color: rgba(0,0,0,0.85);
+  background-color: rgba(0,0,0,0.85);
   color: #fff;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 15px 0;
+  padding: 15px 0 0;
   z-index: 100;
 
   a {
@@ -82,9 +82,30 @@ p {
     text-align: center;
     font-size: 26px;
     font-weight: 300;
+    margin-top: -20px;
     a {
       display: inline-block;
-      margin: auto 10px;
+      padding: 20px 5px;
+      margin: 0 5px;
+      position: relative;
+
+      &:after {
+        content: ' ';
+        position: absolute;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #3299BB;
+        display: none;
+      }
+
+
+      &.active, &:hover {
+        &:after {
+          display: block;
+        }
+      }
     }
   }
   .off-links {
