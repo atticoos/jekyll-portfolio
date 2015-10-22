@@ -31,7 +31,9 @@
     $(this.canvas).mouseout(function (e) {
       self.mousePosition = null;
     })
-
+    $(this.canvas).mousedown(function (e) {
+      self.mouseDown(e);
+    });
     // only render the animation when in view
     this.$container.bind('inview', function (e, isInView) {
       if (isInView) {
@@ -131,6 +133,14 @@
     };
   };
 
+  DotCanvas.prototype.mouseDown = function (e) {
+    _.times(5, function () {
+      var dot = new Dot(this.canvas.width, this.canvas.height);
+      dot.x = e.offsetX;
+      dot.y = e.offsetY;
+      this.dots.push(dot);
+    }, this);
+  };
   /**
    * The dot
    * This keeps track of the particle properties and handles the delta
