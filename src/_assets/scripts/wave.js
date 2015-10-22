@@ -32,7 +32,10 @@
       MAX_BUBBLE_DIAMETER = 30,
 
       // a large size of a dissolving bubble
-      LARGE_BUBBLE_DISSOLVE = 20,
+      LARGE_BUBBLE_DISSOLVE = 30,
+
+      // a normal size of a dissolving bubble
+      NORMAL_BUBBLE_DISSOLVE = 20,
 
       // a small size of a dissolving bubble
       SMALL_BUBBLE_DISSOLVE = 6,
@@ -60,6 +63,9 @@
 
       // the density to apply to particles outside the water
       AIR_DENSITY = 1.02,
+
+      // additional hitbox buffer for clicking bubbles
+      MOUSE_CLICK_BUFFER = 15,
 
       // the strength that the mouse pulls wave particles
       MOUSE_PULL = 0.09,
@@ -104,6 +110,9 @@
     $(this.canvas).mousemove(function (e) {
       self.mouseMove(e);
     });
+    $(this.canvas).mousedown(function (e) {
+      self.mouseDown(e);
+    });
     this.rippleInterval = setInterval(function () {
       self.ripple();
     }, RIPPLE_INTERVAL);
@@ -131,14 +140,15 @@
    * Add a bubble to the wave
    */
   WaveCanvas.prototype.addBubble = function () {
-    var dissolvedBubbleParticle;
+    var dissolvedBubbleParticle,
+        dissolveSize;
     // if we exceed the number of bubble particles, blow one up
     if (this.particles.bubbles.length > BUBBLE_PARTICLES) {
       dissolvedBubbleParticle = _.find(this.particles.bubbles, {dissolved: false});
       if (dissolvedBubbleParticle !== _.first(this.particles.bubbles)) {
-        dissolvedBubbleParticle.dissolveSize = SMALL_BUBBLE_DISSOLVE;
+        dissolveSize = SMALL_BUBBLE_DISSOLVE;
       }
-      this.dissolveBubble(dissolvedBubbleParticle);
+      this.dissolveBubble(dissolvedBubbleParticle, dissolveSize);
     }
 
     // create a new bubble particle
@@ -148,10 +158,13 @@
   /**
    * Dissolve a bubble
    */
-  WaveCanvas.prototype.dissolveBubble = function (bubbleParticle) {
+  WaveCanvas.prototype.dissolveBubble = function (bubbleParticle, dissolveSize) {
     var self = this;
     if (!bubbleParticle.dissolved) {
       bubbleParticle.dissolved = true;
+      if (dissolveSize) {
+        bubbleParticle.dissolveSize = dissolveSize;
+      }
       setTimeout(function () {
         // remove the bubble from the collection
         _.remove(self.particles.bubbles, bubbleParticle);
@@ -163,12 +176,33 @@
    * Receive mouse move events and track the current position and the speed based on the last position
    */
   WaveCanvas.prototype.mouseMove = function (e) {
-    var x = e.layerX || e.offsetX,
-        y = e.layerY || e.offsetY;
     this.mouseSpeed.x = Math.max(Math.min(e.offsetX - this.mousePosition.x, 40), -40);
     this.mouseSpeed.y = Math.max(Math.min(e.offsetY - this.mousePosition.y, 40), -40);
     this.mousePosition.x = e.offsetX;
     this.mousePosition.y = e.offsetY;
+  };
+
+  /**
+   * Receive mouse click events to pop a bubble
+   */
+  WaveCanvas.prototype.mouseDown = function (e) {
+    var point = {
+          x: e.offsetX,
+          y: e.offsetY
+        },
+        bubbleParticle = this.getBubbleParticleIntersection(point, MOUSE_CLICK_BUFFER);
+
+    if (bubbleParticle) {
+      this.dissolveBubble(bubbleParticle, LARGE_BUBBLE_DISSOLVE);
+    }
+  };
+
+  WaveCanvas.prototype.getBubbleParticleIntersection = function (point, buffer) {
+    buffer = buffer || 0;
+    return _.find(this.particles.bubbles, function (bubble) {
+      return ((bubble.x - bubble.size - buffer) < point.x && point.x < (bubble.x + bubble.size + buffer) &&
+          (bubble.y - bubble.size - buffer) < point.y && point.y < (bubble.y + bubble.size + buffer));
+    });
   };
 
   /**
@@ -418,7 +452,7 @@
       y: 0
     };
     this.dissolved = false;
-    this.dissolveSize = LARGE_BUBBLE_DISSOLVE;
+    this.dissolveSize = NORMAL_BUBBLE_DISSOLVE;
     this.children = [];
   }
 
