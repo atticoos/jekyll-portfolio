@@ -12,7 +12,7 @@
       WATER_DENSITY = 1.07,
       AIR_DENSITY = 1.02,
       MOUSE_PULL = 0.09,
-      AOE = 100;
+      AOE = 200;
 
 
   function WaveCanvas ($container) {
@@ -30,6 +30,9 @@
         this.canvas.width / (WAVE_PARTICLES - 4) * (i - 2),
         this.canvas.height / 2
       );
+    }, this);
+    this.particles.bubbles = _.times(10, function () {
+      return new BubbleParticle(this.canvas.width, this.canvas.height);
     }, this);
     console.log('particles', this.particles.waves);
     // this.render();
@@ -68,10 +71,50 @@
   WaveCanvas.prototype.render = function () {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.renderWaveParticles();
-    var self = this;
-    // requestAnimationFrame(function () {
-    //   self.render();
-    // });
+    this.renderBubbleParticles();
+  };
+
+  WaveCanvas.prototype.renderBubbleParticles = function () {
+    this.context.fillStyle = '#rgba(0,200,255,0)';
+    this.context.beginPath();
+    _.forEach(this.particles.bubbles, function (bubbleParticle) {
+      var waveParticle = this.getClosestWaveParticle(bubbleParticle),
+          distance = distanceBetween(this.mousePosition, bubbleParticle);
+
+      bubbleParticle.velocity.y /= (bubbleParticle.y > waveParticle.y) ? WATER_DENSITY : AIR_DENSITY;
+      bubbleParticle.velocity.y += (waveParticle.y > bubbleParticle.y) ? (1 / bubbleParticle.mass) : -((bubbleParticle.y - waveParticle.y) * 0.01) / bubbleParticle.mass;
+      bubbleParticle.y += bubbleParticle.velocity.y;
+
+      if (bubbleParticle.x > this.canvas.width - bubbleParticle.currentSize) {
+        bubbleParticle.velocity.x = -bubbleParticle.velocity.x;
+      }
+      if (bubbleParticle.x < bubbleParticle.currentSize) {
+        bubbleParticle.velocity.x = Math.abs(bubbleParticle.velocity.x);
+      }
+
+      bubbleParticle.velocity.x /= 1.04;
+      bubbleParticle.velocity.x = bubbleParticle.velocity.x < 0 ? Math.min(bubbleParticle.velocity.x, -0.8/bubbleParticle.mass) :
+        Math.max(bubbleParticle.velocity.x, 0.8/bubbleParticle.mass);
+      bubbleParticle.x += bubbleParticle.velocity.x;
+
+      this.context.moveTo(bubbleParticle.x, bubbleParticle.y);
+      this.context.arc(bubbleParticle.x, bubbleParticle.y, bubbleParticle.currentSize, 0, Math.PI * 2, true);
+    }, this);
+    this.context.fill();
+  };
+
+  WaveCanvas.prototype.getClosestWaveParticle = function (point) {
+    var closest = _.first(this.particles.waves),
+        closestDistance = 1000;
+
+    _.forEach(this.particles.waves, function (waveParticle) {
+      var distance = distanceBetween(waveParticle, point);
+      if (distance < closestDistance) {
+        closest = waveParticle;
+        closestDistance = distance;
+      }
+    });
+    return closest;
   };
 
   WaveCanvas.prototype.renderWaveParticles = function () {
@@ -160,12 +203,16 @@
     };
   }
 
-  function Bubble (canvasWidth, canvasHeight) {
+  function BubbleParticle (canvasWidth, canvasHeight) {
     this.x = Math.round(Math.random() * canvasWidth);
     this.y = canvasHeight;
-    this.d = MIN_BUBBLE_DIAMETER + Math.random() * (MAX_BUBBLE_DIAMETER - MIN_BUBBLE_DIAMETER);
-    this.dx = (Math.random() * BUBBLE_VELOCITY) - BUBBLE_VELOCITY / 2;
-    this.dy = 0;
+    this.size = MIN_BUBBLE_DIAMETER + Math.random() * (MAX_BUBBLE_DIAMETER - MIN_BUBBLE_DIAMETER);
+    this.currentSize = this.size;
+    this.mass = (this.size / MAX_BUBBLE_DIAMETER) + 1;
+    this.velocity = {
+      x: (Math.random() * BUBBLE_VELOCITY) - BUBBLE_VELOCITY / 2,
+      y: 0
+    };
   }
 
   function distanceBetween (a, b) {
