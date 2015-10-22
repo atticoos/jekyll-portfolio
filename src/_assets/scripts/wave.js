@@ -3,7 +3,7 @@
   'use strict';
 
   var WAVE_PARTICLES = 20,
-      WAVE_VELOCITY = 20,
+      WAVE_VELOCITY = 2,
       WAVE_DENSITY = .75,
       WAVE_FRICTION = 1.14,
       BUBBLE_PARTICLES = 20,
@@ -11,11 +11,11 @@
       MAX_BUBBLE_DIAMETER = 30,
       LARGE_BUBBLE_DISSOLVE = 20,
       SMALL_BUBBLE_DISSOLVE = 6,
-      BUBBLE_VELOCITY = 30,
+      BUBBLE_VELOCITY = 15,
       WATER_DENSITY = 1.07,
       AIR_DENSITY = 1.02,
       MOUSE_PULL = 0.09,
-      AOE = 200;
+      AOE = 150;
 
   function WaveCanvas ($container) {
     var self = this;
@@ -40,12 +40,9 @@
     $(this.canvas).mousemove(function (e) {
       self.mouseMove(e);
     });
-    this.timeUpdateInterval = setInterval(function () {
-      self.render()
-    }, 40);
     this.twitchInterval = setInterval(function () {
       self.twitch();
-    }, 2000);
+    }, 1000);
     this.bubbleInterval = setInterval(function () {
       self.addBubble();
     }, 500);
@@ -53,6 +50,9 @@
   }
 
   WaveCanvas.prototype.twitch = function () {
+    if (this.mouseSpeed.x > 5 || this.mouseSpeed.y > 5) {
+      return;
+    }
     var forceRange = 5;
     var particle = _.sample(this.particles.waves),
         forceY = (Math.random() * (forceRange * 2) - forceRange);
@@ -102,9 +102,13 @@
   };
 
   WaveCanvas.prototype.render = function () {
+    var self = this;
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.renderWaveParticles();
     this.renderBubbleParticles();
+    requestAnimationFrame(function () {
+      self.render();
+    });
   };
 
   WaveCanvas.prototype.renderBubbleParticles = function () {
@@ -268,7 +272,7 @@
     };
     this.velocity = {
       x: 0,
-      y: Math.random() * 3
+      y: Math.random() * WAVE_VELOCITY
     };
     this.force = {
       x: 0,
