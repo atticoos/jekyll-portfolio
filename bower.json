@@ -19,6 +19,7 @@
     "d3": "~3.5.6",
     "typed.js": "~1.1.1",
     "lodash": "~3.10.1",
-    "protonet/jquery.inview": "~1.0.0"
+    "inview": "git@github.com:protonet/jquery.inview.git#5133162ce4dda044d2b08c3d67a1ce19a612f4bb",
+    "Chart.js": "~0.2.0"
   }
 }
