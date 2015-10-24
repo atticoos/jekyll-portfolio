@@ -1,3 +1,11 @@
+.page-blog {
+  .post-meta {
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
 .page-blog .post {
 
   .post-header {
@@ -16,9 +24,6 @@
     .post-meta {
       font-weight: 100;
       line-height: 30px;
-      i {
-        margin-right: 5px;
-      }
     }
   }
 
@@ -37,6 +42,37 @@
       margin: 20px 0;
       pre {
         .container;
+      }
+    }
+  }
+}
+
+
+.page-blog .archive {
+  padding-top: 120px;
+  .tag-list {
+    .make-md-column(3);
+  }
+
+  .post-list {
+    .make-md-column(9);
+    article {
+      margin: 0 0 40px 0;
+      .banner {
+        height: 100px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: auto 75%;
+      }
+      .content {
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #eee;
+        position: relative;
+        font-size: 16px;
+        p {
+          font-size: 18px;
+        }
       }
     }
   }

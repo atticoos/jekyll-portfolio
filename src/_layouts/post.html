@@ -1,8 +1,9 @@
 ---
 layout: default
 ---
-{% if page.tags.size > 0 %}
-{% assign postTag = page.tags[0] %}
+{% assign post = page %}
+{% if post.tags.size > 0 %}
+{% assign postTag = post.tags[0] %}
 {% assign postTag = site.data.tags[postTag] %}
 {% else %}
 {% assign postTag = site.data.tags.deafult %}
@@ -12,7 +13,7 @@ layout: default
 <div class="post">
   <header class="post-header" style="background-color: {{postTag.color.background}}; color: {{postTag.color.font}}">
     <div class="container">
-      <h1 class="post-title">{{ page.title }}</h1>
+      <h1 class="post-title">{{ post.title }}</h1>
 
       {% if postTag.icon %}
       <img src="/dist/images/{{ postTag.icon }}" class="tag-icon" />
@@ -20,7 +21,7 @@ layout: default
 
       <div class="post-meta">
         {% include posts/date.html %}
-        {% if page.tags.size > 0 %}
+        {% if post.tags.size > 0 %}
           {% include posts/tags.html %}
         {% endif %}
       </div>
