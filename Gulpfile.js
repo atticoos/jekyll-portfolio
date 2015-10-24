@@ -32,7 +32,8 @@ gulp.task('js:vendor', function () {
     'bower_components/lodash/lodash.js',
     'bower_components/jquery/dist/jquery.js',
     'bower_components/typed.js/js/typed.js',
-    'bower_components/protonet/jquery.inview/jquery.inview.js'
+    'bower_components/inview/jquery.inview.js',
+    'bower_components/Chart.js/Chart.js'
   ])
   .pipe(concat('vendor.js'))
   .pipe(gulp.dest(paths.dist));
