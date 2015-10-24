@@ -1,3 +1,4 @@
+{% assign current = page.url | downcase | replace: '.html','' | split: '/' %}
 <header class="site-header">
 
   <div class="container">
@@ -12,10 +13,10 @@
       </div>
       <div class="site-nav">
         <nav>
-          <a href="#">Home</a>
-          <a href="#" class="active">Portfolio</a>
-          <a href="#">Labs</a>
-          <a href="#">Blog</a>
+          <a href="/#" {% if current[1] == 'index' %} class="active" {% endif %}>Home</a>
+          <a href="/#portfolio">Portfolio</a>
+          <a href="/#labs">Labs</a>
+          <a href="/blog" {% if (current[1] == 'blog') %} class="active" {% endif %}>Blog</a>
         </nav>
       </div>
       <div class="off-links">
