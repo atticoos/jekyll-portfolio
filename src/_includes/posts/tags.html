@@ -1,0 +1,8 @@
+<div class="tags">
+  <i class="fa fa-tag"></i>
+  {% for tag in page.tags %}
+    {% if site.data.tags[tag] %}
+      {{ site.data.tags[tag].label }}
+    {% endif %}
+  {% endfor %}
+</div>

@@ -1,0 +1,17 @@
+angularjs:
+  label: AngularJS
+  color:
+    background: '#c41230'
+    font: '#fff'
+
+gulpjs:
+  label: GulpJS
+  color:
+    background: '#c41230'
+    font: '#fff'
+
+titanium:
+  label: Titanium
+  color:
+    background: '#c41230'
+    font: '#fff'

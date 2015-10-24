@@ -3,7 +3,7 @@ layout: post
 title: Twitter Digits for AngularJS
 date: 2015-07-02 13:08:00
 permalink: /blog/twitter-digits-angularjs
-categories: angularjs
+tags: [angularjs]
 ---
 
 Twitter recently came out with their web version of [Digits](digits 'Twitter fabric digits'). It provides a nice way to authenticate with applications with what is traditionally known as two-step authentication, but it becomes more of a primary authentication in how they've targetted it.

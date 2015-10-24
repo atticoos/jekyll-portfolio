@@ -71,7 +71,7 @@ gulp.task('fonts', function () {
 gulp.task('js', ['js:vendor', 'js:site']);
 gulp.task('build', ['fonts', 'less', 'js', 'images', 'html']);
 
-gulp.task('watch', ['build'], function () {
+gulp.task('watch', ['fonts', 'less', 'js', 'images', 'html'], function () {
   gulp.watch([
     path.join(paths.source, '_includes/**/*.html'),
     path.join(paths.source, '_layouts/**/*.html'),
