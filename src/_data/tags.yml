@@ -7,8 +7,9 @@ angularjs:
 
 gulpjs:
   label: GulpJS
+  icon: tags/gulp.jpg
   color:
-    background: '#c41230'
+    background: '#eb4a4b'
     font: '#fff'
 
 titanium:
