@@ -1,8 +1,9 @@
 angularjs:
   label: AngularJS
+  icon: tags/angular.png
   color:
-    background: '#c41230'
-    font: '#fff'
+    background: '#fff'
+    font: '#6a6a6a'
 
 gulpjs:
   label: GulpJS
@@ -15,3 +16,8 @@ titanium:
   color:
     background: '#c41230'
     font: '#fff'
+
+default:
+  color:
+    background: '#fff'
+    font: '#000'

@@ -8,6 +8,8 @@ tags: [angularjs]
 
 Twitter recently came out with their web version of [Digits](digits 'Twitter fabric digits'). It provides a nice way to authenticate with applications with what is traditionally known as two-step authentication, but it becomes more of a primary authentication in how they've targetted it.
 
+![twitter digits signin flow](/dist/images/blog/twitter-digits/signin-dialog.png)
+
 ## angular-digits
 
 [angular-digits](angular-digits, 'angular-digits on Github') provides an integration of [Digits](digits 'Twitter fabric digits') with AngularJS. It brings the asynchronous event sinto the digiest cycle context, but it also provides a handful of utility on top of what is otherwise a pretty raw interface.
