@@ -1,6 +1,6 @@
 ---
 layout: page
-slug: mslf
+slug: mslfund
 title: Massachusetts Soldiers Legacy Fund
 permalink: /projects/massachusetts-soldiers-legacy-fund
 icon: projects/mslf/logo.jpg

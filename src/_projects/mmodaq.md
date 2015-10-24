@@ -3,7 +3,7 @@ layout: page
 slug: mmodaq
 title: MMODAQ
 permalink: /projects/mmodaq
-icon: projects/mmodaq/logo.png
+icon: projects/mmodaq/logo.jpg
 images:
 - projects/mmodaq/preview.jpg
 - projects/mmodaq/home.png

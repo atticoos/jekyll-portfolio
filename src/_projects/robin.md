@@ -3,7 +3,7 @@ layout: page
 slug: robin
 title: Robin
 permalink: /projects/robin
-icon: projects/robin/logo.png
+icon: projects/robin/logo.jpg
 client: Robin
 skills:
 - Frontend Development
