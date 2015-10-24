@@ -63,6 +63,11 @@ gulp.task('images', function () {
   .pipe(gulp.dest(path.join(paths.dist, 'images')));
 });
 
+gulp.task('images:copy', function () {
+  gulp.src(path.join(paths.source, '_assets/images/**/*'))
+  .pipe(gulp.dest(path.join(paths.dist, 'images')));
+})
+
 gulp.task('fonts', function () {
   gulp.src('./bower_components/font-awesome/fonts/**/*')
   .pipe(gulp.dest(path.join(paths.dist, 'fonts')));
@@ -71,7 +76,7 @@ gulp.task('fonts', function () {
 gulp.task('js', ['js:vendor', 'js:site']);
 gulp.task('build', ['fonts', 'less', 'js', 'images', 'html']);
 
-gulp.task('watch', ['fonts', 'less', 'js', 'images', 'html'], function () {
+gulp.task('watch', ['fonts', 'less', 'js', 'images:copy', 'html'], function () {
   gulp.watch([
     path.join(paths.source, '_includes/**/*.html'),
     path.join(paths.source, '_layouts/**/*.html'),
@@ -79,5 +84,5 @@ gulp.task('watch', ['fonts', 'less', 'js', 'images', 'html'], function () {
   ], ['html']);
   gulp.watch(path.join(paths.source, '_assets/scripts/**/*.js'), ['js:site']);
   gulp.watch(path.join(paths.source, '_assets/less/**/*.less'), ['less']);
-  gulp.watch(path.join(paths.source, '_assets/images/**/*'), ['images']);
+  gulp.watch(path.join(paths.source, '_assets/images/**/*'), ['images:copy']);
 });
