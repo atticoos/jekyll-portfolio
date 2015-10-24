@@ -7,6 +7,14 @@
         <div class="image">
           <img src="/dist/images/{{project.icon}}" />
         </div>
+        <div class="overlay">
+          <div class="vertical-wrap">
+            <div class="inner">
+              <h3>{{ project.title}}</h3>
+              <span class="client">{{ project.client }}</span>
+            </div>
+          </div>
+        </div>
       </div>
       {% endif %}
     {% endfor %}

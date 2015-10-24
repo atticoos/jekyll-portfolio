@@ -7,6 +7,7 @@
 
       // the number of wave particles
   var WAVE_PARTICLES = 20,
+
       // the starting velocity of the wave
       WAVE_VELOCITY = 2,
 
@@ -82,6 +83,9 @@
       // the interval between ripples
       RIPPLE_INTERVAL = 1000,
 
+      // interval between spawning new bubbles
+      BUBBLE_INTERVAL = 500,
+
       //colors
       WAVE_COLOR_START = '#00AABB',
       WAVE_COLOR_END = 'rgba(0, 200, 250, 0)',
@@ -89,6 +93,7 @@
 
   function WaveCanvas ($container) {
     var self = this;
+    this.animating = false;
     this.$container = $container;
     this.canvas = document.createElement('canvas');
     this.context = this.canvas.getContext('2d');
@@ -113,14 +118,36 @@
     $(this.canvas).mousedown(function (e) {
       self.mouseDown(e);
     });
+
+    this.$container.bind('inview', function (e, inView) {
+      if (inView) {
+        self.resume();
+      } else {
+        self.pause();
+      }
+    });
+  }
+
+  WaveCanvas.prototype.pause = function () {
+    this.animating = false;
+    clearInterval(this.rippleInterval);
+    clearInterval(this.bubbleInterval);
+  };
+
+  WaveCanvas.prototype.resume = function () {
+    var self = this;
+    if (this.animating) {
+      return;
+    }
+    this.animating = true;
     this.rippleInterval = setInterval(function () {
       self.ripple();
     }, RIPPLE_INTERVAL);
     this.bubbleInterval = setInterval(function () {
       self.addBubble();
-    }, 500);
+    }, BUBBLE_INTERVAL);
     this.render();
-  }
+  };
 
   /**
    * Invoke a random ripple
@@ -210,6 +237,9 @@
    */
   WaveCanvas.prototype.render = function () {
     var self = this;
+    if (!this.animating) {
+      return;
+    }
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.renderWaveParticles();
     this.renderBubbleParticles();
