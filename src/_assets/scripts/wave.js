@@ -417,6 +417,16 @@
     this.context.fill();
   };
 
+  WaveCanvas.prototype.windowResized = function (width, height) {
+    this.canvas.width = this.$container.outerWidth();
+    this.canvas.height = this.$container.outerHeight();
+    _.forEach(this.particles.waves, function (wave, index) {
+      wave.x = this.canvas.width / (WAVE_PARTICLES - 4) * (index - 2);
+      wave.original.x = wave.x;
+      wave.original.y = this.canvas.height / 2;
+    }, this);
+  };
+
   /**
    * A wave particle
    */
@@ -470,6 +480,11 @@
     $('.background.wave').each(function () {
       canvases.push(new WaveCanvas($(this)));
     });
-  })
 
+    $(window).resize(function () {
+      _.forEach(canvases, function (canvas) {
+        canvas.windowResized(window.innerWidth, window.innerHeight);
+      });
+    });
+  });
 }).call(this, jQuery);
