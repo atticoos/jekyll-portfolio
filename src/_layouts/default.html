@@ -3,7 +3,7 @@
 
   {% include head.html %}
   {% assign current = page.url | downcase | replace: '.html','' | split: '/' %}
-  <body class="{{ current[1] }}">
+  <body class="page-{{ current[1] }}">
 
     {% include header.html %}
 

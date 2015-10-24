@@ -2,6 +2,9 @@
   'use strict';
 
   $(document).ready(function () {
+    if (!$('body').hasClass('page-index')) {
+      return;
+    }
     var charts = [{
       id: 'chart-1',
       data: [
