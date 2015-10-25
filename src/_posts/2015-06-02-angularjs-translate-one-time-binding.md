@@ -89,7 +89,7 @@ When you introduce a one-time binding to the expression, your binding will only 
 
 Let's look at how this works:
 
-{% highlight html %}
+{% highlight javascript %}
 function linker (scope, element, attrs) {
   var translateValues = {};
   if (attrs.translateValues) {
@@ -137,10 +137,11 @@ If the consumer requests that we compile the translation value, as it may contai
 ## More one-time binding tools
 
 Just as you may want to set the content of an element to a translation value, many times you may want to do this for other attributes on an element, such as
-- An `&lt;input /&gt;` element's `value`
-- An `&lt;input /&gt;` text field `placeholder`
-- An `&lt;a /&gt;` element's `title` attribute
-- An `&lt;img /&gt;` element's `alt` attribute
+
+- An `<input />` element's `value`
+- An `<input />` text field `placeholder`
+- An `<a />` element's `title` attribute
+- An `<img />` element's `alt` attribute
 - etc..
 
 
@@ -151,7 +152,7 @@ A similar process takes place for <a href="https://github.com/ajwhite/angular-tr
 - `translate-once-title`
 - `translate-once-alt`
 
-The same process takes place as when using `translate-once`, the only difference is that once `$tranlsate()` resolves, it updates the element's corresponding attribute. So if we do `translate-once-placeholder="TRANSLATION_KEY"`, `&lt;input placeholder="translation value" /&gt;` will be rendered in the end.
+The same process takes place as when using `translate-once`, the only difference is that once `$tranlsate()` resolves, it updates the element's corresponding attribute. So if we do `translate-once-placeholder="TRANSLATION_KEY"`, `<input placeholder="translation value" />` will be rendered in the end.
 
 ## Contributing
 As always, I welcome anyone to contribute a pull request over on the <a href="https://github.com/ajwhite/angular-translate-once" title="translate-once github repository" target="_blank">Github repo</a>. Please make sure that tests are written for any changes or additions made.
