@@ -6,6 +6,7 @@ permalink: /blog/merging-gulpjs-streams
 tags: [gulpjs]
 excerpt: Learn how to take multiple GulpJS build tasks and merge them into one output stream by combining streams with NodeJS' EventStream
 seo_title: Merging multiple GulpJS streams into one - Javascript
+disqus_id: '349 http://www.atticuswhite.com/?p=349'
 ---
 
 Sometimes when you're building out your GulpJS tasks, you need to create a stream against two different groups of files. In some of these cases, they should both end up in the same place. However, one group of files undergoes one build process, and other undergoes a separate build process.

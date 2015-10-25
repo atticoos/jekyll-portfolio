@@ -8,6 +8,7 @@ project: https://github.com/ajwhite/gulp-ng-config
 excerpt: gulp-ng-config, a GulpJS build task plugin, will generate AngularJS constant modules from JSON files to assist in providing configurations for your projects.
 seo_title: gulp-ng-config - GulpJS config generator for AngularJS
 seo_description: gulp-ng-config - A GulpJS build task plugin used to generate AngularJS configurations. Support multiple environments for your AngularJS projects.
+disqus_id: '403 http://www.atticuswhite.com/?post_type=post&#038;p=403'
 ---
 If you're building an Angular application, your application is probably dependent on the proper environment. When working locally, you need to access a local set of services, when in production mode, you need your production set of services. Nothing new here. But what is new is a GulpJS task plugin I've been working on, <a title="AngularJS configuration generator gulp-ng-config by Atticus White" href="https://npmjs.org/package/gulp-ng-config" target="_blank">gulp-ng-config</a>, that will build your environment configuration as specified by your build task.
 

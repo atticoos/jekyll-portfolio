@@ -7,6 +7,7 @@ tags: [aws]
 excerpt: I've had some clients that require one server, many domains. I'm sure this may sound familiar. But what happens when this one box must serve multiple domains with SSL? You can't simply serve two different domain names over :443, as the connection must be established before the virtual host can be looked up, so we have a bit of a race condition. Using Load Balancers as proxies can solve this for us.
 seo_title: Using AWS to serve multiple SSL certifications on one server
 seo_description: Learn how to serve multiple SSL certificates on one server with Amazon Web Services (AWS) by utilizing Load Balancers and Apache configurations
+disqus_id: '353 http://www.atticuswhite.com/?post_type=post&#038;p=353'
 ---
 
 It's not a common problem, but it's a problem -- serving different SSL certs on one box for different domains.
