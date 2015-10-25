@@ -69,8 +69,13 @@
   padding-top: 120px;
   .post-sidebar {
     .make-md-column(3);
-    text-align: right;
+
+    @media @mediumAndUp {
+      text-align: right;
+    }
     section {
+      .make-xs-column(6);
+      .make-md-column(12);
       margin-bottom: 40px;
     }
     ul {
