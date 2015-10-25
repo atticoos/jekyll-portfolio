@@ -1,0 +1,19 @@
+{% if page.disqus_id %}
+  {% assign disqus_id = page.disqus_id %}
+{% else %}
+  {% assign disqus_id = 'foobar' %}
+{% endif %}
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = '{{page.url | prepend: site.url}}';
+        this.page.identifier = '{{disqus_id}}';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//atticoos.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>

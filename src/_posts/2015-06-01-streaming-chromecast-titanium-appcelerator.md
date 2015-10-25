@@ -7,6 +7,7 @@ tags: [titanium]
 project: https://github.com/ajwhite/titanium-chromecast
 excerpt: Introducing a Javascript Chromecast integration for Titanium Appcelerator projects.
 seo_description: Connect and stream to Chromecast in Javascript with your Titanium Appcelerator application using titanium-chromecast.
+disqus_id: '494 http://www.atticuswhite.com/?post_type=post&#038;p=494'
 ---
 
 At work we use Titanium for one of our mobile applications and over the past year I've started to dig into the deeper waters of <a href="http://www.appcelerator.com/" title="Titanium Appcelerator - Mobile App Development Platform">Titanium Appcelerator</a>. We hit some areas where we needed to take advantage of the platform behind the abstraction layer and harness the tools that can only work in a native environment, in this case, the <a href="https://developers.google.com/cast/docs/ios_sender" title="iOS Google Cast API">iOS Google Cast SDK</a>.

@@ -2,11 +2,12 @@
 layout: post
 title: Digital Smart Mirror lab with React Native
 date: 2015-10-01 22:34:00
-permalink: /blog/streaming-chromecast-titanium-appcelerator
+permalink: /blog/react-native-smart-mirror-lab
 tags: [react]
 project: https://github.com/ajwhite/MagicMirror
 excerpt: Learn how to build your own digital smart mirror with React Native. A perfect DIY hack for a weekend when you want to develop something cool.
 seo_title: Digital Smart Mirror lab with React Native
+disqus_id: '616 http://atticuswhite.com/?post_type=post&#038;p=616'
 ---
 Here's a perfect weekend hack. Grab that old clunky Kindle Fire or any other tablet you have kicking around the dust and put it to good use (weird that we can call these things old now eh?). We're going to make a Smart Mirror. I chose to use React Native for this, but you can do this with any stack that will run on a tablet (such as a webpage).
 You can find this project on <a href="https://github.com/ajwhite/MagicMirror" target="_blank">github.com/ajwhite/MagicMirror</a>.
