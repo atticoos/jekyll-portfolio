@@ -372,6 +372,12 @@ body.page-index {
   padding: 60px 0;
   .item, .sizer {
     width: 33%;
+    @media @medium {
+      width: 50%;
+    }
+    @media @small {
+      width: 100%;
+    }
     padding: 0 15px;
     margin-bottom: 30px;
     .preview {
