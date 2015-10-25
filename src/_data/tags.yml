@@ -26,6 +26,13 @@ nodejs:
     background: '#505246'
     font: '#fff'
 
+wordpress:
+  label: WordPress
+  icon: tags/wordpress.jpg
+  color:
+    background: '#21759b'
+    font: '#fff'
+
 default:
   color:
     background: '#fff'

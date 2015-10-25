@@ -1,8 +1,5 @@
 .blog {
   .post-meta {
-    a {
-      color: #fff;
-    }
     i {
       margin-right: 5px;
     }
@@ -40,6 +37,12 @@
       display: block;
     }
 
+    img {
+      max-width: 80%;
+      display: block;
+      margin: 20px auto;
+    }
+
     .highlight {
       background-color: #000;
       margin: 20px 0;
@@ -55,9 +58,14 @@
   padding-top: 120px;
   .tag-list {
     .make-md-column(3);
-
+    text-align: right;
     ul {
+      padding: 0;
+      margin: 0;
       list-style: none;
+      li {
+        margin-bottom: 10px;
+      }
     }
   }
 
