@@ -33,6 +33,13 @@ wordpress:
     background: '#21759b'
     font: '#fff'
 
+aws:
+  label: AWS
+  icon: tags/aws.jpg
+  color:
+    background: '#f8981d'
+    font: '#fff'
+
 default:
   color:
     background: '#fff'

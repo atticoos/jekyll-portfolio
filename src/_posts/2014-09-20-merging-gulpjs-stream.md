@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Merging multiple GulpJS streams into one output file
-date: 2014-08-20 00:25:00
+date: 2014-09-20 00:25:00
 permalink: /blog/merging-gulpjs-streams
 tags: [gulpjs]
 excerpt: Learn how to take multiple GulpJS build tasks and merge them into one output stream by combining streams with NodeJS' EventStream
