@@ -14,8 +14,16 @@ gulpjs:
 
 titanium:
   label: Titanium
+  icon: tags/titanium.png
   color:
     background: '#c41230'
+    font: '#fff'
+
+nodejs:
+  label: NodeJS
+  icon: tags/nodejs.jpg
+  color:
+    background: '#505246'
     font: '#fff'
 
 default:
