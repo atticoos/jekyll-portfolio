@@ -1,8 +1,14 @@
+{% for tag in post.tags %}
+  {% if site.data.tags[tag] %}
+    {% assign lastIndex = forloop.index %}
+  {% endif %}
+{% endfor %}
+
 <div class="tags">
   <i class="fa fa-tag"></i>
   {% for tag in post.tags %}
     {% if site.data.tags[tag] %}
-      <a href="/tag/{{tag}}">{{ site.data.tags[tag].label }}</a>
+      <a href="/tag/{{tag}}">{{ site.data.tags[tag].label }}</a>{% if forloop.index != lastIndex %}, {% endif %}
     {% endif %}
   {% endfor %}
 </div>
