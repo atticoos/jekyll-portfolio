@@ -5,6 +5,8 @@ date: 2015-07-02 13:08:00
 permalink: /blog/twitter-digits-angularjs
 tags: [angularjs]
 project: https://github.com/ajwhite/angular-digits
+excerpt: angular-digits is an AngularJS wrapper for Twitter’s Fabric Digits. It provides context with the digest cycle for asynchronous events, as well as a lot of additional utility.
+seo_description: angular-digits is an AngularJS wrapper for Twitter Fabric's Digits sdk
 ---
 
 Twitter recently came out with their web version of [Digits](digits 'Twitter fabric digits'). It provides a nice way to authenticate with applications with what is traditionally known as two-step authentication, but it becomes more of a primary authentication in how they've targetted it.
