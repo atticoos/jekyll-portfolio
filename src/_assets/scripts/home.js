@@ -23,6 +23,7 @@
         scrollTop: position + 'px'
       });
     });
+    $('.fluid-label').fluidLabel();
   });
 
   // callback defined in the deferred script

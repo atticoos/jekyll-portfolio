@@ -141,3 +141,32 @@ h5 {
   color: #fff;
   padding: 60px 0;
 }
+
+
+form {
+  .form-control {
+    margin-bottom: 20px;
+    font-size: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .fluid-label {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #dfdfdf;
+    display: block;
+    label {
+      color: @blue;
+      font-size: 12px;
+    }
+  }
+  input[type=text],
+  input[type=email],
+  textarea {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+  }
+}
