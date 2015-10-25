@@ -87,7 +87,7 @@
       BUBBLE_INTERVAL = 500,
 
       //colors
-      WAVE_COLOR_START = '#00AABB',
+      WAVE_COLOR_START = '#31a2d4',
       WAVE_COLOR_END = 'rgba(0, 200, 250, 0)',
       BUBBLE_COLOR = '#rgba(0,200,255,0)';
 
