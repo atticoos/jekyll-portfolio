@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, window) {
   'use strict';
 
   $(document).ready(function () {
@@ -24,4 +24,17 @@
       });
     });
   });
-}).call(this, jQuery);
+
+  // callback defined in the deferred script
+  window.initMaps = function () {
+    var mapElement = document.getElementById('contact-map');
+    if (!mapElement) {
+      return;
+    }
+    var map = new google.maps.Map(mapElement, {
+      center: {lat: 42.3702, lng: -71.0470833},
+      zoom: 13,
+      disableDefaultUI: true
+    });
+  };
+}).call(this, jQuery, window);
