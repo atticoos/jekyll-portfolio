@@ -1,0 +1,29 @@
+<div class="post-meta">
+  <div class="post-date">
+    <i class="fa fa-clock-o"></i>
+    {{ post.date | date: '%B %-d, %Y'}}
+  </div>
+
+  {% if post.tags.size > 0 %}
+    {% for tag in post.tags %}
+      {% if site.data.tags[tag] %}
+        {% assign lastIndex = forloop.index %}
+      {% endif %}
+    {% endfor %}
+    <div class="tags">
+      <i class="fa fa-tag"></i>
+      {% for tag in post.tags %}
+        {% if site.data.tags[tag] %}
+          <a href="/tag/{{tag}}">{{ site.data.tags[tag].label }}</a>{% if forloop.index != lastIndex %}, {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if post.project %}
+  <div class="project">
+    <i class="fa fa-github"></i>
+    <a href="{{ post.project }}">{{ post.project }}</a>
+  </div>
+  {% endif %}
+</div>

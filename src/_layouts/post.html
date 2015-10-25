@@ -18,12 +18,7 @@ layout: default
       <img src="/dist/images/{{ postTag.icon }}" class="tag-icon" />
       {% endif %}
 
-      <div class="post-meta">
-        {% include posts/date.html %}
-        {% if post.tags.size > 0 %}
-          {% include posts/tags.html %}
-        {% endif %}
-      </div>
+      {% include posts/meta.html %}
     </div>
   </header>
   <article class="post-content">
