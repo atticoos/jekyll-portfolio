@@ -165,12 +165,12 @@ featured_projects:
             </div>
           </div>
 
-          <h2>Check out my latest thought</h2>
+          <h2>My latest thought</h2>
           <div class="latest-post">
             <div>
-              <a href="#">{{site.posts[0].title}}</a> - {{ site.posts[0].date | date: '%B %-d, %Y'}}
+              <a href="{{site.posts[0].url | prepend: site.baseurl}}">{{site.posts[0].title}}</a> - {{ site.posts[0].date | date: '%B %-d, %Y'}}
             </div>
-            {{site.posts[0].excerpt}}  
+            {{site.posts[0].excerpt}}
           </div>
         </div>
       </div>
