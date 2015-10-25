@@ -24,6 +24,15 @@
       });
     });
     $('.fluid-label').fluidLabel();
+    var $grid = $('.grid').masonry({
+      itemSelector: '.item',
+      columnWidth: '.sizer',
+      percentagePosition: true
+    });
+
+    $('.grid img').on('load', function () {
+      $grid.masonry('layout');
+    });
   });
 
   // callback defined in the deferred script
