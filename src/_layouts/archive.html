@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<div class="blog archive container">
+  <div class="post-list">
+    {{ content }}
+  </div>
+  <aside class="tag-list">
+    <ul>
+      {% for tag in site.tags %}
+        {% assign postTag = tag[0] %}
+        {% assign postTag = site.data.tags[postTag] %}
+      <li>
+        <a href="/tag/{{tag[0]}}">{{ postTag.label }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </aside>
+</div>

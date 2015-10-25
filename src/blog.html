@@ -1,46 +1,34 @@
 ---
-layout: default
+layout: archive
 title: Blog
 permalink: /blog/
 ---
-
-<div class="archive container">
-  <div class="post-list">
-    {% for post in site.posts %}
-      {% if post.tags.size > 0 %}
-      {% assign postTag = post.tags[0] %}
-      {% assign postTag = site.data.tags[postTag] %}
-      {% else %}
-      {% assign postTag = site.data.tags.deafult %}
-      {% endif %}
-      <article>
-        {% if postTag.icon %}
-        <section class="banner"
-          style="background-image: url(/dist/images/{{ postTag.icon }}); background-color: {{postTag.color.background}};">
-        </section>
+{% for post in site.posts %}
+  {% if post.tags.size > 0 %}
+  {% assign postTag = post.tags[0] %}
+  {% assign postTag = site.data.tags[postTag] %}
+  {% else %}
+  {% assign postTag = site.data.tags.deafult %}
+  {% endif %}
+  <article>
+    {% if postTag.icon %}
+    <section class="banner"
+      style="background-image: url(/dist/images/{{ postTag.icon }}); background-color: {{postTag.color.background}};">
+    </section>
+    {% endif %}
+    <section class="content text">
+      <h2>
+        <a title="{{post.title}}" href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a>
+      </h2>
+      <div class="post-meta">
+        {% include posts/date.html %}
+        {% if post.tags.size > 0 %}
+          {% include posts/tags.html %}
         {% endif %}
-        <section class="content text">
-          <h2>
-            <a title="{{post.title}}" href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a>
-          </h2>
-          <div class="post-meta">
-            {% include posts/date.html %}
-            {% if post.tags.size > 0 %}
-              {% include posts/tags.html %}
-            {% endif %}
-          </div>
-          <div class="excerpt">
-            {{ post.excerpt }}
-          </div>
-        </section>
-      </article>
-    {% endfor %}
-  </div>
-    <aside class="tag-list">
-      <ul>
-        <li>
-          GulpJS
-        </li>
-      </ul>
-    </aside>
-</div>
+      </div>
+      <div class="excerpt">
+        {{ post.excerpt }}
+      </div>
+    </section>
+  </article>
+{% endfor %}

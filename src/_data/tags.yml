@@ -2,8 +2,8 @@ angularjs:
   label: AngularJS
   icon: tags/angular.png
   color:
-    background: '#fff'
-    font: '#6a6a6a'
+    background: '#454648'
+    font: '#fff'
 
 gulpjs:
   label: GulpJS

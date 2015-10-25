@@ -2,7 +2,7 @@
   <i class="fa fa-tag"></i>
   {% for tag in post.tags %}
     {% if site.data.tags[tag] %}
-      {{ site.data.tags[tag].label }}
+      <a href="/tag/{{tag}}">{{ site.data.tags[tag].label }}</a>
     {% endif %}
   {% endfor %}
 </div>
