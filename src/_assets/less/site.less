@@ -141,20 +141,35 @@ h5 {
   color: #fff;
   padding: 60px 0;
   font-weight: 100;
-  .links {
-    .make-md-column(4);
+  .about {
+    .make-sm-column(9);
+
     ul {
       padding: 0;
       margin: 0;
-      list-style: none;
       li {
-        margin-bottom: 5px;
+        display: inline-block;
+        margin-right: 10px;
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
     a {
       color: #fff;
+      text-decoration: underline;
     }
-
+  }
+  .face {
+    .make-sm-column(2);
+    .make-sm-column-offset(1);
+    img {
+      display: block;
+      margin: auto;
+      max-width: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
   }
 }
 
