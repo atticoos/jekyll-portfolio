@@ -33,6 +33,13 @@ wordpress:
     background: '#21759b'
     font: '#fff'
 
+react:
+  label: React
+  icon: tags/react.jpg
+  color:
+    background: '#31a2d4'
+    font: '#fff'
+
 aws:
   label: AWS
   icon: tags/aws.jpg
