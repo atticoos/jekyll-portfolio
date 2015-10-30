@@ -56,6 +56,14 @@ body.page-index {
         user-select: none;
       }
 
+      @media @mobile {
+        height: 250px;
+        padding-top: 95px;
+        h1 {
+          font-size: 38px;
+        }
+      }
+
       &:before {
         position: absolute;
         content: ' ';
@@ -97,7 +105,6 @@ body.page-index {
       text-align: center;
       .typed-cursor {
         opacity: 1;
-        animation: blink 800ms infinite;
       }
     }
 
@@ -258,6 +265,11 @@ body.page-index {
   &.active {
     .circles .skills .circle {
       -webkit-animation: CodeScroll 600s linear infinite;
+    }
+
+
+    .typed .typed-cursor{
+      animation: blink 800ms infinite;
     }
   }
 }
