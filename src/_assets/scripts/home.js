@@ -35,22 +35,25 @@
     });
   });
 
-  $('.skills, .me').waypoint({
+  $('section.skills, section.me').waypoint({
     handler: function () {
       $('.site-nav nav a').removeClass('active');
       $('.site-nav nav a.home').addClass('active');
+      $('section.me').addClass('active');
     }
   });
   $('#portfolio').waypoint({
     handler: function () {
       $('.site-nav nav a').removeClass('active');
       $('.site-nav nav a.portfolio').addClass('active');
+      $('section.me').removeClass('active');
     }
   });
   $('#labs').waypoint({
     handler: function () {
       $('.site-nav nav a').removeClass('active');
       $('.site-nav nav a.labs').addClass('active');
+      $('section.me').removeClass('active');
     }
   });
 

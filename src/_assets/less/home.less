@@ -176,7 +176,6 @@ body.page-index {
           background-size: inherit;
           background-position: 0 10px;
           background-repeat: repeat-y;
-          -webkit-animation: CodeScroll 600s linear infinite;
 
           span {
             transform: rotate(270deg);
@@ -254,6 +253,11 @@ body.page-index {
       }
 
       .clearfix();
+    }
+  }
+  &.active {
+    .circles .skills .circle {
+      -webkit-animation: CodeScroll 600s linear infinite;
     }
   }
 }
