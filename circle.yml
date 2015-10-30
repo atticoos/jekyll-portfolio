@@ -2,6 +2,7 @@ dependencies:
   override:
     - bundle install
     - npm install
+    - npm install -g gulp
     - bower install
     - gulp build --production
 
