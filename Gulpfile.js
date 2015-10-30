@@ -51,7 +51,15 @@ gulp.task('js:vendor', function () {
 
 gulp.task('jekyll', function (done) {
   var spawn = require('child_process').spawn,
-      jekyll = spawn('jekyll', ['build', '--config', '_config.yml,_config.env.yml'], {stdio: 'inherit'});
+      jekyll,
+      buildArgs = ['build'];
+
+  if (!util.env.production) {
+    buildArgs.push('--config');
+    buildArgs.push('_config.yml,_config.env.yml');
+  }
+
+  jekyll = spawn('jekyll', buildArgs, {stdio: 'inherit'});
   jekyll.on('exit', function (code) {
     done(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
   });
