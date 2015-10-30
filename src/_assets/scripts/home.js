@@ -35,6 +35,26 @@
     });
   });
 
+  $('.skills, .me').waypoint({
+    handler: function () {
+      $('.site-nav nav a').removeClass('active');
+      $('.site-nav nav a.home').addClass('active');
+    }
+  })
+
+  $('#portfolio').waypoint({
+    handler: function () {
+      $('.site-nav nav a').removeClass('active');
+      $('.site-nav nav a.portfolio').addClass('active');
+    }
+  });
+  $('#labs').waypoint({
+    handler: function () {
+      $('.site-nav nav a').removeClass('active');
+      $('.site-nav nav a.labs').addClass('active');
+    }
+  });
+
   // callback defined in the deferred script
   window.initMaps = function () {
     var mapElement = document.getElementById('contact-map');

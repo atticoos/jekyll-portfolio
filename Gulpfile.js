@@ -35,6 +35,7 @@ gulp.task('js:vendor', function () {
     'bower_components/typed.js/js/typed.js',
     'bower_components/inview/jquery.inview.js',
     'bower_components/masonry/dist/masonry.pkgd.js',
+    'bower_components/waypoints/lib/jquery.waypoints.js',
     'bower_components/Chart.js/Chart.js'
   ])
   .pipe(concat('vendor.js'))

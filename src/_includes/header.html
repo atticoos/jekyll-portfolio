@@ -17,9 +17,9 @@
         <div class="row">
           <div class="site-nav">
             <nav>
-              <a href="/#" {% if current[1] == 'index' %} class="active" {% endif %}>Home</a>
-              <a href="/#portfolio">Portfolio</a>
-              <a href="/#labs">Labs</a>
+              <a href="/#" class="home {% if current[1] == 'index' %}active{% endif %}">Home</a>
+              <a href="/#portfolio" class="portfolio">Portfolio</a>
+              <a href="/#labs" class="labs">Labs</a>
               <a href="/blog" {% if (current[1] == 'blog') %} class="active" {% endif %}>Blog</a>
             </nav>
           </div>
