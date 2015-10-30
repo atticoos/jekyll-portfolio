@@ -1,0 +1,10 @@
+dependencies:
+  override:
+    - bundle install
+    - npm install
+    - bower install
+    - gulp build --production
+
+test:
+  post:
+    - bundle exec htmlproof ./public
