@@ -15,7 +15,7 @@ layout: default
       <h1 class="post-title">{{ post.title }}</h1>
 
       {% if postTag.icon %}
-      <img src="/dist/images/{{ postTag.icon }}" class="tag-icon" />
+      <img src="/dist/images/{{ postTag.icon }}" class="tag-icon" alt="{{ postTag.label }}" />
       {% endif %}
 
       {% include posts/meta.html %}

@@ -15,7 +15,7 @@ Custom fields are terrific, but you frequently end up littering your markup with
 
 Let's take a look at an example home page:
 
-<a href="#"><img src="/dist/images/blog/wordpress-page-models/custom-fields.png" alt="Advanced Custom Fields" /></a>
+<img src="/dist/images/blog/wordpress-page-models/custom-fields.png" alt="Advanced Custom Fields" />
 
 We have a handful of fields that will represent different parts of the page.
 
