@@ -1,9 +1,13 @@
 var gulp = require('gulp'),
+    util = require('gulp-util'),
     less = require('gulp-less'),
+    gulpif = require('gulp-if'),
     concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
     htmlmin = require('gulp-htmlmin'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
+    minifycss = require('gulp-minify-css'),
     autoprefixer = require('gulp-autoprefixer'),
     path = require('path'),
     paths = {
@@ -18,12 +22,14 @@ gulp.task('less', function () {
   .pipe(autoprefixer({
     browsers: '> 5%'
   }))
+  .pipe(gulpif(util.env.production, minifycss({compatability: 'ie8'})))
   .pipe(gulp.dest(paths.dist));
 });
 
 gulp.task('js:site', function () {
   return gulp.src(path.join(paths.source, '_assets/scripts/**/*.js'))
   .pipe(concat('site.js'))
+  .pipe(gulpif(util.env.production, uglify()))
   .pipe(gulp.dest(paths.dist));
 });
 
@@ -39,6 +45,7 @@ gulp.task('js:vendor', function () {
     'bower_components/Chart.js/Chart.js'
   ])
   .pipe(concat('vendor.js'))
+  .pipe(gulpif(util.env.production, uglify()))
   .pipe(gulp.dest(paths.dist));
 });
 
@@ -78,8 +85,9 @@ gulp.task('fonts', function () {
 
 gulp.task('js', ['js:vendor', 'js:site']);
 gulp.task('build', ['fonts', 'less', 'js', 'images', 'html']);
+gulp.task('dev', ['fonts', 'less', 'js', 'images:copy', 'html']);
 
-gulp.task('watch', ['fonts', 'less', 'js', 'images:copy', 'html'], function () {
+gulp.task('watch', ['dev'], function () {
   gulp.watch([
     path.join(paths.source, '_includes/**/*.html'),
     path.join(paths.source, '_layouts/**/*.html'),
