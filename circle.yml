@@ -12,4 +12,4 @@ dependencies:
 
 test:
   post:
-    - bundle exec htmlproof ./public
+    - bundle exec htmlproof ./public --disable-external
