@@ -5,7 +5,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Atticus is a Boston Wordpress developer, Magento and Shopify developer for ecommerce stores,
   and AngularJS + PHP software engineer for web applications.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://localhost:4000" # the base hostname & protocol for your site
+url: "http://atticuswhite.com" # the base hostname & protocol for your site
 twitter_username: atticoos
 github_username:  ajwhite
 

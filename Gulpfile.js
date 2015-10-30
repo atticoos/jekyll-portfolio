@@ -44,7 +44,7 @@ gulp.task('js:vendor', function () {
 
 gulp.task('jekyll', function (done) {
   var spawn = require('child_process').spawn,
-      jekyll = spawn('jekyll', ['build'], {stdio: 'inherit'});
+      jekyll = spawn('jekyll', ['build', '--config', '_config.yml,_config.env.yml'], {stdio: 'inherit'});
   jekyll.on('exit', function (code) {
     done(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
   });

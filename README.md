@@ -8,6 +8,10 @@ bower install
 npm install
 ```
 
+Add a `_config.env.yml` with any specific configurations for the environment
+
+*note: this is required*
+
 To run
 ```
 jekyl serve
