@@ -45,6 +45,7 @@ img {
   width: 100%;
   padding: 15px 0 0;
   z-index: 100;
+  height: 70px;
 
   a {
     color: #fff;
@@ -52,7 +53,7 @@ img {
 
 
   .site-title {
-    .make-xs-column(3);
+    .make-md-column(3);
 
     .logo {
       display: block;
@@ -79,8 +80,49 @@ img {
       }
     }
   }
+  .right {
+    .make-xs-column(9);
+    @media @small {
+      display: none;
+    }
+  }
+  .amburgah {
+    display: none;
+    float:right;
+    margin-right: 15px;
+    margin-top: 10px;
+    width: 20px;
+    span {
+      position: relative;
+      display: block;
+      height: 2px;
+      background-color:#fff;
+      margin-bottom: 5px;
+      transition: all 250ms;
+    }
+    &.active {
+      .bar-1 {
+        top: 6px;
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+      .bar-2 {
+        opacity: 0;
+      }
+      .bar-3 {
+        top: -8px;
+        transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+      }
+    }
+    @media @small {
+      display: block;
+    }
+  }
   .site-nav {
-    .make-xs-column(6);
+    .make-xs-column(9);
     text-align: center;
     font-size: 26px;
     font-weight: 300;
@@ -95,7 +137,7 @@ img {
         content: ' ';
         position: absolute;
         height: 3px;
-        bottom: 0;
+        bottom: 1px;
         left: 0;
         width: 100%;
         background-color: #31a2d4;
