@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: 4.1.0
+
+dependencies:
+  override:
+    - bundle install
+    - npm install
+    - npm install -g gulp
+    - bower install
+    - gulp build --production
+
+test:
+  post:
+    - bundle exec htmlproof ./public --disable-external

@@ -15,7 +15,7 @@ Depending on your project, you may reach a point where running your tests consum
 <img src="/dist/images/blog/angular-unit-test-memory-problems/travis-output.png" alt="PhantomJS crash" />
 
 We learned that by the end of our tests, PhantomJS's memory footprint was exceeding <strong>2GB</strong>. Ready to pin the problem on PhantomJS, we tried running our tests in FireFox and Chrome, as there had been some mentions of pre 2.0 PhantomJS leaking memory - <a href="https://github.com/angular/material/issues/4734" target="_blank">angular/material#4734</a>, <a href="https://github.com/ariya/phantomjs/issues/12317#issuecomment-64858471" target="_blank">ariya/phantomjs#12317</a>, as a couple examples. The same results were apparent in all environments.
-<img src="http://atticuswhite.com/wordpress/../wp-content/uploads/2015/09/d5a93ee2-679d-11e5-9041-83c8dec198fb.png" alt="Chrome memory consumption" />
+<img src="/dist/images/blog/angular-unit-test-memory-problems/chrome-task-manager.png" alt="Chrome memory consumption" />
 I was eager to blame this problem on a memory leak, either in my code or with Karma itself, but having to deal with this problem I had the chance to learn a little bit more about the internals of Angular and Angular Mocks.
 
 ## Profiling
