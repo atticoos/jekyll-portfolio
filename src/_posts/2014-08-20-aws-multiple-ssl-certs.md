@@ -15,7 +15,7 @@ It's not a common problem, but it's a problem -- serving different SSL certs on 
 ## The problem
 As some of you may know from experience, you can only host one domain's SSL cert at a time on a single server. The reason being that you must first establish a secure connection before anything can happen, which happens by default with a browser over :443. Only one SSL cert can be used on a port, because nothing can happen until a secure connection has been established. This means the server is unaware of the context, other than a secure handshake is being requested over :443 and it is going to pass along the certificate for the next phase of the handshake.
 
-<img src="/dist/images/post/aws-multiple-ssl-certs/tls-handshake.png" alt="TLS handshake" />
+<img src="/dist/images/blog/aws-multiple-ssl-certs/tls-handshake.png" alt="TLS handshake" />
 
 Let's take a look at what a basic Apache SSL configured Virtual Host may look like:
 
@@ -57,7 +57,7 @@ Now let's assume we have 3 domains we want to serve securely from one server.
 
 We'll create a Load Balancer for each one of these domains to point to.
 
-<img src="/dist/images/blog/aws-multiple-ssl-certs/dns-zones-lbs" alt="three DNS zones mapped to three lbs" />
+<img src="/dist/images/blog/aws-multiple-ssl-certs/dns-zones-lbs.jpg" alt="three DNS zones mapped to three lbs" />
 
 And then finally, we'll configure each one of these Load Balancers to point to the server.
 
