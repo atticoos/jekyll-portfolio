@@ -40,8 +40,7 @@
       $('.site-nav nav a').removeClass('active');
       $('.site-nav nav a.home').addClass('active');
     }
-  })
-
+  });
   $('#portfolio').waypoint({
     handler: function () {
       $('.site-nav nav a').removeClass('active');
