@@ -1,5 +1,6 @@
 dependencies:
   override:
+    - touch _config.env.yml
     - bundle install
     - npm install
     - npm install -g gulp
