@@ -13,3 +13,9 @@ dependencies:
 test:
   post:
     - bundle exec htmlproof ./public --disable-external
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - ssh aw@dev.atticuswhite.com "cd capistrano-deployments && cap production deploy --trace"
