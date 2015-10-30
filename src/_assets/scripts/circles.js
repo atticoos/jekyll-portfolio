@@ -24,5 +24,5 @@
     }, 500);
   }
 
-  $(document).ready(animateCircles);
+  // $(document).ready(animateCircles);
 })(jQuery);
