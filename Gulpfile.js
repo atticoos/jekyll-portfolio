@@ -54,7 +54,7 @@ gulp.task('jekyll', function (done) {
       jekyll,
       buildArgs = ['build'];
 
-  if (!util.env.production) {
+  if (!util.env.production && !util.env.circle) {
     buildArgs.push('--config');
     buildArgs.push('_config.yml,_config.env.yml');
   }
@@ -94,6 +94,7 @@ gulp.task('fonts', function () {
 gulp.task('js', ['js:vendor', 'js:site']);
 gulp.task('build', ['fonts', 'less', 'js', 'images', 'html']);
 gulp.task('dev', ['fonts', 'less', 'js', 'images:copy', 'html']);
+gulp.task('circle', ['fonts', 'less', 'js', 'images:copy', 'html']);
 
 gulp.task('watch', ['dev'], function () {
   gulp.watch([

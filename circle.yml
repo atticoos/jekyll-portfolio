@@ -4,11 +4,7 @@ machine:
 
 dependencies:
   override:
-    - bundle install
-    - npm install
-    - npm install -g gulp
-    - bower install
-    - gulp build --production
+    - make circle
 
 test:
   post:
@@ -18,4 +14,4 @@ deployment:
   production:
     branch: master
     commands:
-      - ssh aw@dev.atticuswhite.com "cd capistrano-deployments && cap production deploy --trace"
+      - shipit production deploy
