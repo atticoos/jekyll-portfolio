@@ -264,10 +264,35 @@ img {
   .build {
     margin: 35px 0 0;
     font-size: 14px;
+    color: #7f7f7f;
+    .clearfix;
+    .build-link {
+      float: left;
+    }
+    .build-desc {
+      float: right;
+    }
     a {
       color: #7f7f7f;
+      text-decoration: underline;
       &:hover {
         text-decoration: underline;
+      }
+    }
+    @media @medium {
+      .build-link,
+      .build-desc {
+        display: block;
+        float: none;
+        padding: 5px 0;
+      }
+    }
+    @media @mobile {
+      .build-link,
+      .build-desc {
+        display: block;
+        float: none;
+        padding: 5px 0;
       }
     }
   }

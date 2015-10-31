@@ -20,10 +20,18 @@
     </div>
     <div class="build">
       {% if site.circle_sha && site.circle_build_number %}
-      <a href="https://circleci.com/gh/ajwhite/jekyll-portfolio/{{ site.circle_build_number }}"
-        title="CircleCI build status"
-        target="_blank">Build {{ site.circle_sha }}:{{ site.circle_build_number}}</a>
+      <span class="build-link">
+        Build
+        <a href="https://circleci.com/gh/ajwhite/jekyll-portfolio/{{ site.circle_build_number }}"
+          title="CircleCI build status"
+          target="_blank">{{ site.circle_sha }}:{{ site.circle_build_number}}</a>
+      </span>
       {% endif %}
+      <span class="build-desc">
+        Built on <a href="https://jekyllrb.com/" title="Jekyll static blogs" target="_blank">Jekyll</a>.
+        Continously integrated on <a href="https://circleci.com/" title="Circle - Continuous Integration" target="_blank">Circle</a>.
+        Deployed with <a href="https://github.com/shipitjs/shipit" title="Shipit - NodeJS deployment tool" target="_blank">Shipit</a>.
+      </span>
     </div>
   </div>
 </footer>
