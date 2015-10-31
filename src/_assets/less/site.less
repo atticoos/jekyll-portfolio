@@ -226,7 +226,7 @@ img {
 .site-footer {
   background-color: @black;
   color: #fff;
-  padding: 60px 0;
+  padding: 60px 0 20px;
   font-weight: 100;
   .about {
     .make-sm-column(9);
@@ -259,6 +259,16 @@ img {
     }
     @media @mobile {
       padding-top: 20px;
+    }
+  }
+  .build {
+    margin: 35px 0 0;
+    font-size: 14px;
+    a {
+      color: #7f7f7f;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

@@ -8,15 +8,22 @@
         </p>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="https://github.com/ajwhite">Github</a></li>
-          <li><a href="https://twitter.com/atticoos">Twitter</a></li>
-          <li><a href="https://www.linkedin.com/in/atticuswhite">LinkedIn</a></li>
+          <li><a href="/blog" title="Atticus' blog entries">Blog</a></li>
+          <li><a href="https://github.com/ajwhite" title="Browse open source projects by Atticus White on Github">Github</a></li>
+          <li><a href="https://twitter.com/atticoos" title="Follow Atticus on Twitter">Twitter</a></li>
+          <li><a href="https://www.linkedin.com/in/atticuswhite" title="Connect with Atticus White on LinkedIn">LinkedIn</a></li>
         </ul>
       </div>
       <div class="face">
         <img src="/dist/images/me2.jpeg" alt="Atticus White" />
       </div>
+    </div>
+    <div class="build">
+      {% if site.circle_sha && site.circle_build_number %}
+      <a href="https://circleci.com/gh/ajwhite/jekyll-portfolio/{{ site.circle_build_number }}"
+        title="CircleCI build status"
+        target="_blank">Build {{ site.circle_sha }}:{{ site.circle_build_number}}</a>
+      {% endif %}
     </div>
   </div>
 </footer>

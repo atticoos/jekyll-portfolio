@@ -5,6 +5,8 @@ machine:
 dependencies:
   override:
     - make circle
+    - CIRCLE_SHA=$CIRCLE_SHA1 CIRCLE_BUILD_NUM=$CIRCLE_BUILD_NUM jekyll build
+    - gulp html
 
 test:
   post:

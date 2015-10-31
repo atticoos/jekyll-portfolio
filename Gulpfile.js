@@ -65,7 +65,7 @@ gulp.task('jekyll', function (done) {
   });
 });
 
-gulp.task('html', ['jekyll'], function () {
+gulp.task('html', function () {
   return gulp.src(path.join(paths.site, '**/*.html'))
   .pipe(htmlmin({collapseWhitespace: true}))
   .pipe(gulp.dest(paths.site));
@@ -92,8 +92,8 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('js', ['js:vendor', 'js:site']);
-gulp.task('build', ['fonts', 'less', 'js', 'images', 'html']);
-gulp.task('dev', ['fonts', 'less', 'js', 'images:copy', 'html']);
+gulp.task('build', ['fonts', 'less', 'js', 'images', 'html', 'jekyll']);
+gulp.task('dev', ['fonts', 'less', 'js', 'images:copy', 'html', 'jekyll']);
 gulp.task('circle', ['fonts', 'less', 'js', 'images:copy', 'html']);
 
 gulp.task('watch', ['dev'], function () {
@@ -101,7 +101,7 @@ gulp.task('watch', ['dev'], function () {
     path.join(paths.source, '_includes/**/*.html'),
     path.join(paths.source, '_layouts/**/*.html'),
     path.join(paths.source, 'index.html')
-  ], ['html']);
+  ], ['html', 'jekyll']);
   gulp.watch(path.join(paths.source, '_assets/scripts/**/*.js'), ['js:site']);
   gulp.watch(path.join(paths.source, '_assets/less/**/*.less'), ['less']);
   gulp.watch(path.join(paths.source, '_assets/images/**/*'), ['images:copy']);
