@@ -13,6 +13,10 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+  labs:
+    output: true
+    output_ext: html
+    permalink: /labs/:path
 
 permalink: /:categories/:title
 
