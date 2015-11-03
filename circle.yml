@@ -12,7 +12,7 @@ dependencies:
 
 test:
   post:
-    - bundle exec htmlproof ./public --disable-external
+#    - bundle exec htmlproof ./public --disable-external
 
 deployment:
   production:
