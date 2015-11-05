@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - make circle
-    - CIRCLE_SHA=$CIRCLE_SHA1 CIRCLE_BUILD_NUM=$CIRCLE_BUILD_NUM jekyll build
+    - jekyll build
     - gulp html
   cache_directories:
     - "node_modules/"

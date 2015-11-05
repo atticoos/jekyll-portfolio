@@ -19,12 +19,12 @@
       </div>
     </div>
     <div class="build">
-      {% if site.circle_sha && site.circle_build_number %}
+      {% if site.env.CIRCLE_SHA1 && site.env.CIRCLE_BUILD_NUM %}
       <span class="build-link">
         Build
-        <a href="https://circleci.com/gh/ajwhite/jekyll-portfolio/{{ site.circle_build_number }}"
+        <a href="https://circleci.com/gh/ajwhite/jekyll-portfolio/{{ site.senv.CIRCLE_BUILD_NUM }}"
           title="CircleCI build status"
-          target="_blank">{{ site.circle_sha }}:{{ site.circle_build_number}}</a>
+          target="_blank">{{ site.env.CIRCLE_SHA1 }}:{{ site.env.CIRCLE_BUILD_NUM}}</a>
       </span>
       {% endif %}
       <span class="build-desc">
