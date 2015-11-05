@@ -70,3 +70,56 @@ module.exports = function (shipit) {
   });
 };
 {% endhighlight %}
+
+
+`shipit.initConfig` is pretty basic -- we define
+
+- `workspace`: where inside the container (on the CI server) to prepare the release
+- `repositoryUrl`: the project to use
+- `ignore`: things to ignore when releasing
+- `keepReleases`: how many historical releases to keep before removing older ones
+- `deleteOnRollback`: if the release should be deleted when rolled back
+- `shallowClone`: clone behavior of git, basically `--depth 1`
+
+The important part of the `shipitfile` is the `on updated` listener:
+
+{% highlight javascript %}
+shipit.on('updated', function () {
+  var buildDirectory = path.resolve('./public/');
+  shipit.remoteCopy(buildDirectory, shipit.releasePath);
+});
+{% endhighlight %}
+
+As mentioned previously, I don't want to run the entire build on my server. We've already built it on the CI server, and we're deploying a static site, so there's no migrations or other moving parts I need to take care of. I can just move my built project over to the production server.
+
+`shipit.remoteCopy` will perform an `rsync` from the CI container to my production server. It takes the `/public` directory on the container, where the built static site is, and `rsync`s it to the release path created by `shipit-deploy`.
+
+When this build completes, the generated static site has been uploaded to the release path, and `shipit-deploy` finishes up by rotating the latest release to be the `current`, and now my site is live.
+
+## Displaying the build number on the site
+
+To wrap things up, I thought it would be neat to see the build number on my site, along with the deployed commit `SHA`.
+
+It's pretty simple, just a byline with a link to the Circle build. You can also just look in the footer of this blog and you'll see it.
+
+<img src="/dist/images/blog/jekyll-continuous-delivery/build-number.png" />
+
+CircleCI, like Travis and other CI integrations, <a href="https://circleci.com/docs/environment-variables">offers environment variables</a> that describe the build and the container. We'll be using
+
+- `CIRCLE_SHA1` - The `SHA1` of the commit being tested
+- `CIRCLE_BUILD_NUM` - The build number
+
+
+This, as I found, had a couple of challenges in it. At first, I thought I could simply use <a href="http://jekyllrb.com/docs/configuration/#specifying-a-jekyll-environment-at-build-time">Jekyll environment</a>, but that's only to define a name for the environment, not accessing an object of environment variables. To do this, I had to add a plugin that would take environment variables and add them to the site:
+
+{% highlight rb %}
+module Jekyll
+  class EnvironmentVariablesGenerator < Generator
+    def generate(site)
+      site.config['circle_sha'] = ENV['CIRCLE_SHA']
+      site.config['circle_build_number'] = ENV['CIRCLE_BUILD_NUM']
+    end
+  end
+end
+
+{% endhighlight %}
