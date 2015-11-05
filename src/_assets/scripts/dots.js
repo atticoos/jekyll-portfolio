@@ -7,6 +7,9 @@
       AOE = 100,
       COLORS = ['#FF9900', '#424242', '#BCBCBC', '#3299BB'];
 
+
+      
+
   /**
    * The canvas control
    * This acts as a manager for rendering and managing particles

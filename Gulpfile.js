@@ -49,6 +49,15 @@ gulp.task('js:vendor', function () {
   .pipe(gulp.dest(paths.dist));
 });
 
+gulp.task('jekyll:serve', function (done) {
+  var spawn = require('child_process').spawn,
+      jekyll = spawn('jekyll', ['s'], {stdio: 'inherit'});
+
+  jekyll.on('exit', function (code) {
+    done(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
+  });
+});
+
 gulp.task('jekyll', function (done) {
   var spawn = require('child_process').spawn,
       jekyll,
@@ -97,12 +106,10 @@ gulp.task('dev', ['fonts', 'less', 'js', 'images:copy', 'html', 'jekyll']);
 gulp.task('circle', ['fonts', 'less', 'js', 'images:copy', 'html']);
 
 gulp.task('watch', ['dev'], function () {
-  gulp.watch([
-    path.join(paths.source, '_includes/**/*.html'),
-    path.join(paths.source, '_layouts/**/*.html'),
-    path.join(paths.source, 'index.html')
-  ], ['html', 'jekyll']);
+  var spawn = require('child_process').spawn,
+      jekyll;
   gulp.watch(path.join(paths.source, '_assets/scripts/**/*.js'), ['js:site']);
   gulp.watch(path.join(paths.source, '_assets/less/**/*.less'), ['less']);
   gulp.watch(path.join(paths.source, '_assets/images/**/*'), ['images:copy']);
+  jekyll = spawn('jekyll', ['s'], {stdio: 'inherit'});
 });
