@@ -6,7 +6,6 @@ module.exports = function (shipit) {
   shipit.initConfig({
     default: {
       workspace: '/tmp/jekyll-portfolio',
-      deployTo: '/var/www/atticuswhite/jekyll-portfolio',
       repositoryUrl: 'https://github.com/ajwhite/jekyll-portfolio.git',
       ignore: ['.git'],
       keepReleases: 5,
@@ -14,7 +13,12 @@ module.exports = function (shipit) {
       shallowClone: true,
     },
     production: {
-      servers: 'deploy@deploy.atticuswhite.com'
+      servers: 'deploy@deploy.atticuswhite.com',
+      deployTo: '/var/www/atticuswhite/jekyll-portfolio'
+    },
+    develop: {
+      servers: 'deploy@deploy.atticuswhite.com',
+      deployTo: '/var/www/atticuswhite/dev.jekyll-portfolio'
     }
   });
 
