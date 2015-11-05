@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Continuously deploying Jekyll with CircleCI and ShipIt
-date: 2015-11-05 08:00:00
+date: 2015-11-05 09:00:00
 permalink: /blog/jekyll-circleci-shipit
 tags: [jekyll, shipit]
 excerpt: Continuously deploying your Jekyll sites with ShipIt
@@ -37,10 +37,7 @@ This is what CircleCI will be doing:
 
 ## Shipitfile
 
-
-
-
-<a href="#">My shipitfile</a> looks like this:
+`shipit` will be taking care of the last step: deploying the static build to my server. Let's take a look at what <a href="#">shipitfile</a> looks like:
 
 {% highlight javascript %}
 var path = require('path');
@@ -68,8 +65,8 @@ module.exports = function (shipit) {
   });
 
   shipit.on('updated', function () {
-    var imageDirectory = path.resolve('./public/');
-    shipit.remoteCopy(imageDirectory, shipit.releasePath);
+    var buildDirectory = path.resolve('./public/');
+    shipit.remoteCopy(buildDirectory, shipit.releasePath);
   });
 };
 {% endhighlight %}
