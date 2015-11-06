@@ -56,11 +56,11 @@ module.exports = function (shipit) {
       shallowClone: true,
     },
     production: {
-      servers: 'deploy@deploy.atticuswhite.com',
+      servers: 'deploy.atticuswhite.com',
       deployTo: '/var/www/atticuswhite/jekyll-portfolio'
     },
     develop: {
-      servers: 'deploy@deploy.atticuswhite.com',
+      servers: 'deploy.atticuswhite.com',
       deployTo: '/var/www/atticuswhite/dev.jekyll-portfolio'
     }
   });
