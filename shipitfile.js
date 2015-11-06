@@ -23,7 +23,7 @@ module.exports = function (shipit) {
   });
 
   shipit.on('updated', function () {
-    var imageDirectory = path.resolve('./public/');
-    shipit.remoteCopy(imageDirectory, shipit.releasePath);
+    var builtDirectory = path.resolve('./public/');
+    shipit.remoteCopy(builtDirectory, shipit.releasePath);
   });
 };
