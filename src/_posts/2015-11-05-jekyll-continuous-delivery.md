@@ -15,7 +15,7 @@ First, I didn't want to use Capistrano. I use it at work, and being a JS person 
 
 ## F*ck it, ShipIt
 
-This is when I discovered [Shipit](https://github.com/shipitjs/shipit). For the sake of this article, I'm going to assume you already know what Shipit is. If you don't, you can read <a href="#">my other post about how Shipit works</a>. As I'm using shipit for my deployments, I've incorporated the <a href="https://github.com/shipitjs/shipit-deploy">shipit-deploy</a> module, which facilitates the release process.
+This is when I discovered [Shipit](https://github.com/shipitjs/shipit). For the sake of this article, I'm going to assume you already know what Shipit is. If you don't, you can read <a href="/blog/shipit">my other post about how Shipit works</a>. As I'm using shipit for my deployments, I've incorporated the <a href="https://github.com/shipitjs/shipit-deploy">shipit-deploy</a> module, which facilitates the release process.
 
 The next thing I need is a continuous integration build server. I use <a href="https://travis-ci.org/">TravisCI</a> at work, but the free plan doesn't allow for any private configurations. As I want to continuously deploy to my personal server, I need a place to hide environment variables or private SSH keys. This is when I turned to <a href="https://circleci.com/">CircleCI</a>. They allow their public containers to store private information, which was exactly what I needed. They also have a great interface with a grouped and collapsable regions representing different steps in your build:
 
