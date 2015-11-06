@@ -4,6 +4,7 @@ title: Continuously deploying Jekyll with CircleCI and ShipIt
 date: 2015-11-05 09:00:00
 permalink: /blog/continuous-deployment-jekyll-circleci-shipit
 tags: [jekyll, shipit]
+project: https://github.com/ajwhite/jekyll-portfolio
 excerpt: I moved things over to Jekyll. My next step was to start to introduce some deployment automation. Read about what I set up with CircleCI and Shipit for my continuous integration setup.
 seo_title: Jekyll continuous integration with CircleCI and Shipit
 seo_description: Continuously deploying Jekyll with CircleCI and Shipit for automated builds and releases
