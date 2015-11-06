@@ -7,6 +7,7 @@ tags: [jekyll, shipit]
 excerpt: I moved things over to Jekyll. My next step was to start to introduce some deployment automation. Read about what I set up with CircleCI and Shipit for my continuous integration setup.
 seo_title: Jekyll continuous integration with CircleCI and Shipit
 seo_description: Continuously deploying Jekyll with CircleCI and Shipit for automated builds and releases
+disqus_id: '2015-11-05-jekyll-continuous-delivery'
 ---
 
 I recently ported my site from WordPress to Jekyll and couldn't be happier. I have a fantastic new portable toolset that feels more suitable and maintainable for myself as a developer. The only missing piece felt like automated deployments. I was still `ssh`ing into my server, pulling down my repo, and running my build tasks. This felt wrong compared to what we do at <a href="https://robinpowered.com" title="Meeting room booking system made easy - Robin" target="_blank">Robin Powered</a> with <a href="https://travis-ci.org/" title="Test and Deploy your code with confidence" target="_blank">Travis Continuous Integrations</a> and <a href="http://capistranorb.com/" title="Remote multi-server automation tool" target="_blank">Capistrano</a> to continuously release our applications in an automated way when we merge into `master`.
