@@ -38,7 +38,6 @@ gulp.task('js:vendor', function () {
     'bower_components/lodash/lodash.js',
     'bower_components/jquery/dist/jquery.js',
     'bower_components/fluid-labels/dist/fluid-labels.js',
-    'bower_components/typed.js/js/typed.js',
     'bower_components/inview/jquery.inview.js',
     'bower_components/masonry/dist/masonry.pkgd.js',
     'bower_components/waypoints/lib/jquery.waypoints.js',
