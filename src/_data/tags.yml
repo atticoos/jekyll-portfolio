@@ -40,6 +40,20 @@ react:
     background: '#31a2d4'
     font: '#fff'
 
+shipit:
+  label: Shipit
+  icon: tags/shipit.png
+  color:
+    background: '#807eb6'
+    font: '#fff'
+
+jekyll:
+  label: Jekyll
+  icon: tags/jekyll.png
+  color:
+    background: '#333'
+    font: '#fff'
+
 aws:
   label: AWS
   icon: tags/aws.jpg
