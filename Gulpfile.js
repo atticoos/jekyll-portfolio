@@ -41,6 +41,7 @@ gulp.task('js:vendor', function () {
     'bower_components/inview/jquery.inview.js',
     'bower_components/masonry/dist/masonry.pkgd.js',
     'bower_components/waypoints/lib/jquery.waypoints.js',
+    'bower_components/jquery.lazyload/jquery.lazyload.js',
     'bower_components/Chart.js/Chart.js'
   ])
   .pipe(concat('vendor.js'))
@@ -110,5 +111,4 @@ gulp.task('watch', ['dev'], function () {
   gulp.watch(path.join(paths.source, '_assets/scripts/**/*.js'), ['js:site']);
   gulp.watch(path.join(paths.source, '_assets/less/**/*.less'), ['less']);
   gulp.watch(path.join(paths.source, '_assets/images/**/*'), ['images:copy']);
-  jekyll = spawn('jekyll', ['s'], {stdio: 'inherit'});
 });
