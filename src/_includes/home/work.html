@@ -5,7 +5,9 @@
       {% if featuredProject == project.slug %}
       <div class="item">
         <div class="image">
-          <img src="/dist/images/{{project.icon}}" alt="{{ project.title }}" />
+          <a href="/dist/images/{{project.icon}}" title="{{project.title}}" class="lazy">
+            <img data-original="/dist/images/{{project.icon}}" class="lazy" alt="{{ project.title }}" />
+          </a>
         </div>
         <div class="overlay">
           <div class="vertical-wrap">

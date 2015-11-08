@@ -57,6 +57,11 @@
     }
   });
 
+  $('a.lazy').click(function () {
+    return false;
+  });
+  $('img.lazy').lazyload({threshold: 200});
+
   // callback defined in the deferred script
   window.initMaps = function () {
     var mapElement = document.getElementById('contact-map');
