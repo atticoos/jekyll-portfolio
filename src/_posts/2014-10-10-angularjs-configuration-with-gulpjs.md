@@ -6,7 +6,7 @@ permalink: /blog/angularjs-configuration-with-gulpjs
 tags: [gulpjs, angularjs]
 project: https://github.com/ajwhite/gulp-ng-config
 excerpt: gulp-ng-config, a GulpJS build task plugin, will generate AngularJS constant modules from JSON files to assist in providing configurations for your projects.
-seo_title: gulp-ng-config - GulpJS config generator for AngularJS
+seo_title: gulp-ng-config - GulpJS config generator for Angular constants
 seo_description: gulp-ng-config - A GulpJS build task plugin used to generate AngularJS configurations. Support multiple environments for your AngularJS projects.
 disqus_id: '403 http://www.atticuswhite.com/?post_type=post&#038;p=403'
 ---

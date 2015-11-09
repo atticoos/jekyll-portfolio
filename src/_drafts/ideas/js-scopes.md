@@ -1,1 +1,1 @@
-talk about scoping for beginners
+talk about scoping for beginners 
