@@ -164,4 +164,4 @@ RewriteEngine On
 RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301, L]
 {% endhighlight %}
 
-Voilla! You're now secured. Give a big thanks to the team over at <a href="https://twitter.com/letsencrypt" title="Let's Encrypt" target="_blank">@LetsEncrypt</a>!
+Voilla! You're now secured. Give a big thanks to the team and community over at <a href="https://twitter.com/letsencrypt" title="Let's Encrypt" target="_blank">@LetsEncrypt</a> and on <a href="https://github.com/letsencrypt/letsencrypt" title="Let's Encrypt on Github" target="_blank">GitHub</a>!
