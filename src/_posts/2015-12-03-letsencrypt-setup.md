@@ -26,7 +26,7 @@ The workflow is broken into 3 segments:
 
 `ssh` into your server and clone the `letsencrypt` repository in your home directory and navigate into it.
 
-{%highlight sh %}
+{%highlight shell-session %}
 git clone git@github.com:letsencrypt/letsencrypt.git
 cd letsencrypt
 {% endhighlight %}
@@ -37,7 +37,7 @@ In the cloned repository exists a script `letsencrypt-auto`. This typically will
 
 We'll go ahead and start the manual flow
 
-{% highlight sh %}
+{% highlight 	shell-session %}
 ./letsencrypt certonly --manual
 {% endhighlight %}
 
@@ -56,7 +56,7 @@ Upon providing your domain name and agreeing that your IP will be logged, you'll
 
 You should see output similar to
 
-{% highlight sh %}
+{% highlight 	shell-session %}
 Make sure your web server displays the following content at
 http://atticuswhite.com/.well-known/acme-challenge/THE_VERIFICATION_FILE before continuing:
 
@@ -82,7 +82,7 @@ To summarize, you're going to create a file in your served directory that will b
 
 Next you'll want put the verification string into the file.
 
-{% highlight sh %}
+{% highlight shell-session %}
 cd /path/to/webserver/directory
 mkdir -p .well-known/acme-challenge/THE_VERIFICATION_FILE
 printf "%s" THE_VERIFICATION_STRING > .well-known/acme-challenge/THE_VERIFICATION_FILE
@@ -94,7 +94,7 @@ Once you have this confirmed, go back to your other `ssh` window and confirm the
 
 If verification was successful, you should receive a confirmation message containing the location of your certificate, chain, and private key file:
 
-{% highlight sh %}
+{% highlight text %}
 IMPORTANT NOTES:
  - Congratulations! Your certificate and chain have been saved at
    /etc/letsencrypt/live/your-domain.com/fullchain.pem. Your cert
@@ -112,7 +112,7 @@ Awesome! Now let's setup that cert.
 
 Head over to your Apache configuration directory. Depending on what version of Apache you're running (Apache or Apache2) these next steps may vary. The overall configuration is the same in the end, however the directory structures are a bit different between the two.
 
-{% highlight sh %}
+{% highlight shell-session %}
 cd /etc/apache2
 {% endhighlight %}
 
@@ -124,7 +124,7 @@ We're going to set up 3 things:
 
 Inside `mods-available` will be `ssl.conf`, `ssl.load`, and `socache_shmcb.load`. If they do not exist in `mods-enabled`, you're going to link them.
 
-{% highlight sh %}
+{% highlight shell-session %}
 sudo ln -s mods-available/ssl.conf mods-enabled/ssl.conf
 sudo ln -s mods-available/ssl.load mods-enabled/ssl.load
 sudo ln -s mods-available/socache_shmcb.load mods-enabled/socache_shmcb.load
@@ -136,7 +136,7 @@ Let's assume you already have the non SSL configuration set up. If you don't go 
 
 Open the configuration file for the non SSL virtual host and enter the following:
 
-{% highlight sh %}
+{% highlight apacheconf %}
 <VirtualHost *:443>
   ServerName your-server.com
   DocumentRoot /path/to/your-server
@@ -153,13 +153,13 @@ Go ahead and verify your configuration (`service apache2 configtest`) or restart
 
 In order to do this, you'll need to make sure you have the `rewerite` mod enabled. If you don't see it in `mods-enabled`, go ahead and link it:
 
-{% highlight sh %}
+{% highlight shell-session %}
 ln -s mods-available/rewrite.load mods-enabled/rewerite.load
 {% endhighlight %}
 
 In your site configuration, add the following lines:
 
-{% highlight sh %}
+{% highlight apacheconf %}
 RewriteEngine On
 RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301, L]
 {% endhighlight %}
