@@ -15,6 +15,8 @@ var instance = example();
 console.log(instance.next()) // {value: 'a', done: false}
 console.log(instance.next()) // {value: 'b', done: false}
 console.log(instance.next()) // {value: undefined, done: true}
+```
+{% endhighlight %}
 
 In other examples, you can `yield` inside a loop. In the example below, we have a generator that produces an identifier. Since the `yield` lives in an infinite loop, it will always produce a `next()` value.
 
