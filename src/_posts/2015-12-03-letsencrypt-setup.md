@@ -6,7 +6,7 @@ permalink: /blog/lets-encrypt-setup
 tags: [letsencrypt]
 excerpt: Let's Encrypt provides free SSL certificates and an open source client for generating and setting up your certificates. A movement to encrypt the web. Here we look at how to use the Let's Encrypt tool.
 seo_title: Setting up SSL Certificates with Let's Encrypt
-seo_description: Let's Encrypt provides free SSL certificates. Learn how to set up a Let's Encrypt SSL Certificate for Apache
+seo_description: Let's Encrypt provides free SSL certificates. Learn how to set up and install a Let's Encrypt SSL Certificate for Apache
 disqus_id: '2015-12-04-lets-encrypt-setup'
 ---
 
