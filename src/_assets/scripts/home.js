@@ -5,6 +5,9 @@
     if (!$('body').hasClass('page-index')) {
       return;
     }
+		$('img[data-original]').lazyload({
+			threshold:200
+		});
     $('.skills .more').click(function () {
       $('.skills .row.hidden').removeClass('hidden');
       $('.skills').removeClass('collapsed');
