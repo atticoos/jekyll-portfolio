@@ -41,8 +41,9 @@ gulp.task('js:vendor', function () {
     'bower_components/inview/jquery.inview.js',
     'bower_components/masonry/dist/masonry.pkgd.js',
     'bower_components/waypoints/lib/jquery.waypoints.js',
+		'bower_components/jquery.lazyload/jquery.lazyload.js',
     'bower_components/Chart.js/Chart.js'
-  ])
+ ])
   .pipe(concat('vendor.js'))
   .pipe(gulpif(util.env.production, uglify()))
   .pipe(gulp.dest(paths.dist));
