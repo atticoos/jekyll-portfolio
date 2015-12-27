@@ -1,4 +1,15 @@
-When I first heard of ES6 (or rather, ES2015) generators, it took me a couple cycles of reading to understand the idea behind them. Once you have that "ah Ha!" moment, you can see all the things you could potentially do with them. I always it helpful to relate something new to something you already understand, so let's see how we can use generators to solve problems that we face today.
+---
+layout: post
+title: Exploring ES2015 - Creating an iterator with Generators
+date: 2015-12-27 14:10:00
+permalink: /blog/exploring-es2015-iterator-generator
+tags: [nodejs]
+excerpt: A look into how generators work and how we can use them to create an iterable interface for arrays.
+seo_title: Exploring ES2015 - Creating an iterator with generators
+seo_description: Learn how ES7 generators work and how to build an array iterator with generators
+disqus_id: '22015-12-27-exploring-es2015-iterator-generator'
+---
+When I first heard of ES7 generators, it took me a couple cycles of reading to understand the idea behind them. Once you have that "ah Ha!" moment, you can see all the things you could potentially do with them. I always it helpful to relate something new to something you already understand, so let's see how we can use generators to solve problems that we face today.
 
 ## What is a generator?
 A generator is basically a function with a different type of `return`. Instead of returning values, it _produces_, or _yeilds_ a value whenever `next()` is called. A generator's code block runs until the first `yield` line. That line only gets executed when `next()` is called. When `next()` is called, whatever value is yielded is given to next and the code continues to run until the next `yeild` is reached, or otherwise completes. When you call a generator, it returns you an _instance_ of the generator, similar to how you might call `new FunctionName()`.
