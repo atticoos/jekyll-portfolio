@@ -164,8 +164,9 @@ featured_projects:
 
           <h2>My latest thought</h2>
           <div class="latest-post">
-            <div>
-              <a href="{{site.posts[0].url | prepend: site.baseurl}}">{{site.posts[0].title}}</a> - {{ site.posts[0].date | date: '%B %-d, %Y'}}
+            <div class="desc">
+              <a href="{{site.posts[0].url | prepend: site.baseurl}}">{{site.posts[0].title}}</a>
+              <span>{{ site.posts[0].date | date: '%B %-d, %Y'}}</span>
             </div>
             {{site.posts[0].excerpt}}
           </div>
