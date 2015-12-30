@@ -16,7 +16,6 @@ A generator is basically a function with a different type of `return`. Instead o
 
 For example, this will `yield` two values, `a` and then `b`, and then it will be done:
 {% highlight javascript %}
-```
 function* example() {
   yield 'a';
   yield 'b';
@@ -26,20 +25,17 @@ var instance = example();
 console.log(instance.next()) // {value: 'a', done: false}
 console.log(instance.next()) // {value: 'b', done: false}
 console.log(instance.next()) // {value: undefined, done: true}
-```
 {% endhighlight %}
 
 In other examples, you can `yield` inside a loop. In the example below, we have a generator that produces an identifier. Since the `yield` lives in an infinite loop, it will always produce a `next()` value.
 
 {% highlight javascript%}
-```
 function* idGenerator() {
   var id = 0;
   while (true) {
     yield ++id;
   }
 }
-```
 {% endhighlight %}
 
 There's 2 important things to recognize about how this is written, and one important thing to understand.
@@ -51,13 +47,11 @@ There's 2 important things to recognize about how this is written, and one impor
 I want us to understand point 3. When you create a generator, it returns to you an _instance_ of that generator, which will retain the scope. Let's look at how this will behave:
 
 {% highlight javascript%}
-```
 var generatorInstance = idGenerator();
 console.log(generatorInstance.next()) // {value: 1, done: false}
 console.log(generatorInstance.next()) // {value: 2, done: false}
 console.log(generatorInstance.next()) // {value: 3, done: false}
 // to infinity and beyond
-```
 {% endhighlight %}
 
 
@@ -67,14 +61,12 @@ console.log(generatorInstance.next()) // {value: 3, done: false}
 In other languages, such as Java, lists can generate iterable interfaces, such as, `(List) myList.iterator()`. With ES6, we can do the same thing.
 
 {% highlight javascript%}
-```
 function* iterable(list) {
   var index = 0;
   while (index < list.length) {
     return list[index++];
   }
 }
-```
 {% endhighlight %}
 
 This will provide a similar iterator interface that you'd expect from other languages.
