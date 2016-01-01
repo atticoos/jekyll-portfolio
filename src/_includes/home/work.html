@@ -38,5 +38,32 @@
         {% include web-preview.html image="/dist/images/projects/tweetdrive/tweetdrive1.jpg" %}
       </div>
     </div>
+    <div class="more-items">
+      <a href="#" class="view-more-portfolio">See more projects</a>
+    </div>
   </div>
+</div>
+<div class="portfolio-items">
+  {% for featuredProject in page.featured_projects %}
+    {% cycle 'add row' : '<div class="portfolio-row">', nil, nil, nil, nil %}
+    {% for project in site.projects %}
+      {% if featuredProject == project.slug %}
+      <div class="item">
+        <div class="image">
+          <img src="/dist/images/blank.png" data-original="/dist/images/{{project.icon}}" alt="{{ project.title }}" />
+        </div>
+        <div class="overlay">
+          <div class="vertical-wrap">
+            <div class="inner">
+              <h3>{{ project.title}}</h3>
+              <span class="client">{{ project.client }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+    {% cycle 'end row' : nil, nil, nil, nil, '</div>' %}
+  {% endfor %}
+  {% cycle 'end row' : nil, '</div>', '</div>', '</div>', '</div>' %}
 </div>
