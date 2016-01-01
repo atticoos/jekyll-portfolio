@@ -1,24 +1,40 @@
-<div class="portfolio-items">
-  {% for featuredProject in page.featured_projects %}
-    {% cycle 'add row' : '<div class="portfolio-row">', nil, nil, nil, nil %}
-    {% for project in site.projects %}
-      {% if featuredProject == project.slug %}
-      <div class="item">
-        <div class="image">
-          <img src="/dist/images/blank.png" data-original="/dist/images/{{project.icon}}" alt="{{ project.title }}" />
-        </div>
-        <div class="overlay">
-          <div class="vertical-wrap">
-            <div class="inner">
-              <h3>{{ project.title}}</h3>
-              <span class="client">{{ project.client }}</span>
-            </div>
-          </div>
-        </div>
+<div class="featured-portfolio-items">
+  <div class="container">
+    <div class="portfolio-row">
+      <div class="preview">
+        <img src="https://robinpowered.com/img/robin-android-ios-tablet-phone.png" />
       </div>
-      {% endif %}
-    {% endfor %}
-    {% cycle 'end row' : nil, nil, nil, nil, '</div>' %}
-  {% endfor %}
-  {% cycle 'end row' : nil, '</div>', '</div>', '</div>', '</div>' %}
+      <div class="info">
+        <h1>Robin Rooms</h1>
+        <h2>Room schedules, right at your door</h2>
+        <p>
+          I built the iPad and Android tablet applications. Customers mount these tablets outside of their conference rooms as interactive digital signage indicating the current status and daily schedule for the room.
+        </p>
+      </div>
+    </div>
+    <div class="portfolio-row">
+      <div class="info">
+        <h1>Robin Dashboard</h1>
+        <h2>An overview and management portal for the spaces in your office</h2>
+        <p>
+          I built the iPad and Anroid tablet applications. Customers mount these tablets outside of their conference rooms as interactive digital signage indicating the current status and daily schedule for the room.
+        </p>
+      </div>
+      <div class="preview">
+        {% include web-preview.html image="/dist/images/projects/robin/dashboard.jpg" %}
+      </div>
+    </div>
+    <div class="portfolio-row">
+      <div class="preview">
+        {% include web-preview.html image="/dist/images/projects/tweetdrive/tweetdrive1.jpg" %}
+      </div>
+      <div class="info">
+        <h1>TweetDrive</h1>
+        <h2>A game playe during the 2011 NFL Playoffs on NBCSports</h2>
+        <p>
+          I built the iPad and Anroid tablet applications. Customers mount these tablets outside of their conference rooms as interactive digital signage indicating the current status and daily schedule for the room.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

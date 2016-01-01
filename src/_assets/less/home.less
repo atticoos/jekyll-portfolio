@@ -356,6 +356,37 @@ body.page-index {
   }
 }
 
+.home section.projects {
+  background-color: #fff;
+  padding: 60px 0;
+  .featured-portfolio-items {
+    .portfolio-row {
+      .row;
+      margin-bottom: 40px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .preview {
+        .make-sm-column(6);
+      }
+      .info {
+        .make-sm-column(6);
+        h1 {
+          margin-bottom: 0;
+        }
+        h2 {
+          margin-top: 0;
+        }
+        p {
+          font-size: 18px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
+
 .home section.map {
   #contact-map {
     position: absolute;
