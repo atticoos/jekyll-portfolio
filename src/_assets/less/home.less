@@ -362,10 +362,18 @@ body.page-index {
   .featured-portfolio-items {
     .portfolio-row {
       .row;
-      margin-bottom: 40px;
+      margin-bottom: 100px;
       &:last-child {
         margin-bottom: 0;
       }
+
+      @media @mobile {
+        margin-bottom: 40px;
+      }
+      @media @tablet {
+        margin-bottom: 40px;
+      }
+
 
       .preview {
         .make-sm-column(6);
@@ -381,6 +389,11 @@ body.page-index {
         p {
           font-size: 18px;
           font-weight: 300;
+        }
+      }
+      &.alt {
+        .info {
+          float: right;
         }
       }
     }
