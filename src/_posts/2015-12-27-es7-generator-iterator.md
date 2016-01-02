@@ -3,7 +3,7 @@ layout: post
 title: Exploring ES2015 - Creating an iterator with Generators
 date: 2015-12-27 14:10:00
 permalink: /blog/exploring-es7-iterator-generator
-tags: [nodejs]
+tags: [js, nodejs]
 excerpt: A look into how generators work and how we can use them to create an iterable interface for arrays.
 seo_title: Exploring ES2015 - Creating an iterator with generators
 seo_description: Learn how ES7 generators work and how to build an array iterator with generators

@@ -3,7 +3,7 @@ layout: post
 title: Exploring ES2015 - Private class methods with Babel
 date: 2015-12-24 10:30:00
 permalink: /blog/exploring-es2015-private-class-methods-babel
-tags: [nodejs]
+tags: [js, nodejs]
 excerpt: Javascript does not support method visibility. There's a few tricks to introduce private methods by determining what you want to export. But when it comes to ES6 classes, we can now create private methods a bit easier.
 seo_title: Exploring ES2015 - Private class methods with Babel and ES7
 seo_description: Use ES7 Function-Bind syntax to support private functions in ES6/ES2015 classes.

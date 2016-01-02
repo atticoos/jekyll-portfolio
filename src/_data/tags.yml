@@ -12,6 +12,13 @@ gulpjs:
     background: '#eb4a4b'
     font: '#fff'
 
+js:
+  label: Javascript
+  icon: tags/js.jpg
+  color:
+    background: '#f0db4e'
+    font: '#323230'
+
 titanium:
   label: Titanium
   icon: tags/titanium.png
