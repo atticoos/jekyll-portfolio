@@ -84,7 +84,7 @@
     $('#contact-form').addClass('pending');
     $('#contact-form input[type=submit]').val('Sending...');
 
-    $.post(window.location.protocol + '//' + window.location.hostname + ':4050/contact-form', fields).done(function () {
+    $.post(window.site_api_url + '/contact-form', fields).done(function () {
       $('#contact-form').removeClass('pending').addClass('complete');
       $('#contact-form input[type=submit]').val('Sent!');
     }).fail(function (err) {
