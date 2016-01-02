@@ -65,7 +65,7 @@ In other languages, such as Java, lists can generate iterable interfaces, such a
 function* iterable(list) {
   var index = 0;
   while (index < list.length) {
-    return list[index++];
+    yield list[index++];
   }
 }
 {% endhighlight %}
