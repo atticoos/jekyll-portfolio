@@ -8,6 +8,10 @@
 		$('img[data-original]').lazyload({
 			threshold:200
 		});
+    $('.portfolio-items img[data-original]').lazyload({
+      threshold: 200,
+      event: 'showLazyLoad'
+    });
     $('.skills .more').click(function () {
       $('.skills .row.hidden').removeClass('hidden');
       $('.skills').removeClass('collapsed');
@@ -25,6 +29,15 @@
       $('html,body').animate({
         scrollTop: position + 'px'
       });
+    });
+    $('.view-more-portfolio').click(function () {
+      $('.featured-portfolio-items').hide();
+      $('.portfolio-items').fadeIn();
+      $('.portfolio-items img[data-original]').trigger('showLazyLoad');
+      $('html,body').animate({
+        scrollTop: $('#portfolio').offset().top
+      })
+      return false;
     });
     $('.fluid-label').fluidLabel();
     var $grid = $('.grid').masonry({

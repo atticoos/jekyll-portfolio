@@ -338,11 +338,11 @@ body.page-index {
 
 .home section.projects {
   .portfolio-items {
+    display: none;
     .portfolio-row {
       .clearfix;
       .item {
         width: 20%;
-        background-color: orange;
         float:left;
 
         .image {
@@ -352,6 +352,53 @@ body.page-index {
           }
         }
       }
+    }
+  }
+}
+
+.home section.projects {
+  background-color: #fff;
+  .featured-portfolio-items {
+    padding: 60px 0;
+    .portfolio-row {
+      .row;
+      margin-bottom: 100px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media @mobile {
+        margin-bottom: 40px;
+      }
+      @media @tablet {
+        margin-bottom: 40px;
+      }
+
+
+      .preview {
+        .make-sm-column(6);
+      }
+      .info {
+        .make-sm-column(6);
+        h1 {
+          margin-bottom: 0;
+        }
+        h2 {
+          margin-top: 0;
+        }
+        p {
+          font-size: 18px;
+          font-weight: 300;
+        }
+      }
+      &.alt {
+        .info {
+          float: right;
+        }
+      }
+    }
+    .more-items {
+      text-align: center;
     }
   }
 }

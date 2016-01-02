@@ -111,5 +111,5 @@ gulp.task('watch', ['dev'], function () {
   gulp.watch(path.join(paths.source, '_assets/scripts/**/*.js'), ['js:site']);
   gulp.watch(path.join(paths.source, '_assets/less/**/*.less'), ['less']);
   gulp.watch(path.join(paths.source, '_assets/images/**/*'), ['images:copy']);
-  jekyll = spawn('jekyll', ['s'], {stdio: 'inherit'});
+  // jekyll = spawn('jekyll', ['s'], {stdio: 'inherit'});
 });
