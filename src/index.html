@@ -108,11 +108,13 @@ featured_projects:
   <section class="contact">
     <div class="container">
       <div class="row">
-        <form>
+        <form id="contact-form">
           <h2>Shoot me a message</h2>
           <div class="form-control">
             <div class="fluid-label">
-              <input type="text"
+              <input
+                name="name"
+                type="text"
                 placeholder="Your name"
                 required />
               <label>Your name</label>
@@ -120,7 +122,9 @@ featured_projects:
           </div>
           <div class="form-control">
             <div class="fluid-label">
-              <input type="email"
+              <input
+                name="email"
+                type="email"
                 placeholder="Your email"
                 required />
               <label>Your email</label>
@@ -129,6 +133,7 @@ featured_projects:
           <div class="form-control">
             <div class="fluid-label">
               <textarea
+                name="message"
                 placeholder="What would you like to say?"
                 required></textarea>
               <label>Your message</label>
