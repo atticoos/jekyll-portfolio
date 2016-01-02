@@ -10,9 +10,9 @@ var server = restify.createServer({
 
 server.use(restify.acceptParser(server.acceptable));
 server.use(restify.queryParser());
-server.use(restify.bodyParser());
+server.use(restify.urlEncodedBodyParser({mapParams: false}));
 
-server.get('/contact-form', contactFormHandler);
+server.post('/contact-form', contactFormHandler);
 
 server.listen(1234, () => {
   console.log('listening!');

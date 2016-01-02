@@ -11,17 +11,17 @@ var transport = nodemailer.createTransport(null, {
 
 export function contactFormHandler (req, res, next) {
   sendContactEmail(
-    req.query.name,
-    req.query.email,
-    req.query.message
+    req.body.name,
+    req.body.email,
+    req.body.message
   );
   sendSlackWebhook(
-    req.query.name,
-    req.query.email,
-    req.query.message
+    req.body.name,
+    req.body.email,
+    req.body.message
   );
-  res.send();
-  next();
+  res.status(200).send();
+  return next();
 }
 
 function sendContactEmail (name, email, message) {
