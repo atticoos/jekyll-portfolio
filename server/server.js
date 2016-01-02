@@ -1,6 +1,7 @@
 'use strict';
 
 import restify from 'restify';
+import {contactFormHandler} from './contact-form';
 
 var server = restify.createServer({
   name: 'atticus-portfolio',
@@ -11,10 +12,7 @@ server.use(restify.acceptParser(server.acceptable));
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
 
-server.get('/contact-form', (req, res, next) => {
-  res.send('foobar');
-  return next();
-});
+server.get('/contact-form', contactFormHandler);
 
 server.listen(1234, () => {
   console.log('listening!');
