@@ -73,6 +73,27 @@
     }
   });
 
+  $('#contact-form').submit(function (event) {
+    event.preventDefault();
+    var fields = {
+      name: $('#contact-form input[name=name]').val(),
+      email: $('#contact-form input[name=email]').val(),
+      message: $('#contact-form textarea[name=message]').val()
+    };
+
+    $('#contact-form').addClass('pending');
+    $('#contact-form input[type=submit]').val('Sending...');
+
+    $.post(window.location.protocol + '//' + window.location.hostname + ':4050/contact-form', fields).done(function () {
+      $('#contact-form').removeClass('pending').addClass('complete');
+      $('#contact-form input[type=submit]').val('Sent!');
+    }).fail(function (err) {
+      $('#contact-form').removeClass('pending').addClass('failed');
+      $('#contact-form input[type=submit]').val('Try again');
+    });
+    return false;
+  });
+
   // callback defined in the deferred script
   window.initMaps = function () {
     var mapElement = document.getElementById('contact-map');

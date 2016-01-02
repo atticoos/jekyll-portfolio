@@ -525,6 +525,28 @@ body.page-index {
   }
 }
 
+#contact-form {
+  input[type=submit]{
+    outline: none;
+  }
+  &.pending {
+    input[type=submit] {
+      background-color: #D2DAE1;
+      color: ##32383E;
+    }
+  }
+  &.complete {
+    input[type=submit] {
+      background-color: #91CA55;
+    }
+  }
+  &.failed {
+    input[type=submit] {
+      background-color: #EE3F46;
+    }
+  }
+}
+
 
 /*
 @media @no-mobile {

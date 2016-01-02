@@ -20,7 +20,7 @@ export function contactFormHandler (req, res, next) {
     req.body.email,
     req.body.message
   );
-  res.status(200).send();
+  res.json(200, {ok: true});
   return next();
 }
 
