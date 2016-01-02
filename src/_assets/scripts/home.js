@@ -30,7 +30,7 @@
         scrollTop: position + 'px'
       });
     });
-    $('.view-more-portfolio').click(function () {
+    $('#view-more-portfolio').click(function () {
       $('.featured-portfolio-items').hide();
       $('.portfolio-items').fadeIn();
       $('.portfolio-items img[data-original]').trigger('showLazyLoad');
