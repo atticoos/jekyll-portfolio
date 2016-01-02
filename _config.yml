@@ -6,7 +6,7 @@ description: > # this means to ignore newlines until "baseurl:"
   and AngularJS + PHP software engineer for web applications.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://atticuswhite.com" # the base hostname & protocol for your site
-api_url: "http://api.atticuswhite.com:4080"
+api_url: "https://api.atticuswhite.com:4050"
 twitter_username: atticoos
 github_username:  ajwhite
 
