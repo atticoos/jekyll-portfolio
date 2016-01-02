@@ -11,7 +11,7 @@ seo_description: jQuery Stock Quotes is a jQuery plugin that allows developers t
 disqus_id: '2015-11-15-jquery-stock-quotes'
 ---
 
-jQuery Stock Quotes is a plugin that allows you to show stock symbol information. By adding a `data-symbol` attribute to the elements, you'll be able to display the stock symbol along with the latest quote.
+<a href="https://github.com/ajwhite/jquery-stockquotes" target="_blank" title="jQuery Stock Quotes">jQuery Stock Quotes</a> is a plugin that allows you to show stock symbol information. By adding a `data-symbol` attribute to the elements, you'll be able to display the stock symbol along with the latest quote.
 
 You can install this with Bower, `bower install jquery-stockquotes --save`
 
