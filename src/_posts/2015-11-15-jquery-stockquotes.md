@@ -38,4 +38,4 @@ $(document).on('ready', function () {
 
 This will produce the following
 
-<img src="http://localhost:4000/dist/images/labs/jquery-stockquotes.png" alt="jQuery Stock Quotes" />
+<img src="/dist/images/labs/jquery-stockquotes.png" alt="jQuery Stock Quotes" />
