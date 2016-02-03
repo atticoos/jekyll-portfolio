@@ -5,7 +5,7 @@
     if (!$('body').hasClass('page-index')) {
       return;
     }
-		$('img[data-original]').lazyload({
+		$('img[data-original]').not('.portfolio-items img').lazyload({
 			threshold:200
 		});
     $('.portfolio-items img[data-original]').lazyload({
