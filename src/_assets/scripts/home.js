@@ -69,6 +69,7 @@
       $('.site-nav nav a').removeClass('active');
       $('.site-nav nav a.labs').addClass('active');
       $('section.me').removeClass('active');
+      loadMaps();
     }
   });
 
@@ -94,7 +95,7 @@
   });
 
   // callback defined in the deferred script
-  window.initMaps = function () {
+  function loadMaps () {
     var mapElement = document.getElementById('contact-map');
     if (!mapElement) {
       return;
@@ -104,5 +105,7 @@
       zoom: 13,
       disableDefaultUI: true
     });
-  };
+    hasLoadedMaps = true;
+  }
+  var hasLoadedMaps = false;
 }).call(this, jQuery, window);
