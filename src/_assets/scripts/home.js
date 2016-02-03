@@ -9,7 +9,6 @@
 			threshold:200
 		});
     $('.portfolio-items img[data-original]').lazyload({
-      threshold: 200,
       event: 'showLazyLoad'
     });
     $('.skills .more').click(function () {
