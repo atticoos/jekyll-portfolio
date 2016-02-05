@@ -47,9 +47,9 @@ render() {
     {ifEven(this.props.count)(
       <span>{this.props.count} is an even number!</span>
     )}
-    {ifOdd(this.props.count) {
+    {ifOdd(this.props.count)(
       <span>{this.props.count} is an odd number!</span>
-    }}
+    )}
   );
 }
 {% endhighlight %}
