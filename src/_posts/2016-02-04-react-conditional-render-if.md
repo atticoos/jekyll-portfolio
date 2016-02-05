@@ -1,7 +1,7 @@
 ---
 layout: post
 title: renderIf - Conditionally render React components
-date: 2015-12-27 14:10:00
+date: 2016-02-04 18:00:00
 permalink: /blog/render-if-conditionally-render-react-components
 project: https://github.com/ajwhite/render-if
 tags: [react, js, nodejs]
