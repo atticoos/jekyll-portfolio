@@ -261,4 +261,29 @@ class OddsEvens extends Component {
 }
 {% endhighlight %}
 
+## You don't _really_ need this
+
+In the end, this is handy, but all we're really doing is creating a function that returns something if one of the values is true.
+
+Let's lastly look at how we might do this with the language itself by creating a curried function that behaves as an `if-else`
+
+{% highlight js %}
+const ifEven = number => element => elseElement => {
+  if (number % 2 === 0) return element;
+  return elseElement;
+}
+
+class MyComponent extends Component {
+  render() {
+    return (
+      {ifEven(this.props.count)(
+        <span>{this.props.count} is even</span>
+      )(
+        <span>{this.props.count} is odd</span>
+      )}
+    );
+  }
+}
+{% endhighlight %}
+
 You can find this project <a href="https://github.com/ajwhite/render-if" target="_blank" title="RenderIf - Conditionally render React components">on Github</a>.
