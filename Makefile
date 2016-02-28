@@ -10,7 +10,7 @@ dependencies:
 
 globals:
 	npm install -g gulp
-	npm install -g shipit-cli
+	npm install -g shipit-cli@1.4.1
 
 circle: globals dependencies
 	gulp circle --circle
