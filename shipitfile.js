@@ -10,7 +10,7 @@ module.exports = function (shipit) {
       ignore: ['.git'],
       keepReleases: 5,
       deleteOnRollback: false,
-      shallowClone: true,
+      shallowClone: false,
     },
     production: {
       servers: 'deploy@deploy.atticuswhite.com',
