@@ -33,6 +33,13 @@ nodejs:
     background: '#505246'
     font: '#fff'
 
+slack:
+  label: Slack
+  icon: tags/slack.png
+  color:
+    background: '#3eb991'
+    font: '#fff'
+
 letsencrypt:
   label: Security
   icon: tags/letsencrypt.png
