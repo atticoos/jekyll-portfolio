@@ -8,7 +8,7 @@ tags: [react, js, nodejs]
 excerpt: A lightweight curry function used to conditionally render React components cleanly as a familiar control flow.
 seo_title: renderIf - Conditionally render React components
 seo_description: Conditionally render React and React Native components without an ugly if-else control flow.
-disqus_id: '22016-02-04-render-if-conditionally-render-react-components'
+disqus_id: '2016-02-04-render-if-conditionally-render-react-components'
 ---
 
 One of the first questions nearly everyone asks when they first start using React is "How do I conditionally render an element?". Any time a React element is part of a `render` body, it will be evaluated and rendered. Unlike Angular's `ng-if`, there is no attribute that can prevent an element from being rendered.
