@@ -38,6 +38,10 @@
 
 <script>window.site_api_url = "{{ site.api_url }}";</script>
 <script type="text/javascript" src="/dist/vendor.js"></script>
+<script type="text/javascript">
+window.initMaps = function () {};
+Raven.config('https://e0a74360af9e49b7ad43b4ded11a4359@app.getsentry.com/70270').install();
+</script>
 <script type="text/javascript" src="/dist/site.js"></script>
 <script async
         defer
