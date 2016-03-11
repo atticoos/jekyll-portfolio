@@ -23,6 +23,7 @@
     "fluid-labels": "~0.1.1",
     "masonry": "~3.3.2",
     "waypoints": "~4.0.0",
-    "jquery.lazyload": "~1.9.7"
+    "jquery.lazyload": "~1.9.7",
+    "raven-js": "~2.2.0"
   }
 }

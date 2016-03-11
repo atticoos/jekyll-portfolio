@@ -87,7 +87,14 @@
     $.post(window.site_api_url + '/contact-form', fields).done(function () {
       $('#contact-form').removeClass('pending').addClass('complete');
       $('#contact-form input[type=submit]').val('Sent!');
-    }).fail(function (err) {
+    }).fail(function (error) {
+      Raven.captureMessage('Contact form submission failed', {
+        extra: {
+          fields: fields,
+          error: error,
+          headers: error.getAllResponseHeaders()
+        }
+      });
       $('#contact-form').removeClass('pending').addClass('failed');
       $('#contact-form input[type=submit]').val('Try again');
     });
