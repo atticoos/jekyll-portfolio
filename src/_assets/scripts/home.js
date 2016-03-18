@@ -48,57 +48,57 @@
     $('.grid img').on('load', function () {
       $grid.masonry('layout');
     });
-  });
 
-  $('section.skills, section.me').waypoint({
-    handler: function () {
-      $('.site-nav nav a').removeClass('active');
-      $('.site-nav nav a.home').addClass('active');
-      $('section.me').addClass('active');
-    }
-  });
-  $('#portfolio').waypoint({
-    handler: function () {
-      $('.site-nav nav a').removeClass('active');
-      $('.site-nav nav a.portfolio').addClass('active');
-      $('section.me').removeClass('active');
-    }
-  });
-  $('#labs').waypoint({
-    handler: function () {
-      $('.site-nav nav a').removeClass('active');
-      $('.site-nav nav a.labs').addClass('active');
-      $('section.me').removeClass('active');
-      loadMaps();
-    }
-  });
-
-  $('#contact-form').submit(function (event) {
-    event.preventDefault();
-    var fields = {
-      name: $('#contact-form input[name=name]').val(),
-      email: $('#contact-form input[name=email]').val(),
-      message: $('#contact-form textarea[name=message]').val()
-    };
-
-    $('#contact-form').addClass('pending');
-    $('#contact-form input[type=submit]').val('Sending...');
-
-    $.post(window.site_api_url + '/contact-form', fields).done(function () {
-      $('#contact-form').removeClass('pending').addClass('complete');
-      $('#contact-form input[type=submit]').val('Sent!');
-    }).fail(function (error) {
-      Raven.captureMessage('Contact form submission failed', {
-        extra: {
-          fields: fields,
-          error: error,
-          headers: error.getAllResponseHeaders()
-        }
-      });
-      $('#contact-form').removeClass('pending').addClass('failed');
-      $('#contact-form input[type=submit]').val('Try again');
+    $('section.skills, section.me').waypoint({
+      handler: function () {
+        $('.site-nav nav a').removeClass('active');
+        $('.site-nav nav a.home').addClass('active');
+        $('section.me').addClass('active');
+      }
     });
-    return false;
+    $('#portfolio').waypoint({
+      handler: function () {
+        $('.site-nav nav a').removeClass('active');
+        $('.site-nav nav a.portfolio').addClass('active');
+        $('section.me').removeClass('active');
+      }
+    });
+    $('#labs').waypoint({
+      handler: function () {
+        $('.site-nav nav a').removeClass('active');
+        $('.site-nav nav a.labs').addClass('active');
+        $('section.me').removeClass('active');
+        loadMaps();
+      }
+    });
+
+    $('#contact-form').submit(function (event) {
+      event.preventDefault();
+      var fields = {
+        name: $('#contact-form input[name=name]').val(),
+        email: $('#contact-form input[name=email]').val(),
+        message: $('#contact-form textarea[name=message]').val()
+      };
+
+      $('#contact-form').addClass('pending');
+      $('#contact-form input[type=submit]').val('Sending...');
+
+      $.post(window.site_api_url + '/contact-form', fields).done(function () {
+        $('#contact-form').removeClass('pending').addClass('complete');
+        $('#contact-form input[type=submit]').val('Sent!');
+      }).fail(function (error) {
+        Raven.captureMessage('Contact form submission failed', {
+          extra: {
+            fields: fields,
+            error: error,
+            headers: error.getAllResponseHeaders()
+          }
+        });
+        $('#contact-form').removeClass('pending').addClass('failed');
+        $('#contact-form input[type=submit]').val('Try again');
+      });
+      return false;
+    });
   });
 
   // callback defined in the deferred script
