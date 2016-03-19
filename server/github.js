@@ -1,6 +1,9 @@
 'use strict';
 
 import fetch from 'node-fetch';
+import fs from 'fs';
+import ReactDOMServer from 'react-dom/server';
+import GithubActivityFeed from './react/githubActivity';
 
 const BASE_URL = 'https://api.github.com';
 
@@ -42,16 +45,33 @@ function recursivelyFetchRelevantActivity(user, totalEvents, ...relevantActivity
 }
 
 function resolveResponse (response) {
-  return events => response.json(200, events);
+  return events => response.end(
+    ReactDOMServer.renderToString(GithubActivityFeed({events}))
+  );
 }
 
 function rejectResponse (response) {
-  return error => response.status(400).json(error);
+  return error => {
+    console.log('an error', error);
+    response.json(200, error);
+  }
+}
+
+
+function getMock () {
+  return new Promise((resolve, reject) => {
+    var mock = fs.readFileSync('./MOCK.json')
+    var filter = filterRelevantActivity('PushEvent', 'PullRequestEvent');
+    var events = filter(JSON.parse(mock));
+    resolve(events);
+  });
 }
 
 export function githubActivityHandler (user) {
   return (request, response) => {
-    recursivelyFetchRelevantActivity(user, 10, 'IssueEvent', 'PushEvent')
+    response.setHeader('Content-Type', 'text/html');
+    // recursivelyFetchRelevantActivity(user, 10, 'PullRequestEvent', 'PushEvent')
+    getMock()
       .then(resolveResponse(response))
       .catch(rejectResponse(response));
   };
