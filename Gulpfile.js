@@ -5,10 +5,11 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     htmlmin = require('gulp-htmlmin'),
-    imagemin = require('gulp-imagemin'),
+    imagemin = require('gulp-image'),
     pngquant = require('imagemin-pngquant'),
     minifycss = require('gulp-minify-css'),
     autoprefixer = require('gulp-autoprefixer'),
+    parallelize = require('concurrent-transform'),
     path = require('path'),
     paths = {
       source: './src',
@@ -83,11 +84,11 @@ gulp.task('html', function () {
 
 gulp.task('images', function () {
   return gulp.src(path.join(paths.source, '_assets/images/**/*'))
-  .pipe(imagemin({
-    progressive: true,
-    svgoPlugins: [{removeViewBox: false}],
-    use: [pngquant()]
-  }))
+  .pipe(parallelize(imagemin({
+    // progressive: true,
+    // svgoPlugins: [{removeViewBox: false}],
+    // use: [pngquant()]
+  })))
   .pipe(gulp.dest(path.join(paths.dist, 'images')));
 });
 
