@@ -1,0 +1,2341 @@
+[
+  {
+    "id": "3783422235",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 16722900,
+      "name": "ipfs/ipfs",
+      "url": "https://api.github.com/repos/ipfs/ipfs"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-19T04:12:58Z",
+    "org": {
+      "id": 10536621,
+      "login": "ipfs",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/ipfs",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10536621?"
+    }
+  },
+  {
+    "id": "3783421714",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 36529854,
+      "name": "digitalocean/doctl",
+      "url": "https://api.github.com/repos/digitalocean/doctl"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-19T04:12:23Z",
+    "org": {
+      "id": 4650108,
+      "login": "digitalocean",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/digitalocean",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4650108?"
+    }
+  },
+  {
+    "id": "3783398399",
+    "type": "IssuesEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 47851629,
+      "name": "howdyai/botkit",
+      "url": "https://api.github.com/repos/howdyai/botkit"
+    },
+    "payload": {
+      "action": "opened",
+      "issue": {
+        "url": "https://api.github.com/repos/howdyai/botkit/issues/155",
+        "repository_url": "https://api.github.com/repos/howdyai/botkit",
+        "labels_url": "https://api.github.com/repos/howdyai/botkit/issues/155/labels{/name}",
+        "comments_url": "https://api.github.com/repos/howdyai/botkit/issues/155/comments",
+        "events_url": "https://api.github.com/repos/howdyai/botkit/issues/155/events",
+        "html_url": "https://github.com/howdyai/botkit/issues/155",
+        "id": 142023496,
+        "number": 155,
+        "title": "Tags and release notes",
+        "user": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "labels": [
+
+        ],
+        "state": "open",
+        "locked": false,
+        "assignee": null,
+        "milestone": null,
+        "comments": 0,
+        "created_at": "2016-03-19T03:47:37Z",
+        "updated_at": "2016-03-19T03:47:37Z",
+        "closed_at": null,
+        "body": "#### :memo: Tags & Releases :shipit:\r\n\r\nThis project is rightfully becoming very popular and is the underlying piece behind many Slackbots we see and use today. It's important for developers to keep up with the release track - Botkit contributors are great about handling bugfixes and introducing enhancements. The only problem is that it's **very hard to know what has changed between releases**.\r\n\r\n<img width=\"771\" alt=\"screen shot 2016-03-18 at 11 46 12 pm\" src=\"https://cloud.githubusercontent.com/assets/656630/13896499/a377fb60-ed63-11e5-9d04-65893eb044d0.png\">\r\n\r\n\r\nThis thread may be familiar to some -- last week we were jumping on the latest version but didn't have a great way to gloss over the changes we were inheriting.\r\n\r\n## How the community currently follow progress\r\n\r\n#### Option 1: Slack\r\n\r\n@benbrown always lets users know in Slack that a new version is out with a mention of what's changed (thanks!).\r\n\r\n<img width=\"466\" alt=\"screen shot 2016-03-18 at 11 08 50 pm\" src=\"https://cloud.githubusercontent.com/assets/656630/13896338/6f352832-ed5e-11e5-9e8b-8861b526b9d3.png\">\r\n\r\n#### Option 2: Check `package.json` followed by commit history review\r\n\r\nPeriodically check the project's package file for a newer version and then review the commit history to understand what's changed. Sometimes the summaries are self explanatory, however sometimes opening a commit or PR and reviewing the changes are necessary to understand the impact.\r\n\r\n<img width=\"557\" alt=\"screen shot 2016-03-18 at 11 12 56 pm\" src=\"https://cloud.githubusercontent.com/assets/656630/13896351/fa0a3268-ed5e-11e5-973f-c1123b7fbac9.png\">\r\n\r\n\r\n## How we follow other project progress\r\n\r\n[microsoft/react-native-code-push](https://github.com/Microsoft/react-native-code-push/releases) provides a good example of Github's Releases section. There's a summary of the release outlining new features, bugfixes, and **breaking changes**. We recognize Botkit does not always have large releases, but a couple bullet points mentioning the changes goes a long way. This way when ready to catch up to the latest version, we can just pop over to the Releases tab and see what's new.\r\n\r\n<img width=\"886\" alt=\"screen shot 2016-03-18 at 11 18 41 pm\" src=\"https://cloud.githubusercontent.com/assets/656630/13896372/c6bfadba-ed5f-11e5-873c-82ededf5202e.png\">\r\n\r\n\r\n## Different release note strategies\r\n- [microsoft/react-native-code-push](https://github.com/Microsoft/react-native-code-push/releases) - Github Releases\r\n- [github/hubot](https://github.com/github/hubot/pull/1035) - tags linking to PR's with release summaries\r\n- [angular/angularjs](https://github.com/angular/angular.js/blob/master/CHANGELOG.md) - CHANGELOG.md\r\n\r\n----\r\n\r\nTL;DR - Botkit has amazing momentum, and it would be fantastic if release notes were included on tags so the development community can follow along.\r\n"
+      }
+    },
+    "public": true,
+    "created_at": "2016-03-19T03:47:37Z",
+    "org": {
+      "id": 16260958,
+      "login": "howdyai",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/howdyai",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16260958?"
+    }
+  },
+  {
+    "id": "3781031543",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 29849956,
+      "name": "bitinn/node-fetch",
+      "url": "https://api.github.com/repos/bitinn/node-fetch"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-18T15:15:18Z"
+  },
+  {
+    "id": "3779066056",
+    "type": "PushEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 44648029,
+      "name": "ajwhite/jekyll-portfolio",
+      "url": "https://api.github.com/repos/ajwhite/jekyll-portfolio"
+    },
+    "payload": {
+      "push_id": 1026545415,
+      "size": 2,
+      "distinct_size": 2,
+      "ref": "refs/heads/master",
+      "head": "65fa9b4dd60f431b0892735d10633b1b6ce89bbb",
+      "before": "1a68a5a50610aaaf0028432b691a041ab8ce7a01",
+      "commits": [
+        {
+          "sha": "87bd24165ecdf4d34ef191ca0fe5d9361ac94f6b",
+          "author": {
+            "email": "contact@atticuswhite.com",
+            "name": "Atticus White"
+          },
+          "message": "create bindings after docready",
+          "distinct": true,
+          "url": "https://api.github.com/repos/ajwhite/jekyll-portfolio/commits/87bd24165ecdf4d34ef191ca0fe5d9361ac94f6b"
+        },
+        {
+          "sha": "65fa9b4dd60f431b0892735d10633b1b6ce89bbb",
+          "author": {
+            "email": "contact@atticuswhite.com",
+            "name": "Atticus White"
+          },
+          "message": "Merge branch 'google-undefined-fix'",
+          "distinct": true,
+          "url": "https://api.github.com/repos/ajwhite/jekyll-portfolio/commits/65fa9b4dd60f431b0892735d10633b1b6ce89bbb"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2016-03-18T05:30:35Z"
+  },
+  {
+    "id": "3779045307",
+    "type": "PullRequestEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 3122202,
+      "name": "Reactive-Extensions/RxJS",
+      "url": "https://api.github.com/repos/Reactive-Extensions/RxJS"
+    },
+    "payload": {
+      "action": "opened",
+      "number": 1173,
+      "pull_request": {
+        "url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1173",
+        "id": 63329293,
+        "html_url": "https://github.com/Reactive-Extensions/RxJS/pull/1173",
+        "diff_url": "https://github.com/Reactive-Extensions/RxJS/pull/1173.diff",
+        "patch_url": "https://github.com/Reactive-Extensions/RxJS/pull/1173.patch",
+        "issue_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1173",
+        "number": 1173,
+        "state": "open",
+        "locked": false,
+        "title": "Fix Throttle example",
+        "user": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "body": "Fixes https://github.com/Reactive-Extensions/RxJS/issues/1103 which points out an inaccuracy in the Throttle example.\r\n\r\n![screen shot 2016-03-18 at 1 19 08 am](https://cloud.githubusercontent.com/assets/656630/13869129/8b20281a-eca7-11e5-8612-ba65578f3cc8.png)\r\n",
+        "created_at": "2016-03-18T05:20:11Z",
+        "updated_at": "2016-03-18T05:20:12Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": null,
+        "assignee": null,
+        "milestone": null,
+        "commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1173/commits",
+        "review_comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1173/comments",
+        "review_comment_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1173/comments",
+        "statuses_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/55e3a3f6bebd9e350fb20415ad4132a537ff7c17",
+        "head": {
+          "label": "ajwhite:throttle-example",
+          "ref": "throttle-example",
+          "sha": "55e3a3f6bebd9e350fb20415ad4132a537ff7c17",
+          "user": {
+            "login": "ajwhite",
+            "id": 656630,
+            "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ajwhite",
+            "html_url": "https://github.com/ajwhite",
+            "followers_url": "https://api.github.com/users/ajwhite/followers",
+            "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+            "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+            "repos_url": "https://api.github.com/users/ajwhite/repos",
+            "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+            "type": "User",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 53643599,
+            "name": "RxJS",
+            "full_name": "ajwhite/RxJS",
+            "owner": {
+              "login": "ajwhite",
+              "id": 656630,
+              "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ajwhite",
+              "html_url": "https://github.com/ajwhite",
+              "followers_url": "https://api.github.com/users/ajwhite/followers",
+              "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+              "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+              "repos_url": "https://api.github.com/users/ajwhite/repos",
+              "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "private": false,
+            "html_url": "https://github.com/ajwhite/RxJS",
+            "description": "The Reactive Extensions for JavaScript",
+            "fork": true,
+            "url": "https://api.github.com/repos/ajwhite/RxJS",
+            "forks_url": "https://api.github.com/repos/ajwhite/RxJS/forks",
+            "keys_url": "https://api.github.com/repos/ajwhite/RxJS/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ajwhite/RxJS/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ajwhite/RxJS/teams",
+            "hooks_url": "https://api.github.com/repos/ajwhite/RxJS/hooks",
+            "issue_events_url": "https://api.github.com/repos/ajwhite/RxJS/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ajwhite/RxJS/events",
+            "assignees_url": "https://api.github.com/repos/ajwhite/RxJS/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ajwhite/RxJS/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ajwhite/RxJS/tags",
+            "blobs_url": "https://api.github.com/repos/ajwhite/RxJS/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ajwhite/RxJS/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ajwhite/RxJS/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ajwhite/RxJS/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ajwhite/RxJS/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ajwhite/RxJS/languages",
+            "stargazers_url": "https://api.github.com/repos/ajwhite/RxJS/stargazers",
+            "contributors_url": "https://api.github.com/repos/ajwhite/RxJS/contributors",
+            "subscribers_url": "https://api.github.com/repos/ajwhite/RxJS/subscribers",
+            "subscription_url": "https://api.github.com/repos/ajwhite/RxJS/subscription",
+            "commits_url": "https://api.github.com/repos/ajwhite/RxJS/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ajwhite/RxJS/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ajwhite/RxJS/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ajwhite/RxJS/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ajwhite/RxJS/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ajwhite/RxJS/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ajwhite/RxJS/merges",
+            "archive_url": "https://api.github.com/repos/ajwhite/RxJS/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ajwhite/RxJS/downloads",
+            "issues_url": "https://api.github.com/repos/ajwhite/RxJS/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ajwhite/RxJS/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ajwhite/RxJS/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ajwhite/RxJS/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ajwhite/RxJS/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ajwhite/RxJS/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ajwhite/RxJS/deployments",
+            "created_at": "2016-03-11T05:59:33Z",
+            "updated_at": "2016-03-11T05:59:37Z",
+            "pushed_at": "2016-03-18T05:19:06Z",
+            "git_url": "git://github.com/ajwhite/RxJS.git",
+            "ssh_url": "git@github.com:ajwhite/RxJS.git",
+            "clone_url": "https://github.com/ajwhite/RxJS.git",
+            "svn_url": "https://github.com/ajwhite/RxJS",
+            "homepage": "http://reactivex.io",
+            "size": 66535,
+            "stargazers_count": 0,
+            "watchers_count": 0,
+            "language": "JavaScript",
+            "has_issues": false,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "open_issues_count": 0,
+            "forks": 0,
+            "open_issues": 0,
+            "watchers": 0,
+            "default_branch": "master"
+          }
+        },
+        "base": {
+          "label": "Reactive-Extensions:master",
+          "ref": "master",
+          "sha": "9d6ea94244c2f40a29373f9ed6b12d951d3f2238",
+          "user": {
+            "login": "Reactive-Extensions",
+            "id": 984368,
+            "avatar_url": "https://avatars.githubusercontent.com/u/984368?v=3",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Reactive-Extensions",
+            "html_url": "https://github.com/Reactive-Extensions",
+            "followers_url": "https://api.github.com/users/Reactive-Extensions/followers",
+            "following_url": "https://api.github.com/users/Reactive-Extensions/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Reactive-Extensions/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Reactive-Extensions/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Reactive-Extensions/subscriptions",
+            "organizations_url": "https://api.github.com/users/Reactive-Extensions/orgs",
+            "repos_url": "https://api.github.com/users/Reactive-Extensions/repos",
+            "events_url": "https://api.github.com/users/Reactive-Extensions/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Reactive-Extensions/received_events",
+            "type": "Organization",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 3122202,
+            "name": "RxJS",
+            "full_name": "Reactive-Extensions/RxJS",
+            "owner": {
+              "login": "Reactive-Extensions",
+              "id": 984368,
+              "avatar_url": "https://avatars.githubusercontent.com/u/984368?v=3",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/Reactive-Extensions",
+              "html_url": "https://github.com/Reactive-Extensions",
+              "followers_url": "https://api.github.com/users/Reactive-Extensions/followers",
+              "following_url": "https://api.github.com/users/Reactive-Extensions/following{/other_user}",
+              "gists_url": "https://api.github.com/users/Reactive-Extensions/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/Reactive-Extensions/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/Reactive-Extensions/subscriptions",
+              "organizations_url": "https://api.github.com/users/Reactive-Extensions/orgs",
+              "repos_url": "https://api.github.com/users/Reactive-Extensions/repos",
+              "events_url": "https://api.github.com/users/Reactive-Extensions/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/Reactive-Extensions/received_events",
+              "type": "Organization",
+              "site_admin": false
+            },
+            "private": false,
+            "html_url": "https://github.com/Reactive-Extensions/RxJS",
+            "description": "The Reactive Extensions for JavaScript",
+            "fork": false,
+            "url": "https://api.github.com/repos/Reactive-Extensions/RxJS",
+            "forks_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/forks",
+            "keys_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/teams",
+            "hooks_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/hooks",
+            "issue_events_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/events",
+            "assignees_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/tags",
+            "blobs_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/languages",
+            "stargazers_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/stargazers",
+            "contributors_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/contributors",
+            "subscribers_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/subscribers",
+            "subscription_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/subscription",
+            "commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/merges",
+            "archive_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/downloads",
+            "issues_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/labels{/name}",
+            "releases_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/deployments",
+            "created_at": "2012-01-07T00:31:41Z",
+            "updated_at": "2016-03-18T04:51:06Z",
+            "pushed_at": "2016-03-18T05:10:53Z",
+            "git_url": "git://github.com/Reactive-Extensions/RxJS.git",
+            "ssh_url": "git@github.com:Reactive-Extensions/RxJS.git",
+            "clone_url": "https://github.com/Reactive-Extensions/RxJS.git",
+            "svn_url": "https://github.com/Reactive-Extensions/RxJS",
+            "homepage": "http://reactivex.io",
+            "size": 68294,
+            "stargazers_count": 8584,
+            "watchers_count": 8584,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "forks_count": 889,
+            "mirror_url": null,
+            "open_issues_count": 92,
+            "forks": 889,
+            "open_issues": 92,
+            "watchers": 8584,
+            "default_branch": "master"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1173"
+          },
+          "html": {
+            "href": "https://github.com/Reactive-Extensions/RxJS/pull/1173"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1173"
+          },
+          "comments": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1173/comments"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1173/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/comments{/number}"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1173/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/55e3a3f6bebd9e350fb20415ad4132a537ff7c17"
+          }
+        },
+        "merged": false,
+        "mergeable": null,
+        "mergeable_state": "unknown",
+        "merged_by": null,
+        "comments": 0,
+        "review_comments": 0,
+        "commits": 1,
+        "additions": 0,
+        "deletions": 1,
+        "changed_files": 1
+      }
+    },
+    "public": true,
+    "created_at": "2016-03-18T05:20:12Z",
+    "org": {
+      "id": 984368,
+      "login": "Reactive-Extensions",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/Reactive-Extensions",
+      "avatar_url": "https://avatars.githubusercontent.com/u/984368?"
+    }
+  },
+  {
+    "id": "3779043290",
+    "type": "CreateEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 53643599,
+      "name": "ajwhite/RxJS",
+      "url": "https://api.github.com/repos/ajwhite/RxJS"
+    },
+    "payload": {
+      "ref": "throttle-example",
+      "ref_type": "branch",
+      "master_branch": "master",
+      "description": "The Reactive Extensions for JavaScript",
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2016-03-18T05:19:07Z"
+  },
+  {
+    "id": "3779027746",
+    "type": "PullRequestEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 3122202,
+      "name": "Reactive-Extensions/RxJS",
+      "url": "https://api.github.com/repos/Reactive-Extensions/RxJS"
+    },
+    "payload": {
+      "action": "opened",
+      "number": 1172,
+      "pull_request": {
+        "url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1172",
+        "id": 63328863,
+        "html_url": "https://github.com/Reactive-Extensions/RxJS/pull/1172",
+        "diff_url": "https://github.com/Reactive-Extensions/RxJS/pull/1172.diff",
+        "patch_url": "https://github.com/Reactive-Extensions/RxJS/pull/1172.patch",
+        "issue_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1172",
+        "number": 1172,
+        "state": "open",
+        "locked": false,
+        "title": "Fix doc links for `do` sources",
+        "user": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "body": "The file links for the `do*` docs had linked to a 404. The proper location is [perf/operators/tap.js](https://github.com/Reactive-Extensions/RxJS/blob/8f12f812d497acf639588e90f74d504a9fc801ec/src/core/perf/operators/tap.js) (do's alias)",
+        "created_at": "2016-03-18T05:10:52Z",
+        "updated_at": "2016-03-18T05:10:52Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": null,
+        "assignee": null,
+        "milestone": null,
+        "commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1172/commits",
+        "review_comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1172/comments",
+        "review_comment_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1172/comments",
+        "statuses_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/68217c2d5cf7c9a744ba95daabbcdc6377efa09c",
+        "head": {
+          "label": "ajwhite:do-doc-fixes",
+          "ref": "do-doc-fixes",
+          "sha": "68217c2d5cf7c9a744ba95daabbcdc6377efa09c",
+          "user": {
+            "login": "ajwhite",
+            "id": 656630,
+            "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ajwhite",
+            "html_url": "https://github.com/ajwhite",
+            "followers_url": "https://api.github.com/users/ajwhite/followers",
+            "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+            "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+            "repos_url": "https://api.github.com/users/ajwhite/repos",
+            "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+            "type": "User",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 53643599,
+            "name": "RxJS",
+            "full_name": "ajwhite/RxJS",
+            "owner": {
+              "login": "ajwhite",
+              "id": 656630,
+              "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ajwhite",
+              "html_url": "https://github.com/ajwhite",
+              "followers_url": "https://api.github.com/users/ajwhite/followers",
+              "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+              "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+              "repos_url": "https://api.github.com/users/ajwhite/repos",
+              "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "private": false,
+            "html_url": "https://github.com/ajwhite/RxJS",
+            "description": "The Reactive Extensions for JavaScript",
+            "fork": true,
+            "url": "https://api.github.com/repos/ajwhite/RxJS",
+            "forks_url": "https://api.github.com/repos/ajwhite/RxJS/forks",
+            "keys_url": "https://api.github.com/repos/ajwhite/RxJS/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ajwhite/RxJS/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ajwhite/RxJS/teams",
+            "hooks_url": "https://api.github.com/repos/ajwhite/RxJS/hooks",
+            "issue_events_url": "https://api.github.com/repos/ajwhite/RxJS/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ajwhite/RxJS/events",
+            "assignees_url": "https://api.github.com/repos/ajwhite/RxJS/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ajwhite/RxJS/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ajwhite/RxJS/tags",
+            "blobs_url": "https://api.github.com/repos/ajwhite/RxJS/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ajwhite/RxJS/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ajwhite/RxJS/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ajwhite/RxJS/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ajwhite/RxJS/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ajwhite/RxJS/languages",
+            "stargazers_url": "https://api.github.com/repos/ajwhite/RxJS/stargazers",
+            "contributors_url": "https://api.github.com/repos/ajwhite/RxJS/contributors",
+            "subscribers_url": "https://api.github.com/repos/ajwhite/RxJS/subscribers",
+            "subscription_url": "https://api.github.com/repos/ajwhite/RxJS/subscription",
+            "commits_url": "https://api.github.com/repos/ajwhite/RxJS/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ajwhite/RxJS/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ajwhite/RxJS/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ajwhite/RxJS/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ajwhite/RxJS/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ajwhite/RxJS/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ajwhite/RxJS/merges",
+            "archive_url": "https://api.github.com/repos/ajwhite/RxJS/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ajwhite/RxJS/downloads",
+            "issues_url": "https://api.github.com/repos/ajwhite/RxJS/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ajwhite/RxJS/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ajwhite/RxJS/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ajwhite/RxJS/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ajwhite/RxJS/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ajwhite/RxJS/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ajwhite/RxJS/deployments",
+            "created_at": "2016-03-11T05:59:33Z",
+            "updated_at": "2016-03-11T05:59:37Z",
+            "pushed_at": "2016-03-18T05:09:47Z",
+            "git_url": "git://github.com/ajwhite/RxJS.git",
+            "ssh_url": "git@github.com:ajwhite/RxJS.git",
+            "clone_url": "https://github.com/ajwhite/RxJS.git",
+            "svn_url": "https://github.com/ajwhite/RxJS",
+            "homepage": "http://reactivex.io",
+            "size": 66535,
+            "stargazers_count": 0,
+            "watchers_count": 0,
+            "language": "JavaScript",
+            "has_issues": false,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "open_issues_count": 0,
+            "forks": 0,
+            "open_issues": 0,
+            "watchers": 0,
+            "default_branch": "master"
+          }
+        },
+        "base": {
+          "label": "Reactive-Extensions:master",
+          "ref": "master",
+          "sha": "9d6ea94244c2f40a29373f9ed6b12d951d3f2238",
+          "user": {
+            "login": "Reactive-Extensions",
+            "id": 984368,
+            "avatar_url": "https://avatars.githubusercontent.com/u/984368?v=3",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Reactive-Extensions",
+            "html_url": "https://github.com/Reactive-Extensions",
+            "followers_url": "https://api.github.com/users/Reactive-Extensions/followers",
+            "following_url": "https://api.github.com/users/Reactive-Extensions/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Reactive-Extensions/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Reactive-Extensions/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Reactive-Extensions/subscriptions",
+            "organizations_url": "https://api.github.com/users/Reactive-Extensions/orgs",
+            "repos_url": "https://api.github.com/users/Reactive-Extensions/repos",
+            "events_url": "https://api.github.com/users/Reactive-Extensions/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Reactive-Extensions/received_events",
+            "type": "Organization",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 3122202,
+            "name": "RxJS",
+            "full_name": "Reactive-Extensions/RxJS",
+            "owner": {
+              "login": "Reactive-Extensions",
+              "id": 984368,
+              "avatar_url": "https://avatars.githubusercontent.com/u/984368?v=3",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/Reactive-Extensions",
+              "html_url": "https://github.com/Reactive-Extensions",
+              "followers_url": "https://api.github.com/users/Reactive-Extensions/followers",
+              "following_url": "https://api.github.com/users/Reactive-Extensions/following{/other_user}",
+              "gists_url": "https://api.github.com/users/Reactive-Extensions/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/Reactive-Extensions/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/Reactive-Extensions/subscriptions",
+              "organizations_url": "https://api.github.com/users/Reactive-Extensions/orgs",
+              "repos_url": "https://api.github.com/users/Reactive-Extensions/repos",
+              "events_url": "https://api.github.com/users/Reactive-Extensions/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/Reactive-Extensions/received_events",
+              "type": "Organization",
+              "site_admin": false
+            },
+            "private": false,
+            "html_url": "https://github.com/Reactive-Extensions/RxJS",
+            "description": "The Reactive Extensions for JavaScript",
+            "fork": false,
+            "url": "https://api.github.com/repos/Reactive-Extensions/RxJS",
+            "forks_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/forks",
+            "keys_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/teams",
+            "hooks_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/hooks",
+            "issue_events_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/events",
+            "assignees_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/tags",
+            "blobs_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/languages",
+            "stargazers_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/stargazers",
+            "contributors_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/contributors",
+            "subscribers_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/subscribers",
+            "subscription_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/subscription",
+            "commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/merges",
+            "archive_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/downloads",
+            "issues_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/labels{/name}",
+            "releases_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/deployments",
+            "created_at": "2012-01-07T00:31:41Z",
+            "updated_at": "2016-03-18T04:51:06Z",
+            "pushed_at": "2016-03-16T17:10:37Z",
+            "git_url": "git://github.com/Reactive-Extensions/RxJS.git",
+            "ssh_url": "git@github.com:Reactive-Extensions/RxJS.git",
+            "clone_url": "https://github.com/Reactive-Extensions/RxJS.git",
+            "svn_url": "https://github.com/Reactive-Extensions/RxJS",
+            "homepage": "http://reactivex.io",
+            "size": 68294,
+            "stargazers_count": 8584,
+            "watchers_count": 8584,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "forks_count": 889,
+            "mirror_url": null,
+            "open_issues_count": 91,
+            "forks": 889,
+            "open_issues": 91,
+            "watchers": 8584,
+            "default_branch": "master"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1172"
+          },
+          "html": {
+            "href": "https://github.com/Reactive-Extensions/RxJS/pull/1172"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1172"
+          },
+          "comments": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1172/comments"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1172/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/comments{/number}"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1172/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/68217c2d5cf7c9a744ba95daabbcdc6377efa09c"
+          }
+        },
+        "merged": false,
+        "mergeable": null,
+        "mergeable_state": "unknown",
+        "merged_by": null,
+        "comments": 0,
+        "review_comments": 0,
+        "commits": 1,
+        "additions": 5,
+        "deletions": 5,
+        "changed_files": 4
+      }
+    },
+    "public": true,
+    "created_at": "2016-03-18T05:10:53Z",
+    "org": {
+      "id": 984368,
+      "login": "Reactive-Extensions",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/Reactive-Extensions",
+      "avatar_url": "https://avatars.githubusercontent.com/u/984368?"
+    }
+  },
+  {
+    "id": "3779025735",
+    "type": "CreateEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 53643599,
+      "name": "ajwhite/RxJS",
+      "url": "https://api.github.com/repos/ajwhite/RxJS"
+    },
+    "payload": {
+      "ref": "do-doc-fixes",
+      "ref_type": "branch",
+      "master_branch": "master",
+      "description": "The Reactive Extensions for JavaScript",
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2016-03-18T05:09:49Z"
+  },
+  {
+    "id": "3778993440",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 25522248,
+      "name": "bahmutov/code-snippets",
+      "url": "https://api.github.com/repos/bahmutov/code-snippets"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-18T04:51:47Z"
+  },
+  {
+    "id": "3778579256",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 2609642,
+      "name": "feathersjs/feathers",
+      "url": "https://api.github.com/repos/feathersjs/feathers"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-18T01:31:27Z",
+    "org": {
+      "id": 5321853,
+      "login": "feathersjs",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/feathersjs",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5321853?"
+    }
+  },
+  {
+    "id": "3776968284",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 17728164,
+      "name": "hashicorp/terraform",
+      "url": "https://api.github.com/repos/hashicorp/terraform"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-17T18:21:55Z",
+    "org": {
+      "id": 761456,
+      "login": "hashicorp",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/hashicorp",
+      "avatar_url": "https://avatars.githubusercontent.com/u/761456?"
+    }
+  },
+  {
+    "id": "3776959771",
+    "type": "IssueCommentEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 22411174,
+      "name": "sebmarkbage/ecmascript-rest-spread",
+      "url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread"
+    },
+    "payload": {
+      "action": "created",
+      "issue": {
+        "url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread/issues/8",
+        "repository_url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread",
+        "labels_url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread/issues/8/labels{/name}",
+        "comments_url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread/issues/8/comments",
+        "events_url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread/issues/8/events",
+        "html_url": "https://github.com/sebmarkbage/ecmascript-rest-spread/pull/8",
+        "id": 118079232,
+        "number": 8,
+        "title": "Update Babel's plugin link in README.md",
+        "user": {
+          "login": "mhujer",
+          "id": 353372,
+          "avatar_url": "https://avatars.githubusercontent.com/u/353372?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/mhujer",
+          "html_url": "https://github.com/mhujer",
+          "followers_url": "https://api.github.com/users/mhujer/followers",
+          "following_url": "https://api.github.com/users/mhujer/following{/other_user}",
+          "gists_url": "https://api.github.com/users/mhujer/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/mhujer/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/mhujer/subscriptions",
+          "organizations_url": "https://api.github.com/users/mhujer/orgs",
+          "repos_url": "https://api.github.com/users/mhujer/repos",
+          "events_url": "https://api.github.com/users/mhujer/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/mhujer/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "labels": [
+
+        ],
+        "state": "open",
+        "locked": false,
+        "assignee": null,
+        "milestone": null,
+        "comments": 2,
+        "created_at": "2015-11-20T16:44:05Z",
+        "updated_at": "2016-03-17T18:20:11Z",
+        "closed_at": null,
+        "pull_request": {
+          "url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread/pulls/8",
+          "html_url": "https://github.com/sebmarkbage/ecmascript-rest-spread/pull/8",
+          "diff_url": "https://github.com/sebmarkbage/ecmascript-rest-spread/pull/8.diff",
+          "patch_url": "https://github.com/sebmarkbage/ecmascript-rest-spread/pull/8.patch"
+        },
+        "body": ""
+      },
+      "comment": {
+        "url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread/issues/comments/198014034",
+        "html_url": "https://github.com/sebmarkbage/ecmascript-rest-spread/pull/8#issuecomment-198014034",
+        "issue_url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread/issues/8",
+        "id": 198014034,
+        "user": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2016-03-17T18:20:11Z",
+        "updated_at": "2016-03-17T18:20:11Z",
+        "body": "+1, just forked and created a branch and realized there's two PRs addressing this already"
+      }
+    },
+    "public": true,
+    "created_at": "2016-03-17T18:20:11Z"
+  },
+  {
+    "id": "3776952860",
+    "type": "CreateEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 54141245,
+      "name": "ajwhite/ecmascript-rest-spread",
+      "url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread"
+    },
+    "payload": {
+      "ref": "babel-link",
+      "ref_type": "branch",
+      "master_branch": "master",
+      "description": "Rest/Spread Properties for ECMAScript",
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2016-03-17T18:18:46Z"
+  },
+  {
+    "id": "3776944677",
+    "type": "ForkEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 22411174,
+      "name": "sebmarkbage/ecmascript-rest-spread",
+      "url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread"
+    },
+    "payload": {
+      "forkee": {
+        "id": 54141245,
+        "name": "ecmascript-rest-spread",
+        "full_name": "ajwhite/ecmascript-rest-spread",
+        "owner": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "private": false,
+        "html_url": "https://github.com/ajwhite/ecmascript-rest-spread",
+        "description": "Rest/Spread Properties for ECMAScript",
+        "fork": true,
+        "url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread",
+        "forks_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/forks",
+        "keys_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/keys{/key_id}",
+        "collaborators_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/collaborators{/collaborator}",
+        "teams_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/teams",
+        "hooks_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/hooks",
+        "issue_events_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/issues/events{/number}",
+        "events_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/events",
+        "assignees_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/assignees{/user}",
+        "branches_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/branches{/branch}",
+        "tags_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/tags",
+        "blobs_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/git/blobs{/sha}",
+        "git_tags_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/git/tags{/sha}",
+        "git_refs_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/git/refs{/sha}",
+        "trees_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/git/trees{/sha}",
+        "statuses_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/statuses/{sha}",
+        "languages_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/languages",
+        "stargazers_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/stargazers",
+        "contributors_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/contributors",
+        "subscribers_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/subscribers",
+        "subscription_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/subscription",
+        "commits_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/commits{/sha}",
+        "git_commits_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/git/commits{/sha}",
+        "comments_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/comments{/number}",
+        "issue_comment_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/issues/comments{/number}",
+        "contents_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/contents/{+path}",
+        "compare_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/compare/{base}...{head}",
+        "merges_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/merges",
+        "archive_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/{archive_format}{/ref}",
+        "downloads_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/downloads",
+        "issues_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/issues{/number}",
+        "pulls_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/pulls{/number}",
+        "milestones_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/milestones{/number}",
+        "notifications_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/notifications{?since,all,participating}",
+        "labels_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/labels{/name}",
+        "releases_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/releases{/id}",
+        "deployments_url": "https://api.github.com/repos/ajwhite/ecmascript-rest-spread/deployments",
+        "created_at": "2016-03-17T18:17:08Z",
+        "updated_at": "2016-03-17T18:16:48Z",
+        "pushed_at": "2016-02-29T18:09:49Z",
+        "git_url": "git://github.com/ajwhite/ecmascript-rest-spread.git",
+        "ssh_url": "git@github.com:ajwhite/ecmascript-rest-spread.git",
+        "clone_url": "https://github.com/ajwhite/ecmascript-rest-spread.git",
+        "svn_url": "https://github.com/ajwhite/ecmascript-rest-spread",
+        "homepage": null,
+        "size": 39,
+        "stargazers_count": 0,
+        "watchers_count": 0,
+        "language": null,
+        "has_issues": false,
+        "has_downloads": true,
+        "has_wiki": true,
+        "has_pages": false,
+        "forks_count": 0,
+        "mirror_url": null,
+        "open_issues_count": 0,
+        "forks": 0,
+        "open_issues": 0,
+        "watchers": 0,
+        "default_branch": "master",
+        "public": true
+      }
+    },
+    "public": true,
+    "created_at": "2016-03-17T18:17:09Z"
+  },
+  {
+    "id": "3776942830",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 22411174,
+      "name": "sebmarkbage/ecmascript-rest-spread",
+      "url": "https://api.github.com/repos/sebmarkbage/ecmascript-rest-spread"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-17T18:16:49Z"
+  },
+  {
+    "id": "3772662362",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 27050722,
+      "name": "motdotla/node-lambda",
+      "url": "https://api.github.com/repos/motdotla/node-lambda"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-16T21:54:48Z"
+  },
+  {
+    "id": "3771744193",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 39789455,
+      "name": "lelandrichardson/react_native_animation_examples",
+      "url": "https://api.github.com/repos/lelandrichardson/react_native_animation_examples"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-16T18:35:37Z"
+  },
+  {
+    "id": "3770821716",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 14535711,
+      "name": "slackhq/slack-api-docs",
+      "url": "https://api.github.com/repos/slackhq/slack-api-docs"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-16T15:44:10Z",
+    "org": {
+      "id": 6911160,
+      "login": "slackhq",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/slackhq",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6911160?"
+    }
+  },
+  {
+    "id": "3768237556",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 52897468,
+      "name": "kazzkiq/balloon.css",
+      "url": "https://api.github.com/repos/kazzkiq/balloon.css"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-16T03:11:36Z"
+  },
+  {
+    "id": "3762070887",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 5101141,
+      "name": "stedolan/jq",
+      "url": "https://api.github.com/repos/stedolan/jq"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-14T22:18:36Z"
+  },
+  {
+    "id": "3759524610",
+    "type": "IssuesEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 47232336,
+      "name": "robinpowered/react-native-device-battery",
+      "url": "https://api.github.com/repos/robinpowered/react-native-device-battery"
+    },
+    "payload": {
+      "action": "opened",
+      "issue": {
+        "url": "https://api.github.com/repos/robinpowered/react-native-device-battery/issues/2",
+        "repository_url": "https://api.github.com/repos/robinpowered/react-native-device-battery",
+        "labels_url": "https://api.github.com/repos/robinpowered/react-native-device-battery/issues/2/labels{/name}",
+        "comments_url": "https://api.github.com/repos/robinpowered/react-native-device-battery/issues/2/comments",
+        "events_url": "https://api.github.com/repos/robinpowered/react-native-device-battery/issues/2/events",
+        "html_url": "https://github.com/robinpowered/react-native-device-battery/issues/2",
+        "id": 140677230,
+        "number": 2,
+        "title": "Update instructions to reflect package arguments",
+        "user": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "labels": [
+
+        ],
+        "state": "open",
+        "locked": false,
+        "assignee": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "milestone": null,
+        "comments": 0,
+        "created_at": "2016-03-14T13:45:30Z",
+        "updated_at": "2016-03-14T13:45:30Z",
+        "closed_at": null,
+        "body": "Currently the instructions call for `new DeviceBatteryPackage()`.\r\n\r\nIt should be `new DeviceBatteryPackage(this)`.\r\n\r\nDiscovered in https://github.com/robinpowered/react-native-device-battery/issues/1"
+      }
+    },
+    "public": true,
+    "created_at": "2016-03-14T13:45:30Z",
+    "org": {
+      "id": 3586215,
+      "login": "robinpowered",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/robinpowered",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3586215?"
+    }
+  },
+  {
+    "id": "3759519571",
+    "type": "IssueCommentEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 47232336,
+      "name": "robinpowered/react-native-device-battery",
+      "url": "https://api.github.com/repos/robinpowered/react-native-device-battery"
+    },
+    "payload": {
+      "action": "created",
+      "issue": {
+        "url": "https://api.github.com/repos/robinpowered/react-native-device-battery/issues/1",
+        "repository_url": "https://api.github.com/repos/robinpowered/react-native-device-battery",
+        "labels_url": "https://api.github.com/repos/robinpowered/react-native-device-battery/issues/1/labels{/name}",
+        "comments_url": "https://api.github.com/repos/robinpowered/react-native-device-battery/issues/1/comments",
+        "events_url": "https://api.github.com/repos/robinpowered/react-native-device-battery/issues/1/events",
+        "html_url": "https://github.com/robinpowered/react-native-device-battery/issues/1",
+        "id": 125412293,
+        "number": 1,
+        "title": "Error during compilation",
+        "user": {
+          "login": "tittoassini",
+          "id": 22721,
+          "avatar_url": "https://avatars.githubusercontent.com/u/22721?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/tittoassini",
+          "html_url": "https://github.com/tittoassini",
+          "followers_url": "https://api.github.com/users/tittoassini/followers",
+          "following_url": "https://api.github.com/users/tittoassini/following{/other_user}",
+          "gists_url": "https://api.github.com/users/tittoassini/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/tittoassini/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/tittoassini/subscriptions",
+          "organizations_url": "https://api.github.com/users/tittoassini/orgs",
+          "repos_url": "https://api.github.com/users/tittoassini/repos",
+          "events_url": "https://api.github.com/users/tittoassini/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/tittoassini/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "labels": [
+          {
+            "url": "https://api.github.com/repos/robinpowered/react-native-device-battery/labels/bug",
+            "name": "bug",
+            "color": "fc2929"
+          }
+        ],
+        "state": "open",
+        "locked": false,
+        "assignee": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "milestone": null,
+        "comments": 2,
+        "created_at": "2016-01-07T15:13:55Z",
+        "updated_at": "2016-03-14T13:44:24Z",
+        "closed_at": null,
+        "body": "/Users/titto/workspace/babbo/android/app/src/main/java/com/babbo/MainActivity.java:34: error: constructor DeviceBatteryPackage in class DeviceBatteryPackage cannot be applied to given types;\r\n                .addPackage(new DeviceBatteryPackage())\r\n                            ^\r\n  required: Activity\r\n  found: no arguments\r\n  reason: actual and formal argument lists differ in length\r\n1 error\r\n:app:compileDebugJavaWithJavac FAILED\r\n"
+      },
+      "comment": {
+        "url": "https://api.github.com/repos/robinpowered/react-native-device-battery/issues/comments/196315937",
+        "html_url": "https://github.com/robinpowered/react-native-device-battery/issues/1#issuecomment-196315937",
+        "issue_url": "https://api.github.com/repos/robinpowered/react-native-device-battery/issues/1",
+        "id": 196315937,
+        "user": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2016-03-14T13:44:24Z",
+        "updated_at": "2016-03-14T13:44:24Z",
+        "body": "Thanks for taking a look @happyEgg, that appears to be precisely the issue. \r\n\r\nUpon reviewing our instructions, it appears that we aren't showing this argument"
+      }
+    },
+    "public": true,
+    "created_at": "2016-03-14T13:44:24Z",
+    "org": {
+      "id": 3586215,
+      "login": "robinpowered",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/robinpowered",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3586215?"
+    }
+  },
+  {
+    "id": "3757558980",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 49238912,
+      "name": "mattkrick/redux-optimistic-ui",
+      "url": "https://api.github.com/repos/mattkrick/redux-optimistic-ui"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-14T01:25:14Z"
+  },
+  {
+    "id": "3757543915",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 38405292,
+      "name": "acdlite/flux-standard-action",
+      "url": "https://api.github.com/repos/acdlite/flux-standard-action"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-14T01:15:06Z"
+  },
+  {
+    "id": "3757351612",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 53762731,
+      "name": "DrewML/GifHub",
+      "url": "https://api.github.com/repos/DrewML/GifHub"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2016-03-13T22:45:16Z"
+  },
+  {
+    "id": "3757141483",
+    "type": "CreateEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 53643599,
+      "name": "ajwhite/RxJS",
+      "url": "https://api.github.com/repos/ajwhite/RxJS"
+    },
+    "payload": {
+      "ref": "docs-concat-unittests",
+      "ref_type": "branch",
+      "master_branch": "master",
+      "description": "The Reactive Extensions for JavaScript",
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2016-03-13T20:15:49Z"
+  },
+  {
+    "id": "3757099205",
+    "type": "PullRequestEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 3122202,
+      "name": "Reactive-Extensions/RxJS",
+      "url": "https://api.github.com/repos/Reactive-Extensions/RxJS"
+    },
+    "payload": {
+      "action": "opened",
+      "number": 1163,
+      "pull_request": {
+        "url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1163",
+        "id": 62680830,
+        "html_url": "https://github.com/Reactive-Extensions/RxJS/pull/1163",
+        "diff_url": "https://github.com/Reactive-Extensions/RxJS/pull/1163.diff",
+        "patch_url": "https://github.com/Reactive-Extensions/RxJS/pull/1163.patch",
+        "issue_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1163",
+        "number": 1163,
+        "state": "open",
+        "locked": false,
+        "title": "Fix doc formatting in average documentation",
+        "user": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "body": "There was a missing code highlight segment\r\n\r\n![screen shot 2016-03-13 at 3 43 44 pm](https://cloud.githubusercontent.com/assets/656630/13730881/7a74c322-e932-11e5-9aa8-c82bb614bffa.png)\r\n",
+        "created_at": "2016-03-13T19:44:42Z",
+        "updated_at": "2016-03-13T19:44:42Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": null,
+        "assignee": null,
+        "milestone": null,
+        "commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1163/commits",
+        "review_comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1163/comments",
+        "review_comment_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1163/comments",
+        "statuses_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/626ee7661ec454b55a654e93e65f8e344a01950e",
+        "head": {
+          "label": "ajwhite:docs-average-format",
+          "ref": "docs-average-format",
+          "sha": "626ee7661ec454b55a654e93e65f8e344a01950e",
+          "user": {
+            "login": "ajwhite",
+            "id": 656630,
+            "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ajwhite",
+            "html_url": "https://github.com/ajwhite",
+            "followers_url": "https://api.github.com/users/ajwhite/followers",
+            "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+            "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+            "repos_url": "https://api.github.com/users/ajwhite/repos",
+            "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+            "type": "User",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 53643599,
+            "name": "RxJS",
+            "full_name": "ajwhite/RxJS",
+            "owner": {
+              "login": "ajwhite",
+              "id": 656630,
+              "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ajwhite",
+              "html_url": "https://github.com/ajwhite",
+              "followers_url": "https://api.github.com/users/ajwhite/followers",
+              "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+              "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+              "repos_url": "https://api.github.com/users/ajwhite/repos",
+              "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "private": false,
+            "html_url": "https://github.com/ajwhite/RxJS",
+            "description": "The Reactive Extensions for JavaScript",
+            "fork": true,
+            "url": "https://api.github.com/repos/ajwhite/RxJS",
+            "forks_url": "https://api.github.com/repos/ajwhite/RxJS/forks",
+            "keys_url": "https://api.github.com/repos/ajwhite/RxJS/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ajwhite/RxJS/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ajwhite/RxJS/teams",
+            "hooks_url": "https://api.github.com/repos/ajwhite/RxJS/hooks",
+            "issue_events_url": "https://api.github.com/repos/ajwhite/RxJS/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ajwhite/RxJS/events",
+            "assignees_url": "https://api.github.com/repos/ajwhite/RxJS/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ajwhite/RxJS/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ajwhite/RxJS/tags",
+            "blobs_url": "https://api.github.com/repos/ajwhite/RxJS/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ajwhite/RxJS/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ajwhite/RxJS/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ajwhite/RxJS/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ajwhite/RxJS/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ajwhite/RxJS/languages",
+            "stargazers_url": "https://api.github.com/repos/ajwhite/RxJS/stargazers",
+            "contributors_url": "https://api.github.com/repos/ajwhite/RxJS/contributors",
+            "subscribers_url": "https://api.github.com/repos/ajwhite/RxJS/subscribers",
+            "subscription_url": "https://api.github.com/repos/ajwhite/RxJS/subscription",
+            "commits_url": "https://api.github.com/repos/ajwhite/RxJS/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ajwhite/RxJS/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ajwhite/RxJS/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ajwhite/RxJS/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ajwhite/RxJS/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ajwhite/RxJS/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ajwhite/RxJS/merges",
+            "archive_url": "https://api.github.com/repos/ajwhite/RxJS/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ajwhite/RxJS/downloads",
+            "issues_url": "https://api.github.com/repos/ajwhite/RxJS/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ajwhite/RxJS/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ajwhite/RxJS/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ajwhite/RxJS/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ajwhite/RxJS/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ajwhite/RxJS/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ajwhite/RxJS/deployments",
+            "created_at": "2016-03-11T05:59:33Z",
+            "updated_at": "2016-03-11T05:59:37Z",
+            "pushed_at": "2016-03-13T19:44:06Z",
+            "git_url": "git://github.com/ajwhite/RxJS.git",
+            "ssh_url": "git@github.com:ajwhite/RxJS.git",
+            "clone_url": "https://github.com/ajwhite/RxJS.git",
+            "svn_url": "https://github.com/ajwhite/RxJS",
+            "homepage": "http://reactivex.io",
+            "size": 67016,
+            "stargazers_count": 0,
+            "watchers_count": 0,
+            "language": "JavaScript",
+            "has_issues": false,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "open_issues_count": 0,
+            "forks": 0,
+            "open_issues": 0,
+            "watchers": 0,
+            "default_branch": "master"
+          }
+        },
+        "base": {
+          "label": "Reactive-Extensions:master",
+          "ref": "master",
+          "sha": "4f5c8852f59190bf527228513a8da37821d5ed29",
+          "user": {
+            "login": "Reactive-Extensions",
+            "id": 984368,
+            "avatar_url": "https://avatars.githubusercontent.com/u/984368?v=3",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Reactive-Extensions",
+            "html_url": "https://github.com/Reactive-Extensions",
+            "followers_url": "https://api.github.com/users/Reactive-Extensions/followers",
+            "following_url": "https://api.github.com/users/Reactive-Extensions/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Reactive-Extensions/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Reactive-Extensions/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Reactive-Extensions/subscriptions",
+            "organizations_url": "https://api.github.com/users/Reactive-Extensions/orgs",
+            "repos_url": "https://api.github.com/users/Reactive-Extensions/repos",
+            "events_url": "https://api.github.com/users/Reactive-Extensions/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Reactive-Extensions/received_events",
+            "type": "Organization",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 3122202,
+            "name": "RxJS",
+            "full_name": "Reactive-Extensions/RxJS",
+            "owner": {
+              "login": "Reactive-Extensions",
+              "id": 984368,
+              "avatar_url": "https://avatars.githubusercontent.com/u/984368?v=3",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/Reactive-Extensions",
+              "html_url": "https://github.com/Reactive-Extensions",
+              "followers_url": "https://api.github.com/users/Reactive-Extensions/followers",
+              "following_url": "https://api.github.com/users/Reactive-Extensions/following{/other_user}",
+              "gists_url": "https://api.github.com/users/Reactive-Extensions/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/Reactive-Extensions/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/Reactive-Extensions/subscriptions",
+              "organizations_url": "https://api.github.com/users/Reactive-Extensions/orgs",
+              "repos_url": "https://api.github.com/users/Reactive-Extensions/repos",
+              "events_url": "https://api.github.com/users/Reactive-Extensions/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/Reactive-Extensions/received_events",
+              "type": "Organization",
+              "site_admin": false
+            },
+            "private": false,
+            "html_url": "https://github.com/Reactive-Extensions/RxJS",
+            "description": "The Reactive Extensions for JavaScript",
+            "fork": false,
+            "url": "https://api.github.com/repos/Reactive-Extensions/RxJS",
+            "forks_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/forks",
+            "keys_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/teams",
+            "hooks_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/hooks",
+            "issue_events_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/events",
+            "assignees_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/tags",
+            "blobs_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/languages",
+            "stargazers_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/stargazers",
+            "contributors_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/contributors",
+            "subscribers_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/subscribers",
+            "subscription_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/subscription",
+            "commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/merges",
+            "archive_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/downloads",
+            "issues_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/labels{/name}",
+            "releases_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/deployments",
+            "created_at": "2012-01-07T00:31:41Z",
+            "updated_at": "2016-03-13T19:13:33Z",
+            "pushed_at": "2016-03-13T19:44:42Z",
+            "git_url": "git://github.com/Reactive-Extensions/RxJS.git",
+            "ssh_url": "git@github.com:Reactive-Extensions/RxJS.git",
+            "clone_url": "https://github.com/Reactive-Extensions/RxJS.git",
+            "svn_url": "https://github.com/Reactive-Extensions/RxJS",
+            "homepage": "http://reactivex.io",
+            "size": 69021,
+            "stargazers_count": 8513,
+            "watchers_count": 8513,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "forks_count": 878,
+            "mirror_url": null,
+            "open_issues_count": 90,
+            "forks": 878,
+            "open_issues": 90,
+            "watchers": 8513,
+            "default_branch": "master"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1163"
+          },
+          "html": {
+            "href": "https://github.com/Reactive-Extensions/RxJS/pull/1163"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1163"
+          },
+          "comments": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1163/comments"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1163/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/comments{/number}"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1163/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/626ee7661ec454b55a654e93e65f8e344a01950e"
+          }
+        },
+        "merged": false,
+        "mergeable": null,
+        "mergeable_state": "unknown",
+        "merged_by": null,
+        "comments": 0,
+        "review_comments": 0,
+        "commits": 1,
+        "additions": 1,
+        "deletions": 1,
+        "changed_files": 1
+      }
+    },
+    "public": true,
+    "created_at": "2016-03-13T19:44:42Z",
+    "org": {
+      "id": 984368,
+      "login": "Reactive-Extensions",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/Reactive-Extensions",
+      "avatar_url": "https://avatars.githubusercontent.com/u/984368?"
+    }
+  },
+  {
+    "id": "3757098309",
+    "type": "CreateEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 53643599,
+      "name": "ajwhite/RxJS",
+      "url": "https://api.github.com/repos/ajwhite/RxJS"
+    },
+    "payload": {
+      "ref": "docs-average-format",
+      "ref_type": "branch",
+      "master_branch": "master",
+      "description": "The Reactive Extensions for JavaScript",
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2016-03-13T19:44:06Z"
+  },
+  {
+    "id": "3757096083",
+    "type": "PullRequestEvent",
+    "actor": {
+      "id": 656630,
+      "login": "ajwhite",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ajwhite",
+      "avatar_url": "https://avatars.githubusercontent.com/u/656630?"
+    },
+    "repo": {
+      "id": 3122202,
+      "name": "Reactive-Extensions/RxJS",
+      "url": "https://api.github.com/repos/Reactive-Extensions/RxJS"
+    },
+    "payload": {
+      "action": "opened",
+      "number": 1162,
+      "pull_request": {
+        "url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1162",
+        "id": 62680770,
+        "html_url": "https://github.com/Reactive-Extensions/RxJS/pull/1162",
+        "diff_url": "https://github.com/Reactive-Extensions/RxJS/pull/1162.diff",
+        "patch_url": "https://github.com/Reactive-Extensions/RxJS/pull/1162.patch",
+        "issue_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1162",
+        "number": 1162,
+        "state": "open",
+        "locked": false,
+        "title": "Fix docs for ambproto unit test link",
+        "user": {
+          "login": "ajwhite",
+          "id": 656630,
+          "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ajwhite",
+          "html_url": "https://github.com/ajwhite",
+          "followers_url": "https://api.github.com/users/ajwhite/followers",
+          "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+          "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+          "repos_url": "https://api.github.com/users/ajwhite/repos",
+          "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "body": "Unit test links in the `ambproto` documentation were linking to a 404. This updates the link to what seems like the proper unit test for the module https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/amb.js",
+        "created_at": "2016-03-13T19:42:26Z",
+        "updated_at": "2016-03-13T19:42:26Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": null,
+        "assignee": null,
+        "milestone": null,
+        "commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1162/commits",
+        "review_comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1162/comments",
+        "review_comment_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1162/comments",
+        "statuses_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/13246a8411f06d7ecec3491619aa87ac05a56a23",
+        "head": {
+          "label": "ajwhite:docs-ambproto",
+          "ref": "docs-ambproto",
+          "sha": "13246a8411f06d7ecec3491619aa87ac05a56a23",
+          "user": {
+            "login": "ajwhite",
+            "id": 656630,
+            "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ajwhite",
+            "html_url": "https://github.com/ajwhite",
+            "followers_url": "https://api.github.com/users/ajwhite/followers",
+            "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+            "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+            "repos_url": "https://api.github.com/users/ajwhite/repos",
+            "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+            "type": "User",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 53643599,
+            "name": "RxJS",
+            "full_name": "ajwhite/RxJS",
+            "owner": {
+              "login": "ajwhite",
+              "id": 656630,
+              "avatar_url": "https://avatars.githubusercontent.com/u/656630?v=3",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ajwhite",
+              "html_url": "https://github.com/ajwhite",
+              "followers_url": "https://api.github.com/users/ajwhite/followers",
+              "following_url": "https://api.github.com/users/ajwhite/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ajwhite/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ajwhite/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ajwhite/subscriptions",
+              "organizations_url": "https://api.github.com/users/ajwhite/orgs",
+              "repos_url": "https://api.github.com/users/ajwhite/repos",
+              "events_url": "https://api.github.com/users/ajwhite/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ajwhite/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "private": false,
+            "html_url": "https://github.com/ajwhite/RxJS",
+            "description": "The Reactive Extensions for JavaScript",
+            "fork": true,
+            "url": "https://api.github.com/repos/ajwhite/RxJS",
+            "forks_url": "https://api.github.com/repos/ajwhite/RxJS/forks",
+            "keys_url": "https://api.github.com/repos/ajwhite/RxJS/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/ajwhite/RxJS/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/ajwhite/RxJS/teams",
+            "hooks_url": "https://api.github.com/repos/ajwhite/RxJS/hooks",
+            "issue_events_url": "https://api.github.com/repos/ajwhite/RxJS/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/ajwhite/RxJS/events",
+            "assignees_url": "https://api.github.com/repos/ajwhite/RxJS/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/ajwhite/RxJS/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/ajwhite/RxJS/tags",
+            "blobs_url": "https://api.github.com/repos/ajwhite/RxJS/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/ajwhite/RxJS/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/ajwhite/RxJS/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/ajwhite/RxJS/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/ajwhite/RxJS/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/ajwhite/RxJS/languages",
+            "stargazers_url": "https://api.github.com/repos/ajwhite/RxJS/stargazers",
+            "contributors_url": "https://api.github.com/repos/ajwhite/RxJS/contributors",
+            "subscribers_url": "https://api.github.com/repos/ajwhite/RxJS/subscribers",
+            "subscription_url": "https://api.github.com/repos/ajwhite/RxJS/subscription",
+            "commits_url": "https://api.github.com/repos/ajwhite/RxJS/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/ajwhite/RxJS/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/ajwhite/RxJS/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/ajwhite/RxJS/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/ajwhite/RxJS/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/ajwhite/RxJS/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/ajwhite/RxJS/merges",
+            "archive_url": "https://api.github.com/repos/ajwhite/RxJS/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/ajwhite/RxJS/downloads",
+            "issues_url": "https://api.github.com/repos/ajwhite/RxJS/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/ajwhite/RxJS/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/ajwhite/RxJS/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/ajwhite/RxJS/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/ajwhite/RxJS/labels{/name}",
+            "releases_url": "https://api.github.com/repos/ajwhite/RxJS/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/ajwhite/RxJS/deployments",
+            "created_at": "2016-03-11T05:59:33Z",
+            "updated_at": "2016-03-11T05:59:37Z",
+            "pushed_at": "2016-03-13T19:41:36Z",
+            "git_url": "git://github.com/ajwhite/RxJS.git",
+            "ssh_url": "git@github.com:ajwhite/RxJS.git",
+            "clone_url": "https://github.com/ajwhite/RxJS.git",
+            "svn_url": "https://github.com/ajwhite/RxJS",
+            "homepage": "http://reactivex.io",
+            "size": 67016,
+            "stargazers_count": 0,
+            "watchers_count": 0,
+            "language": "JavaScript",
+            "has_issues": false,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "forks_count": 0,
+            "mirror_url": null,
+            "open_issues_count": 0,
+            "forks": 0,
+            "open_issues": 0,
+            "watchers": 0,
+            "default_branch": "master"
+          }
+        },
+        "base": {
+          "label": "Reactive-Extensions:master",
+          "ref": "master",
+          "sha": "4f5c8852f59190bf527228513a8da37821d5ed29",
+          "user": {
+            "login": "Reactive-Extensions",
+            "id": 984368,
+            "avatar_url": "https://avatars.githubusercontent.com/u/984368?v=3",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Reactive-Extensions",
+            "html_url": "https://github.com/Reactive-Extensions",
+            "followers_url": "https://api.github.com/users/Reactive-Extensions/followers",
+            "following_url": "https://api.github.com/users/Reactive-Extensions/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Reactive-Extensions/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Reactive-Extensions/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Reactive-Extensions/subscriptions",
+            "organizations_url": "https://api.github.com/users/Reactive-Extensions/orgs",
+            "repos_url": "https://api.github.com/users/Reactive-Extensions/repos",
+            "events_url": "https://api.github.com/users/Reactive-Extensions/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Reactive-Extensions/received_events",
+            "type": "Organization",
+            "site_admin": false
+          },
+          "repo": {
+            "id": 3122202,
+            "name": "RxJS",
+            "full_name": "Reactive-Extensions/RxJS",
+            "owner": {
+              "login": "Reactive-Extensions",
+              "id": 984368,
+              "avatar_url": "https://avatars.githubusercontent.com/u/984368?v=3",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/Reactive-Extensions",
+              "html_url": "https://github.com/Reactive-Extensions",
+              "followers_url": "https://api.github.com/users/Reactive-Extensions/followers",
+              "following_url": "https://api.github.com/users/Reactive-Extensions/following{/other_user}",
+              "gists_url": "https://api.github.com/users/Reactive-Extensions/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/Reactive-Extensions/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/Reactive-Extensions/subscriptions",
+              "organizations_url": "https://api.github.com/users/Reactive-Extensions/orgs",
+              "repos_url": "https://api.github.com/users/Reactive-Extensions/repos",
+              "events_url": "https://api.github.com/users/Reactive-Extensions/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/Reactive-Extensions/received_events",
+              "type": "Organization",
+              "site_admin": false
+            },
+            "private": false,
+            "html_url": "https://github.com/Reactive-Extensions/RxJS",
+            "description": "The Reactive Extensions for JavaScript",
+            "fork": false,
+            "url": "https://api.github.com/repos/Reactive-Extensions/RxJS",
+            "forks_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/forks",
+            "keys_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/keys{/key_id}",
+            "collaborators_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/collaborators{/collaborator}",
+            "teams_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/teams",
+            "hooks_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/hooks",
+            "issue_events_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/events{/number}",
+            "events_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/events",
+            "assignees_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/assignees{/user}",
+            "branches_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/branches{/branch}",
+            "tags_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/tags",
+            "blobs_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/blobs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/tags{/sha}",
+            "git_refs_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/refs{/sha}",
+            "trees_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/trees{/sha}",
+            "statuses_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/{sha}",
+            "languages_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/languages",
+            "stargazers_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/stargazers",
+            "contributors_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/contributors",
+            "subscribers_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/subscribers",
+            "subscription_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/subscription",
+            "commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/commits{/sha}",
+            "git_commits_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/git/commits{/sha}",
+            "comments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/comments{/number}",
+            "issue_comment_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/comments{/number}",
+            "contents_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/contents/{+path}",
+            "compare_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/compare/{base}...{head}",
+            "merges_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/merges",
+            "archive_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/{archive_format}{/ref}",
+            "downloads_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/downloads",
+            "issues_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues{/number}",
+            "pulls_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls{/number}",
+            "milestones_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/notifications{?since,all,participating}",
+            "labels_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/labels{/name}",
+            "releases_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/releases{/id}",
+            "deployments_url": "https://api.github.com/repos/Reactive-Extensions/RxJS/deployments",
+            "created_at": "2012-01-07T00:31:41Z",
+            "updated_at": "2016-03-13T19:13:33Z",
+            "pushed_at": "2016-03-11T20:44:10Z",
+            "git_url": "git://github.com/Reactive-Extensions/RxJS.git",
+            "ssh_url": "git@github.com:Reactive-Extensions/RxJS.git",
+            "clone_url": "https://github.com/Reactive-Extensions/RxJS.git",
+            "svn_url": "https://github.com/Reactive-Extensions/RxJS",
+            "homepage": "http://reactivex.io",
+            "size": 69021,
+            "stargazers_count": 8513,
+            "watchers_count": 8513,
+            "language": "JavaScript",
+            "has_issues": true,
+            "has_downloads": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "forks_count": 878,
+            "mirror_url": null,
+            "open_issues_count": 89,
+            "forks": 878,
+            "open_issues": 89,
+            "watchers": 8513,
+            "default_branch": "master"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1162"
+          },
+          "html": {
+            "href": "https://github.com/Reactive-Extensions/RxJS/pull/1162"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1162"
+          },
+          "comments": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/issues/1162/comments"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1162/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/comments{/number}"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/pulls/1162/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/Reactive-Extensions/RxJS/statuses/13246a8411f06d7ecec3491619aa87ac05a56a23"
+          }
+        },
+        "merged": false,
+        "mergeable": null,
+        "mergeable_state": "unknown",
+        "merged_by": null,
+        "comments": 0,
+        "review_comments": 0,
+        "commits": 1,
+        "additions": 1,
+        "deletions": 1,
+        "changed_files": 1
+      }
+    },
+    "public": true,
+    "created_at": "2016-03-13T19:42:27Z",
+    "org": {
+      "id": 984368,
+      "login": "Reactive-Extensions",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/Reactive-Extensions",
+      "avatar_url": "https://avatars.githubusercontent.com/u/984368?"
+    }
+  }
+]
