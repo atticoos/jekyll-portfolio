@@ -105,9 +105,11 @@
 
     $.get('http://localhost:4050/github/activity', function (data) {
       $('#github-activity').html(data);
+      $('.intro .activity-row').show();
     });
     $.get('http://localhost:4050/github/projects', function (data) {
       $('#github-projects').html(data);
+      $('.intro .activity-row').show();
     });
     $.get('http://localhost:4050/github/stats', function (stats) {
       $('#github-repo-count').text(stats.repos);

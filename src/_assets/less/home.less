@@ -345,6 +345,11 @@ body.page-index {
     }
   }
 
+  .activity-row {
+    .make-row();
+    display: none;
+    margin-bottom: 40px;
+  }
   .activity-column {
     .make-md-column(6);
     h2 {
@@ -369,6 +374,9 @@ body.page-index {
       .content {
         margin-left: 10px;
         flex: 1;
+      }
+      &:last {
+        margin-bottom: 0;
       }
     }
     .activity {
