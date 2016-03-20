@@ -108,7 +108,12 @@
     });
     $.get('http://localhost:4050/github/projects', function (data) {
       $('#github-projects').html(data);
-    })
+    });
+    $.get('http://localhost:4050/github/stats', function (stats) {
+      $('#github-repo-count').text(stats.repos);
+      $('#github-follower-count').text(stats.followers);
+      $('#github-star-count').text(stats.stars);
+    });
   });
 
   // callback defined in the deferred script
