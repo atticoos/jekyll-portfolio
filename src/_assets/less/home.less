@@ -315,20 +315,47 @@ body.page-index {
         text-align: center;
       }
     }
-    .activity {
+    .activity,
+    .project {
       display: flex;
       flex-direction: row;
+      justify-content: flex-start;
       align-items: center;
       font-size: 18px;
       margin-bottom: 10px;
       font-weight: 300;
       .octicon {
         font-size: 22px;
-        width: 24px;
-        text-align: center;
       }
       .content {
         margin-left: 10px;
+        flex: 1;
+      }
+    }
+    .activity {
+      .octicon {
+        width: 24px;
+        text-align: center;
+      }
+    }
+    .project {
+      align-items: flex-start;
+      .stars {
+        margin-top: 4px;
+        width: 52px;
+        display: flex;
+      }
+      .count {
+        font-size: 16px;
+        margin-left: 2px;
+        text-align: center;
+        flex: 1;
+      }
+      .content {
+        margin-left: 10px;
+        a {
+          display: block;
+        }
       }
     }
   }
