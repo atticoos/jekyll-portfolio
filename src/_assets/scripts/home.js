@@ -49,7 +49,8 @@
       $grid.masonry('layout');
     });
     $('section.intro .skills').owlCarousel({
-      items: 1
+      items: 1,
+      autoHeight: true
     });
     $('section.skills, section.me').waypoint({
       handler: function () {
