@@ -1,16 +1,18 @@
 'use strict';
 
 import fetch from 'node-fetch';
+import Promise from 'bluebird';
 import * as Redis from './redis';
 
 const BASE_URL = 'https://api.github.com';
+const CACHE_TTL = 60 * 30; // 30 minutes
 
 export function getActivity (user, totalEvents, ...relevantActivity) {
   var cacheKey = `github/${user}/activity`;
   return Redis.getJSON(cacheKey)
     .catch(() => {
       return recursivelyFetchRelevantActivity(user, totalEvents, ...relevantActivity).then(results => {
-        Redis.setJSON(cacheKey, results, {expire: 60 * 30});
+        Redis.setJSON(cacheKey, results, CACHE_TTL);
         return results
       });
     });
@@ -20,11 +22,42 @@ export function getProjects (user, totalProjects) {
   var cacheKey = `github/${user}/repos`;
   return Redis.getJSON(cacheKey)
     .catch(() => {
-      return recursivelyFetchRepos(user, totalProjects).then(results => {
-        Redis.setJSON(cacheKey, results, {expire: 60 * 30});
+      return recursivelyFetchRepos(user).then(results => {
+        Redis.setJSON(cacheKey, results, CACHE_TTL);
         return results;
       });
+    }).then(projects => projects.slice(0, totalProjects));
+}
+
+export function getProfile (user) {
+  var cacheKey = `github/${user}`;
+  return Redis.getJSON(cacheKey)
+    .catch(() => {
+      return fetchProfile(user).then(profile => {
+        Redis.setJSON(cacheKey, profile, CACHE_TTL);
+        return profile;
+      });
     });
+}
+
+export function getStats (user) {
+  return Promise.all([
+    getProfile(user),
+    getProjects(user)
+  ]).spread(({followers, public_repos}, projects) => {
+    var stars = projects.reduce((stars, project) => stars + project.stargazers_count, 0);
+    return {
+      stars,
+      followers,
+      repos: public_repos
+    }
+  });
+}
+
+export function getTotalStars (user) {
+  return getProjects(user).then(projects => {
+    return projects.reduce((stars, projects) => stars + project.stargazers_count, 0);
+  });
 }
 
 
@@ -59,11 +92,16 @@ function recursivelyFetchRepos(user, totalRepos) {
         return combinedRepos.sort(sortByStargazers);
       });
   }
-  return request().then(projects => projects.slice(0, totalRepos));
+  return request(); //.then(projects => projects.slice(0, totalRepos));
+}
+
+function fetchProfile (user) {
+  return fetch(`${BASE_URL}/users/${user}`)
+    .then(toJson);
 }
 
 function getRemoteRepos (user, page = 1, perPage = 100) {
-  return fetch (`${BASE_URL}/users/${user}/repos?page=${page}&per_page=${perPage}`)
+  return fetch(`${BASE_URL}/users/${user}/repos?page=${page}&per_page=${perPage}`)
     .then(toJson);
 }
 

@@ -26,13 +26,13 @@ export function getJSON (key) {
   return get(key).then(data => JSON.parse(data));
 }
 
-export function set (key, value, options = {}) {
-  if (options.expire) {
-    return client.setexAsync(prefixKey(key), options.expire, value);
+export function set (key, value, cacheTtl) {
+  if (cacheTtl) {
+    return client.setexAsync(prefixKey(key), cacheTtl, value);
   }
-  return client.setAsync(prefix(key), value);
+  return client.setAsync(prefixKey(key), value);
 }
 
-export function setJSON (key, value, options = {}) {
-  return set(key, JSON.stringify(value), options);
+export function setJSON (key, value, cacheTtl) {
+  return set(key, JSON.stringify(value), cacheTtl);
 }
