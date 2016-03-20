@@ -378,7 +378,8 @@ body.page-index {
       }
       .since {
         display: block;
-        margin-top: 5px;
+        margin-top: 2px;
+        font-size: 15px;
       }
       &.pull-request {
         &.merged {
@@ -405,10 +406,13 @@ body.page-index {
         width: 52px;
         .stars,
         .forks {
-          // display: flex;
-          // justify-content: center;
-          .octicon {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          .icon {
             width: 20px;
+            text-align: center;
+            margin-right: 5px;
           }
         }
         .stars {
@@ -420,8 +424,6 @@ body.page-index {
       }
       .count {
         font-size: 16px;
-        margin-left: 2px;
-        // text-align: center;
         flex: 1;
       }
       .content {

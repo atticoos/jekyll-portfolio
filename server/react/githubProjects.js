@@ -31,11 +31,11 @@ function Stats (options, {stars, forks}) {
   return (
     div(options,
       div({className: 'stars'},
-        span({className: 'octicon octicon-star'}),
+        div({className: 'icon'}, span({className: 'octicon octicon-star'})),
         span({className: 'count'}, stars)
       ),
       div({className: 'forks'},
-        span({className: 'octicon octicon-repo-forked'}),
+        div({className: 'icon'}, span({className: 'octicon octicon-repo-forked'})),
         span({className: 'count'}, forks)
       )
     )
