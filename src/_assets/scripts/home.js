@@ -103,15 +103,15 @@
       return false;
     });
 
-    $.get('http://localhost:4050/github/activity', function (data) {
+    $.get(window.site_api_url + '/github/activity', function (data) {
       $('#github-activity').html(data);
       $('.intro .activity-row').show();
     });
-    $.get('http://localhost:4050/github/projects', function (data) {
+    $.get(window.site_api_url + '/github/projects', function (data) {
       $('#github-projects').html(data);
       $('.intro .activity-row').show();
     });
-    $.get('http://localhost:4050/github/stats', function (stats) {
+    $.get(window.site_api_url + '/github/stats', function (stats) {
       $('#github-repo-count').text(stats.repos);
       $('#github-follower-count').text(stats.followers);
       $('#github-star-count').text(stats.stars);
