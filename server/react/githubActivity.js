@@ -24,9 +24,18 @@ export default function GithubActivityFeed (props) {
   )
 }
 
+function EventActivity (options, ...children) {
+  return (
+    div({className: `activity ${options.className}`},
+      div({className: 'icon'}),
+      div({className: 'content'}, ...children)
+    )
+  );
+}
+
 function PushEventActivity ({repo, payload}) {
   return (
-    div(null,
+    EventActivity({className: 'push'},
       'I recently pushed ',
       a({
         href: commitsToUrl(repoLink(repo.name), payload),
@@ -43,7 +52,7 @@ function PushEventActivity ({repo, payload}) {
 
 function PullRequestEventActivity ({repo, payload}) {
   return (
-    div(null,
+    EventActivity({className: `pull-request ${payload.action}`},
       `I recently ${payload.action} a `,
       a({
         href: pullRequestUrl(repoLink(repo.name), payload.number)

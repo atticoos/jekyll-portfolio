@@ -18,7 +18,7 @@ server.use(restify.queryParser());
 server.use(restify.urlEncodedBodyParser({mapParams: false}));
 
 server.post('/contact-form', contactFormHandler);
-server.get('/github/activity', githubActivityHandler('ajwhite'));
+server.get('/github/activity', restify.CORS(), githubActivityHandler('ajwhite'));
 server.get('/ping', (req, res) => {
   var now = new Date();
   var diff = now.getTime() - started.getTime();
