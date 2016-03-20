@@ -88,6 +88,7 @@ export function githubActivityHandler (user) {
     response.setHeader('Content-Type', 'text/html');
     // recursivelyFetchRelevantActivity(user, 20, 'PullRequestEvent', 'PushEvent')
     getMock()
+      .then(items => items.slice(0, 12))
       .then(resolveActivityResponse(response))
       .catch(rejectResponse(response));
   };

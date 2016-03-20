@@ -337,6 +337,26 @@ body.page-index {
         width: 24px;
         text-align: center;
       }
+      .since {
+        display: block;
+      }
+      &.pull-request {
+        &.merged {
+          .octicon {
+            color: #6e5494;
+          }
+        }
+        &.closed {
+          .octicon {
+            color: #bd2c00;
+          }
+        }
+        &.open {
+          .octicon {
+            color: #6cc644;
+          }
+        }
+      }
     }
     .project {
       align-items: flex-start;

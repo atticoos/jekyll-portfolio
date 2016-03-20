@@ -1,6 +1,7 @@
 'use strict';
 
 import React, {DOM} from 'react';
+import moment from 'moment';
 const {
   div,
   span,
@@ -33,7 +34,7 @@ function EventActivity (options, ...children) {
   );
 }
 
-function PushEventActivity ({repo, payload}) {
+function PushEventActivity ({repo, payload, created_at}) {
   return (
     EventActivity({className: 'push', iconClassName: 'octicon-git-commit'},
       'pushed ',
@@ -45,15 +46,19 @@ function PushEventActivity ({repo, payload}) {
       a({
         href: repoLink(repo.name),
         target: '_blank'
-      }, repo.name)
+      }, repo.name),
+      span({className: 'since'}, moment(created_at).fromNow())
     )
   );
 }
 
-function PullRequestEventActivity ({repo, payload}) {
+function PullRequestEventActivity ({repo, payload, created_at}) {
   return (
-    EventActivity({className: `pull-request ${payload.action}`, iconClassName: 'octicon-git-pull-request'},
-      `${payload.action} a `,
+    EventActivity({
+        className: `pull-request ${payload.pull_request.merged_at ? 'merged' : payload.pull_request.state}`,
+        iconClassName: 'octicon-git-pull-request'
+      },
+      `${payload.pull_request.merged_at ? 'merged' : payload.action} a `,
       a({
         href: pullRequestUrl(repoLink(repo.name), payload.number)
       }, 'pull request '),
@@ -61,7 +66,8 @@ function PullRequestEventActivity ({repo, payload}) {
       a({
         href: repoLink(repo.name),
         target: '_blank'
-      }, repo.name)
+      }, repo.name),
+      span({className: 'since'}, moment(created_at).fromNow())
     )
   );
 }
