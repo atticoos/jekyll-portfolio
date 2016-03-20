@@ -7,11 +7,11 @@ import * as Redis from './redis';
 const BASE_URL = 'https://api.github.com';
 const CACHE_TTL = 60 * 30; // 30 minutes
 
-export function getActivity (user, totalEvents, ...relevantActivity) {
+export function getActivity (user, totalEvents, relevantActivity, ignoredRepos) {
   var cacheKey = `github/${user}/activity`;
   return Redis.getJSON(cacheKey)
     .catch(() => {
-      return recursivelyFetchRelevantActivity(user, totalEvents, ...relevantActivity).then(results => {
+      return recursivelyFetchRelevantActivity(user, totalEvents, relevantActivity, ignoredRepos).then(results => {
         Redis.setJSON(cacheKey, results, CACHE_TTL);
         return results
       });
@@ -61,9 +61,9 @@ export function getTotalStars (user) {
 }
 
 
-function recursivelyFetchRelevantActivity(user, totalEvents, ...relevantActivity) {
+function recursivelyFetchRelevantActivity(user, totalEvents, relevantActivity, ignoredRepos) {
   const MAX_PAGES = 10;
-  var filter = filterRelevantActivity(...relevantActivity);
+  var filter = filterRelevantActivity(relevantActivity, ignoredRepos);
 
   const request = (page = 1, events = []) => {
     return getRemoteActivity(user, page)
@@ -119,8 +119,11 @@ function toJson(response) {
   });
 }
 
-function filterRelevantActivity(...eventTypes) {
-  return events => events.filter(event => eventTypes.indexOf(event.type) > -1);
+function filterRelevantActivity (eventTypes = [], ignoredRepos = []) {
+  return events => events.filter(event => {
+    return eventTypes.indexOf(event.type) > -1 &&
+      ignoredRepos.indexOf(event.repo.name) === -1;
+  });
 }
 
 

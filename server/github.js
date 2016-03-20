@@ -10,7 +10,7 @@ import GithubProjects from './react/githubProjects';
 export function githubActivityHandler (user, count = 12) {
   return (request, response) => {
     response.setHeader('Content-Type', 'text/html');
-    getActivity(user, 20, 'PullRequestEvent', 'PushEvent')
+    getActivity(user, 20, ['PullRequestEvent', 'PushEvent'], ['ajwhite/jekyll-portfolio'])
       .then(items => items.slice(0, count))
       .then(resolveActivityResponse(response))
       .catch(rejectResponse(response));
