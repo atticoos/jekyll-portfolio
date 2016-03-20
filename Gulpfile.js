@@ -43,6 +43,7 @@ gulp.task('js:vendor', function () {
     'bower_components/masonry/dist/masonry.pkgd.js',
     'bower_components/waypoints/lib/jquery.waypoints.js',
 		'bower_components/jquery.lazyload/jquery.lazyload.js',
+    'bower_components/owl.carousel/dist/owl.carousel.js',
     'bower_components/Chart.js/Chart.js'
  ])
   .pipe(concat('vendor.js'))
@@ -97,7 +98,10 @@ gulp.task('images:copy', function () {
 })
 
 gulp.task('fonts', function () {
-  return gulp.src('./bower_components/font-awesome/fonts/**/*')
+  return gulp.src([
+    './bower_components/font-awesome/fonts/**/*',
+    './bower_components/octicons/octicons/octicons.{eot,svg,ttf,woff}'
+  ])
   .pipe(gulp.dest(path.join(paths.dist, 'fonts')));
 });
 

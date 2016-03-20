@@ -48,7 +48,9 @@
     $('.grid img').on('load', function () {
       $grid.masonry('layout');
     });
-
+    $('section.intro .skills').owlCarousel({
+      items: 1
+    });
     $('section.skills, section.me').waypoint({
       handler: function () {
         $('.site-nav nav a').removeClass('active');
