@@ -27,7 +27,7 @@ export default function GithubActivityFeed (props) {
 function EventActivity (options, ...children) {
   return (
     div({className: `activity ${options.className}`},
-      div({className: 'icon'}),
+      div({className: `octicon ${options.iconClassName}`}),
       div({className: 'content'}, ...children)
     )
   );
@@ -35,8 +35,8 @@ function EventActivity (options, ...children) {
 
 function PushEventActivity ({repo, payload}) {
   return (
-    EventActivity({className: 'push'},
-      'I recently pushed ',
+    EventActivity({className: 'push', iconClassName: 'octicon-git-commit'},
+      'pushed ',
       a({
         href: commitsToUrl(repoLink(repo.name), payload),
         target: '_blank'
@@ -52,8 +52,8 @@ function PushEventActivity ({repo, payload}) {
 
 function PullRequestEventActivity ({repo, payload}) {
   return (
-    EventActivity({className: `pull-request ${payload.action}`},
-      `I recently ${payload.action} a `,
+    EventActivity({className: `pull-request ${payload.action}`, iconClassName: 'octicon-git-pull-request'},
+      `${payload.action} a `,
       a({
         href: pullRequestUrl(repoLink(repo.name), payload.number)
       }, 'pull request '),
@@ -66,7 +66,10 @@ function PullRequestEventActivity ({repo, payload}) {
   );
 }
 
-
+const octiconMap = {
+  commit: 'octicon-git-commit',
+  pull_request: 'octicon-git-pull-request'
+};
 const repoLink = name => `https://github.com/${name}`;
 const commitUrl = (repoUrl, sha) => `${repoUrl}/commits/${sha}`;
 const commitRangeUrl = (repoUrl, tail, head) => `${repoUrl}/compare/${tail}...${head}`;

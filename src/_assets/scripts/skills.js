@@ -2,6 +2,7 @@
   'use strict';
 
   $(document).ready(function () {
+    return;
     if (!$('body').hasClass('page-index')) {
       return;
     }

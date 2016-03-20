@@ -101,6 +101,10 @@
       });
       return false;
     });
+
+    $.get('http://localhost:4050/github/activity', function (data) {
+      $('#github-activity,#github-projects').html(data);
+    });
   });
 
   // callback defined in the deferred script
