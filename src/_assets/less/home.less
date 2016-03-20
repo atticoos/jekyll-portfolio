@@ -362,6 +362,7 @@ body.page-index {
       }
       .since {
         display: block;
+        margin-top: 5px;
       }
       &.pull-request {
         &.merged {
@@ -383,21 +384,35 @@ body.page-index {
     }
     .project {
       align-items: flex-start;
-      .stars {
-        margin-top: 4px;
+      .stats {
+        // margin-top: 4px;
         width: 52px;
-        display: flex;
+        .stars,
+        .forks {
+          // display: flex;
+          // justify-content: center;
+          .octicon {
+            width: 20px;
+          }
+        }
+        .stars {
+          margin-bottom: 5px;
+        }
+      }
+      .forks .octicon {
+        margin-left: 2px;
       }
       .count {
         font-size: 16px;
         margin-left: 2px;
-        text-align: center;
+        // text-align: center;
         flex: 1;
       }
       .content {
         margin-left: 10px;
         a {
           display: block;
+          margin-bottom: 5px;
         }
       }
     }

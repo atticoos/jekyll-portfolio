@@ -18,20 +18,26 @@ export default function GithubProjects ({projects}) {
 function GithubProject (project) {
   return (
     div({className: `project`},
-      Star({className: 'stars'}, project.stargazers_count),
+      Stats({className: 'stats'}, {stars: project.stargazers_count, forks: project.forks_count}),
       div({className: 'content'},
-        a({href: project.html_url, target: '_blank', title: project.html}, project.full_name),
+        a({href: project.html_url, target: '_blank', title: project.html_url}, project.full_name),
         span(null, trimEmojis(project.description))
       )
     )
   );
 }
 
-function Star (options, count) {
+function Stats (options, {stars, forks}) {
   return (
     div(options,
-      span({className: 'octicon octicon-star'}),
-      span({className: 'count'}, count)
+      div({className: 'stars'},
+        span({className: 'octicon octicon-star'}),
+        span({className: 'count'}, stars)
+      ),
+      div({className: 'forks'},
+        span({className: 'octicon octicon-repo-forked'}),
+        span({className: 'count'}, forks)
+      )
     )
   );
 }
