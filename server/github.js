@@ -78,7 +78,7 @@ function getMockProjects () {
   return new Promise((resolve, reject) => {
     var mock = fs.readFileSync('./MOCK_PROJECTS.json')
     var projects = JSON.parse(mock);
-    var topProjects = projects.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 5);
+    var topProjects = projects.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 10);
     resolve(topProjects);
   });
 }
@@ -86,7 +86,7 @@ function getMockProjects () {
 export function githubActivityHandler (user) {
   return (request, response) => {
     response.setHeader('Content-Type', 'text/html');
-    // recursivelyFetchRelevantActivity(user, 10, 'PullRequestEvent', 'PushEvent')
+    // recursivelyFetchRelevantActivity(user, 20, 'PullRequestEvent', 'PushEvent')
     getMock()
       .then(resolveActivityResponse(response))
       .catch(rejectResponse(response));
