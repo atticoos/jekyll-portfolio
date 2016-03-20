@@ -97,7 +97,10 @@ gulp.task('images:copy', function () {
 })
 
 gulp.task('fonts', function () {
-  return gulp.src('./bower_components/font-awesome/fonts/**/*')
+  return gulp.src([
+    './bower_components/font-awesome/fonts/**/*',
+    './bower_components/octicons/octicons/octicons.{eot,svg,ttf,woff}'
+  ])
   .pipe(gulp.dest(path.join(paths.dist, 'fonts')));
 });
 
