@@ -48,7 +48,10 @@
     $('.grid img').on('load', function () {
       $grid.masonry('layout');
     });
-
+    $('section.intro .skills').owlCarousel({
+      items: 1,
+      autoHeight: true
+    });
     $('section.skills, section.me').waypoint({
       handler: function () {
         $('.site-nav nav a').removeClass('active');
@@ -98,6 +101,20 @@
         $('#contact-form input[type=submit]').val('Try again');
       });
       return false;
+    });
+
+    $.get('http://localhost:4050/github/activity', function (data) {
+      $('#github-activity').html(data);
+      $('.intro .activity-row').show();
+    });
+    $.get('http://localhost:4050/github/projects', function (data) {
+      $('#github-projects').html(data);
+      $('.intro .activity-row').show();
+    });
+    $.get('http://localhost:4050/github/stats', function (stats) {
+      $('#github-repo-count').text(stats.repos);
+      $('#github-follower-count').text(stats.followers);
+      $('#github-star-count').text(stats.stars);
     });
   });
 

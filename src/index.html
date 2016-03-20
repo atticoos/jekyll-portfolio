@@ -77,14 +77,8 @@ featured_projects:
     </div>
   </section>
 
-  <section class="skills collapsed">
-    <div class="container">
-      <h1 class="title">What I Do</h1>
-      {% include home/skills.html %}
-      </div>
-    </div>
-
-    <a href="#more-skills" id="more-skills" class="more">More</a>
+  <section class="intro">
+      {% include home/intro.html %}
   </section>
 
   <section id="portfolio" class="background dots">
@@ -95,7 +89,7 @@ featured_projects:
     {% include home/work.html %}
   </section>
   <section id="labs" class="background wave">
-    <h1>Labs &amp; Open Source</h1>
+    <h1><span class="octicon octicon-beaker"></span> Labs &amp; Open Source</h1>
   </section>
   <section class="labs projects">
     {% include home/open-source.html %}
