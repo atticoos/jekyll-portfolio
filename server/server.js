@@ -3,7 +3,7 @@
 import fs from 'fs';
 import restify from 'restify';
 import {contactFormHandler} from './contact-form';
-import {githubActivityHandler} from './github';
+import {githubActivityHandler, githubProjectHandler} from './github';
 var started = new Date();
 var server = restify.createServer({
   name: 'atticus-portfolio',
@@ -18,7 +18,8 @@ server.use(restify.queryParser());
 server.use(restify.urlEncodedBodyParser({mapParams: false}));
 
 server.post('/contact-form', contactFormHandler);
-server.get('/github/activity', restify.CORS(), githubActivityHandler('ajwhite'));
+server.get('/github/activity', githubActivityHandler('ajwhite'));
+server.get('/github/projects', githubProjectHandler('ajwhite'));
 server.get('/ping', (req, res) => {
   var now = new Date();
   var diff = now.getTime() - started.getTime();

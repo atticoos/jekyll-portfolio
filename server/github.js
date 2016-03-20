@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 import ReactDOMServer from 'react-dom/server';
 import GithubActivityFeed from './react/githubActivity';
+import GithubProjects from './react/githubProjects';
 
 const BASE_URL = 'https://api.github.com';
 
@@ -44,9 +45,15 @@ function recursivelyFetchRelevantActivity(user, totalEvents, ...relevantActivity
   return request();
 }
 
-function resolveResponse (response) {
+function resolveActivityResponse (response) {
   return events => response.end(
     ReactDOMServer.renderToString(GithubActivityFeed({events}))
+  );
+}
+
+function resolveProjectsResponse (response) {
+  return projects => response.end(
+    ReactDOMServer.renderToString(GithubProjects({projects}))
   );
 }
 
@@ -67,12 +74,30 @@ function getMock () {
   });
 }
 
+function getMockProjects () {
+  return new Promise((resolve, reject) => {
+    var mock = fs.readFileSync('./MOCK_PROJECTS.json')
+    var projects = JSON.parse(mock);
+    var topProjects = projects.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 5);
+    resolve(topProjects);
+  });
+}
+
 export function githubActivityHandler (user) {
   return (request, response) => {
     response.setHeader('Content-Type', 'text/html');
     // recursivelyFetchRelevantActivity(user, 10, 'PullRequestEvent', 'PushEvent')
     getMock()
-      .then(resolveResponse(response))
+      .then(resolveActivityResponse(response))
       .catch(rejectResponse(response));
   };
+}
+
+export function githubProjectHandler (user) {
+  return (request, response) => {
+    response.setHeader('Content-Type', 'text/html');
+    getMockProjects()
+      .then(resolveProjectsResponse(response))
+      .catch(rejectResponse(response));
+  }
 }
