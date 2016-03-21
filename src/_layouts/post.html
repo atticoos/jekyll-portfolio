@@ -51,13 +51,25 @@ layout: default
       </div>
       <div class="share">
         <h3>Share</h3>
-        <a href="#" class="twitter social-share">
+        <a href="https://twitter.com/intent/tweet?text={{post.title}} via @atticoos {{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+        onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=250,width=600');return false;"
+          target="_blank"
+          class="twitter social-share">
           <i class="fa fa-twitter"></i>
         </a>
-        <a href="#" class="facebook social-share">
+        <a href="http://www.facebook.com/sharer.php?s=100&p[url]={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+        onclick="javascript:window.open(this.href,
+'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=380,width=500');return false;"
+          class="facebook social-share"
+          target="_blank">
           <i class="fa fa-facebook"></i>
         </a>
-        <a href="#" class="google social-share">
+        <a href="https://plus.google.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+          onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=550');return false;"
+          target="_blank"
+          class="google social-share">
           <i class="fa fa-google-plus"></i>
         </a>
       </div>
