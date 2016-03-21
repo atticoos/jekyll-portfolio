@@ -173,7 +173,7 @@
   .description {
     .make-row();
     .about {
-      .make-sm-column(9);
+      .make-sm-column(10);
       .meta {
         font-style: italic;
         color: lighten(@textColor, 20%);
@@ -187,9 +187,12 @@
           color: lighten(@textColor, 20%);
         }
       }
+      @media @mobile {
+        margin-bottom: 20px;
+      }
     }
     .share {
-      .make-sm-column(3);
+      .make-sm-column(2);
       .social-share {
         color: @textColor;
         margin-right: 10px;
