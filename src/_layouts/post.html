@@ -24,6 +24,57 @@ layout: default
   <article class="post-content">
     {{ content }}
   </article>
+  <div class="container author">
+
+    <div class="portrait">
+      <div class="clip">
+        <img src="/dist/images/me.jpeg" alt="Atticus White" />
+      </div>
+    </div>
+
+    <div class="description">
+      <div class="about">
+        <h3>Atticus White</h3>
+        <p>
+          Atticus spends his days in React, Angular, and NodeJS and loves discovering new ways to solve problems.
+        </p>
+        <div class="meta">
+          <span class="item">
+            <i class="fa fa-map-marker"></i>
+            Boston, MA
+          </span>
+          <span class="item">
+            <i class="fa fa-link"></i>
+            <a href="https://twitter.com/atticoos" title="Atticus White on Twitter">https://twitter.com/atticoos</a>
+          </span>
+        </div>
+      </div>
+      <div class="share">
+        <h3>Share</h3>
+        <a href="https://twitter.com/intent/tweet?text={{post.title}} via @atticoos {{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+        onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=250,width=600');return false;"
+          target="_blank"
+          class="twitter social-share">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="http://www.facebook.com/sharer.php?s=100&p[url]={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+        onclick="javascript:window.open(this.href,
+'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=380,width=500');return false;"
+          class="facebook social-share"
+          target="_blank">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a href="https://plus.google.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+          onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=550');return false;"
+          target="_blank"
+          class="google social-share">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </div>
+    </div>
+  </div>
   <div class="container">
     {% include posts/comments.html %}
   </div>
