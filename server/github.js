@@ -9,9 +9,11 @@ import GithubProjects from './react/githubProjects';
 
 export function githubActivityHandler (user, count = 12) {
   return (request, response) => {
+    var {count = 10} = request.params;
+    count = Math.min(20, count);
+
     response.setHeader('Content-Type', 'text/html');
-    getActivity(user, 20, ['PullRequestEvent', 'PushEvent'], ['ajwhite/jekyll-portfolio'])
-      .then(items => items.slice(0, count))
+    getActivity(user, count, ['PullRequestEvent', 'PushEvent'], ['ajwhite/jekyll-portfolio'])
       .then(resolveActivityResponse(response))
       .catch(rejectResponse(response));
   };
@@ -19,8 +21,11 @@ export function githubActivityHandler (user, count = 12) {
 
 export function githubProjectHandler (user) {
   return (request, response) => {
+    var {count = 10} = request.params;
+    count = Math.min(10, count);
+
     response.setHeader('Content-Type', 'text/html');
-    getProjects(user, 10)
+    getProjects(user, count)
       .then(resolveProjectsResponse(response))
       .catch(rejectResponse(response));
   }

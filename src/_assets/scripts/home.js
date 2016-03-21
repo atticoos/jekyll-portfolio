@@ -103,11 +103,11 @@
       return false;
     });
 
-    $.get(window.site_api_url + '/github/activity', function (data) {
+    $.get(window.site_api_url + '/github/activity?count=7', function (data) {
       $('#github-activity').html(data);
       $('.intro .activity-row').show();
     });
-    $.get(window.site_api_url + '/github/projects', function (data) {
+    $.get(window.site_api_url + '/github/projects?count=6', function (data) {
       $('#github-projects').html(data);
       $('.intro .activity-row').show();
     });
