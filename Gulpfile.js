@@ -44,6 +44,7 @@ gulp.task('js:vendor', function () {
     'bower_components/waypoints/lib/jquery.waypoints.js',
 		'bower_components/jquery.lazyload/jquery.lazyload.js',
     'bower_components/owl.carousel/dist/owl.carousel.js',
+    'bower_components/instantclick/instantclick.js',
     'bower_components/Chart.js/Chart.js'
  ])
   .pipe(concat('vendor.js'))
