@@ -17,7 +17,7 @@ Times 'a changin'.
 
 
 Onwards!
-<img src="/dist/images/blog/react-native-smart-mirror-lab/preview.jpg" alt="Magic Mirror Preview" class="boxy" />
+<img src="/dist/images/blog/react-native-smart-mirror-lab/preview.jpg" alt="Smart Mirror Preview" class="boxy" />
 
 This is only comprised of:
 
