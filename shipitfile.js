@@ -19,6 +19,10 @@ module.exports = function (shipit) {
     develop: {
       servers: 'deploy@deploy.atticuswhite.com',
       deployTo: '/var/www/atticuswhite/dev.jekyll-portfolio'
+    },
+    pull_request: {
+      servers: 'deploy@provision.atticuswhite.com',
+      deployTo: '/srv/www/portfolio/pull_requests'
     }
   });
 

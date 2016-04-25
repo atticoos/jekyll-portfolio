@@ -24,3 +24,7 @@ deployment:
     branch: develop
     commands:
       - shipit develop deploy
+  pull_request:
+    branch: /^((?!master|develop).)*$/
+    commands:
+      - shipit pull_request deploy
