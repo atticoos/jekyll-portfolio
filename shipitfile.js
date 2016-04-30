@@ -47,6 +47,7 @@ module.exports = function (shipit) {
       environment: 'pr' + process.env.CIRCLE_BUILD_NUM + '.provision.atticuswhite.com',
       //environment: 'staging',
       description: 'Deployment for ' + process.env.CIRCLE_BRANCH,
+      required_contexts: [],
       production_environemnt: false,
       auto_merge: false
     };
