@@ -44,7 +44,8 @@ module.exports = function (shipit) {
     var payload = {
       ref: process.env.CIRCLE_BRANCH,
       take: 'deploy',
-      environment: 'staging',
+      environment: 'pr' + process.env.CIRCLE_BUILD_NUM + '.provision.atticuswhite.com',
+      //environment: 'staging',
       description: 'Deployment for ' + process.env.CIRCLE_BRANCH,
       production_environemnt: false,
       auto_merge: false
