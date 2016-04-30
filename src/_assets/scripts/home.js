@@ -50,7 +50,9 @@
     });
     $('section.intro .skills').owlCarousel({
       items: 1,
-      autoHeight: true
+      autoHeight: true,
+      nav: true,
+      navText: []
     });
     $('section.skills, section.me').waypoint({
       handler: function () {

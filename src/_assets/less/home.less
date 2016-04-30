@@ -330,6 +330,49 @@ body.page-index {
       }
     }
   }
+  .owl-nav {
+    position: absolute;
+    top: 60%;
+    width: 100%;
+    padding: 0 20px;
+    .clearfix;
+
+    div {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      &:before {
+        content: ' ';
+        position: absolute;
+        top: -18px;
+        width: 0;
+        height: 0;
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+      }
+      &.owl-prev {
+        float: left;
+        border-right: 20px solid #dedede;
+        &:before {
+          left: 4px;
+          border-right: 18px solid @backgroundColor;
+        }
+      }
+      &.owl-next {
+        float: right;
+        border-left: 20px solid #dedede;
+        &:before {
+          right: 4px;
+          border-left: 18px solid @backgroundColor;
+        }
+      }
+    }
+    @media @mobile {
+      display: none;
+    }
+  }
   .github-info {
     text-align: center;
     margin-bottom: 30px;
