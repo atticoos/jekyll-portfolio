@@ -44,14 +44,13 @@ module.exports = function (shipit) {
     var payload = {
       ref: process.env.CIRCLE_BRANCH,
       take: 'deploy',
-      environment: 'pr' + process.env.CIRCLE_BUILD_NUM + '.provision.atticuswhite.com',
+      environment: 'build' + process.env.CIRCLE_BUILD_NUM + '.provision.atticuswhite.com',
       description: 'Deployment for ' + process.env.CIRCLE_BRANCH,
       required_contexts: [],
       production_environemnt: false,
       auto_merge: false
     };
     makeGithubRequest(endpoint, payload).then(function (deployment) {
-      console.log('github deployment created', deployment);
       deploymentId = deployment.id;
     })
   });
@@ -68,7 +67,7 @@ module.exports = function (shipit) {
     ].join('/');
     var payload = {
       state: 'success',
-      environment_url: 'http://pr' + process.env.CIRCLE_BUILD_NUM + '.provision.atticuswhite.com/'
+      environment_url: 'http://build' + process.env.CIRCLE_BUILD_NUM + '.provision.atticuswhite.com/'
     };
     makeGithubRequest(endpoint, payload);
   });
@@ -76,7 +75,6 @@ module.exports = function (shipit) {
 
 function makeGithubRequest(endpoint, body) {
   var url = 'https://api.github.com/' + endpoint + '?access_token=' + process.env.GITHUB_DEPLOYMENT_TOKEN;
-  console.log('Making github request', url, body);
   return fetch(url, {
     method: 'POST',
     headers: {
