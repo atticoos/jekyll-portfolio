@@ -24,7 +24,7 @@ module.exports = function (shipit) {
     },
     pull_request: {
       servers: 'deploy@provision.atticuswhite.com',
-      deployTo: '/srv/www/portfolio/pull_requests'
+      deployTo: '/srv/www/portfolio/ci-builds/' + process.env.CIRCLE_BUILD_NUM
     }
   });
 
@@ -45,7 +45,6 @@ module.exports = function (shipit) {
       ref: process.env.CIRCLE_BRANCH,
       take: 'deploy',
       environment: 'pr' + process.env.CIRCLE_BUILD_NUM + '.provision.atticuswhite.com',
-      //environment: 'staging',
       description: 'Deployment for ' + process.env.CIRCLE_BRANCH,
       required_contexts: [],
       production_environemnt: false,
