@@ -35,6 +35,9 @@ module.exports = function (shipit) {
 
   // notify github deployment has started
   shipit.on('deploy', function (callback) {
+    if (!getPullRequestNumber()) {
+      return;
+    }
     var endpoint = [
       'repos',
       process.env.CIRCLE_PROJECT_USERNAME,
@@ -57,6 +60,9 @@ module.exports = function (shipit) {
 
   // notify github deployment has completed
   shipit.on('deployed', function (callback) {
+    if (!getPullRequestNumber()) {
+      return;
+    }
     var endpoint = [
       'repos',
       process.env.CIRCLE_PROJECT_USERNAME,
