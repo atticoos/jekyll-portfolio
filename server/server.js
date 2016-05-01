@@ -30,6 +30,6 @@ server.get('/ping', (req, res) => {
   });
 });
 
-server.listen(4050, () => {
+server.listen(process.env.NODE_PORT, 4050, () => {
   console.log('listening on', 4050);
 });
