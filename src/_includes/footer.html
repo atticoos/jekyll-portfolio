@@ -22,7 +22,7 @@
       {% if site.env.circle_sha && site.env.circle_build_number %}
       <span class="build-link">
         Build
-        <a href="https://circleci.com/gh/ajwhite/jekyll-portfolio/{{ site.vn.circle_build_number }}"
+        <a href="https://circleci.com/gh/ajwhite/jekyll-portfolio/{{ site.env.circle_build_number }}"
           title="CircleCI build status"
           target="_blank">{{ site.env.circle_sha }}:{{ site.env.circle_build_number}}</a>
       </span>
