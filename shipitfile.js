@@ -24,7 +24,7 @@ module.exports = function (shipit) {
     },
     pull_request: {
       servers: 'deploy@provision.atticuswhite.com',
-      deployTo: '/srv/www/portfolio/ci-builds/' + process.env.CIRCLE_BRANCH
+      deployTo: '/srv/www/portfolio/ci-builds/' + cleanBranchName()
     }
   });
 
