@@ -24,7 +24,7 @@ module.exports = function (shipit) {
     },
     pull_request: {
       servers: 'deploy@provision.atticuswhite.com',
-      deployTo: '/srv/www/portfolio/ci-builds/' + process.env.CIRCLE_BUILD_NUM
+      deployTo: '/srv/www/portfolio/ci-builds/' + getPullRequestNumber()
     }
   });
 
@@ -35,6 +35,9 @@ module.exports = function (shipit) {
 
   // notify github deployment has started
   shipit.on('deploy', function (callback) {
+    if (!getPullRequestNumber()) {
+      return;
+    }
     var endpoint = [
       'repos',
       process.env.CIRCLE_PROJECT_USERNAME,
@@ -44,7 +47,7 @@ module.exports = function (shipit) {
     var payload = {
       ref: process.env.CIRCLE_BRANCH,
       take: 'deploy',
-      environment: 'build' + process.env.CIRCLE_BUILD_NUM + '.provision.atticuswhite.com',
+      environment: 'build' + getPullRequestNumber() + '.provision.atticuswhite.com',
       description: 'Deployment for ' + process.env.CIRCLE_BRANCH,
       required_contexts: [],
       production_environemnt: false,
@@ -57,6 +60,9 @@ module.exports = function (shipit) {
 
   // notify github deployment has completed
   shipit.on('deployed', function (callback) {
+    if (!getPullRequestNumber()) {
+      return;
+    }
     var endpoint = [
       'repos',
       process.env.CIRCLE_PROJECT_USERNAME,
@@ -67,7 +73,7 @@ module.exports = function (shipit) {
     ].join('/');
     var payload = {
       state: 'success',
-      environment_url: 'http://build' + process.env.CIRCLE_BUILD_NUM + '.provision.atticuswhite.com/'
+      environment_url: 'http://build' + getPullRequestNumber() + '.provision.atticuswhite.com/'
     };
     makeGithubRequest(endpoint, payload);
   });
@@ -85,4 +91,17 @@ function makeGithubRequest(endpoint, body) {
   }).then(function (response) {
     return response.json();
   });
+}
+
+function getPullRequestNumber () {
+  var prNumberLink = process.env.CIRCLE_PULL_REQUEST;
+
+  if (process.env.CIRCLE_PULL_REQUESTS) {
+    prNumberLink = process.env.CIRCLE_PULL_REQUESTS.split(',').pop();
+  }
+
+  if (prNumberLink) {
+    return prNumberLink.split('/').pop();
+  }
+  return null;
 }

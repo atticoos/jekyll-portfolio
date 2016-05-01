@@ -27,4 +27,4 @@ deployment:
   pull_request:
     branch: /^((?!master|develop).)*$/
     commands:
-      - shipit pull_request deploy
+      - if [[ ! -z $CI_PULL_REQUEST ]] ; then shipit pull_request deploy ; fi
