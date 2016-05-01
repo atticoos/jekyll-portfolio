@@ -24,7 +24,7 @@ module.exports = function (shipit) {
     },
     pull_request: {
       servers: 'deploy@provision.atticuswhite.com',
-      deployTo: '/srv/www/portfolio/ci-builds/' + cleanBranchName()
+      deployTo: '/srv/www/portfolio/ci-builds/' + getDeploymentName()
     }
   });
 
@@ -44,7 +44,7 @@ module.exports = function (shipit) {
     var payload = {
       ref: process.env.CIRCLE_BRANCH,
       take: 'deploy',
-      environment: cleanBranchName() + '.provision.atticuswhite.com',
+      environment: getDeploymentName() + '.provision.atticuswhite.com',
       description: 'Deployment for ' + process.env.CIRCLE_BRANCH,
       required_contexts: [],
       production_environemnt: false,
@@ -67,7 +67,7 @@ module.exports = function (shipit) {
     ].join('/');
     var payload = {
       state: 'success',
-      environment_url: 'http://' + cleanBranchName() + '.provision.atticuswhite.com/'
+      environment_url: 'http://' + getDeploymentName() + '.provision.atticuswhite.com/'
     };
     makeGithubRequest(endpoint, payload);
   });
@@ -87,8 +87,7 @@ function makeGithubRequest(endpoint, body) {
   });
 }
 
-function cleanBranchName () {
+function getDeploymentName () {
   var branch = process.env.CIRCLE_BRANCH;
-  branch = branch.replace(/\//g, '.');
-  return branch;
+  return branch.replace(/\//g, '.');
 }
