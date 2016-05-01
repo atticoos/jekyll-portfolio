@@ -44,7 +44,7 @@ module.exports = function (shipit) {
     var payload = {
       ref: process.env.CIRCLE_BRANCH,
       take: 'deploy',
-      environment: 'build' + cleanBranchName() + '.provision.atticuswhite.com',
+      environment: cleanBranchName() + '.provision.atticuswhite.com',
       description: 'Deployment for ' + process.env.CIRCLE_BRANCH,
       required_contexts: [],
       production_environemnt: false,
@@ -90,4 +90,5 @@ function makeGithubRequest(endpoint, body) {
 function cleanBranchName () {
   var branch = process.env.CIRCLE_BRANCH;
   branch = branch.replace(/\//g, '.');
+  return branch;
 }
