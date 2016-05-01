@@ -1,9 +1,10 @@
-var path = require('path');
-var fetch = require('node-fetch');
+var util = require('./deploy/helper');
+var staticDeployment = require('./deploy/static');
+var githubDeployment = require('./deploy/github');
+var serverDeployment = require('./deploy/server');
 
 module.exports = function (shipit) {
   require('shipit-deploy')(shipit);
-  var deploymentId = null;
 
   shipit.initConfig({
     default: {
@@ -24,72 +25,11 @@ module.exports = function (shipit) {
     },
     pull_request: {
       servers: 'deploy@provision.atticuswhite.com',
-      deployTo: '/srv/www/portfolio/ci-builds/' + getDeploymentName()
+      deployTo: '/srv/www/portfolio/ci-builds/' + util.getDeploymentName()
     }
   });
 
-  shipit.on('updated', function () {
-    var builtDirectory = path.resolve('./public/');
-    shipit.remoteCopy(builtDirectory, shipit.releasePath);
-  });
-
-  // notify github deployment has started
-  shipit.on('deploy', function (callback) {
-    var endpoint = [
-      'repos',
-      process.env.CIRCLE_PROJECT_USERNAME,
-      process.env.CIRCLE_PROJECT_REPONAME,
-      'deployments'
-    ].join('/');
-    var payload = {
-      ref: process.env.CIRCLE_BRANCH,
-      take: 'deploy',
-      environment: getDeploymentName() + '.provision.atticuswhite.com',
-      description: 'Deployment for ' + process.env.CIRCLE_BRANCH,
-      required_contexts: [],
-      production_environemnt: false,
-      auto_merge: false
-    };
-    makeGithubRequest(endpoint, payload).then(function (deployment) {
-      deploymentId = deployment.id;
-    })
-  });
-
-  // notify github deployment has completed
-  shipit.on('deployed', function (callback) {
-    var endpoint = [
-      'repos',
-      process.env.CIRCLE_PROJECT_USERNAME,
-      process.env.CIRCLE_PROJECT_REPONAME,
-      'deployments',
-      deploymentId,
-      'statuses'
-    ].join('/');
-    var payload = {
-      state: 'success',
-      environment_url: 'http://' + getDeploymentName() + '.provision.atticuswhite.com/'
-    };
-    makeGithubRequest(endpoint, payload);
-
-    shipit.remote('echo "STARTING NPM"');
-  });
+  staticDeployment(shipit);
+  githubDeployment(shipit);
+  serverDeployment(shipit);
 };
-
-function makeGithubRequest(endpoint, body) {
-  var url = 'https://api.github.com/' + endpoint + '?access_token=' + process.env.GITHUB_DEPLOYMENT_TOKEN;
-  return fetch(url, {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  }).then(function (response) {
-    return response.json();
-  });
-}
-
-function getDeploymentName () {
-  var branch = process.env.CIRCLE_BRANCH;
-  return branch.replace(/\//g, '.');
-}
