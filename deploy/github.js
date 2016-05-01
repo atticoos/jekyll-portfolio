@@ -41,8 +41,6 @@ module.exports = function (shipit) {
       environment_url: 'http://' + util.getDeploymentName() + '.provision.atticuswhite.com/'
     };
     makeGithubRequest(endpoint, payload);
-
-    shipit.remote('echo "STARTING NPM"');
   });
 
 
