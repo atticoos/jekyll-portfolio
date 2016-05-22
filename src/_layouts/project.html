@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<div class="page project" id="{{ page.slug }}">
+  <header class="post-header" style="background-image: url({{ page.bannerBackground }})">
+    <h1 class="post-tile" style="color: {{ page.bannerTextColor }}">{{ page.title }}</h1>
+    <img src="{{page.bannerPreview}}" class="banner-preview"/>
+  </header>
+
+  <article class="container post-content">
+    {{ content }}
+  </article>
+</div>

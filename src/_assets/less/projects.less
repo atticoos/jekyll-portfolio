@@ -1,0 +1,47 @@
+.project {
+  margin-top: -30px;
+  header {
+    height: 500px;
+    padding-top: 200px;
+    text-align: center;
+    overflow: hidden;
+    h1 {
+      color: #fff
+    }
+    .banner-preview {
+      margin-top: 80px;
+    }
+  }
+
+  .post-content {
+    line-height: 26px;
+  }
+
+  &#bernie-messenger {
+    .banner-preview {
+      width: 400px;
+      margin-top: 30px;
+    }
+
+    .steps {
+      .make-row();
+      margin-top: 20px;
+      margin-bottom: 20px;
+      .step {
+        .make-sm-column(4);
+        text-align: center;
+        img {
+          max-height: 500px;
+        }
+        i {
+          position: absolute;
+          right: -5px;
+          top: 40%;
+          @media @mobile {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
