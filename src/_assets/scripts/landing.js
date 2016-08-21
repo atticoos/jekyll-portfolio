@@ -24,56 +24,40 @@
   }
 
   Canvas.prototype.drawArc = function () {
-    var arcX = (this.arc.a.x + this.arc.b.x) / 2;
-    var arcY = (this.arc.a.y + this.arc.b.y) / 2;
-
-
-    var arcR = Math.sqrt(
-      Math.pow(Math.abs(this.arc.b.x - this.arc.a.x), 2) +
-      Math.pow(Math.abs(this.arc.b.y - this.arc.a.y), 2)
-    );
-
-    // this.context.beginPath();
-    // this.context.fillStyle = 'green';
-    // this.context.arc(arcX, arcY, 10, 0, Math.PI * 2, false);
-    // this.context.fill();
-
-
-    // Center between two points
-    var cX = (this.arc.a.x + this.arc.b.x) / 2;
-    var cY = (this.arc.a.y + this.arc.b.y) / 2;
-
-    // Distance between points
-    var dX = this.arc.b.x - this.arc.a.x;
-    var dY = this.arc.b.y - this.arc.a.y;
-
-    var r = Math.sqrt(Math.pow(dX, 2) + Math.pow(dY, 2)) / 2;
-
-    // Cartesian to polar point
-    var aTheta = Math.PI + Math.atan((this.arc.a.y - cY) / (this.arc.a.x - cX));
-    var bTheta = Math.atan((this.arc.b.y - cY) / (this.arc.b.x - cX));
-
-    // Theta delta
-    var dTheta = bTheta - aTheta;
-    var thetaStep = dTheta / 100;
+    var coordinates = this.arc.getCoordinates();
+    var dTheta = (coordinates.polar.bTheta - coordinates.polar.aTheta) / 100;
 
     this.context.beginPath();
     this.context.strokeStyle = COLOR;
     this.context.lineWidth = 4;
+
     if (this.arc.toProgress < 100) {
-      var d = thetaStep * this.arc.toProgress;
+      // Animate line filling in
+      var d = dTheta * this.arc.toProgress;
       this.arc.toProgress += 2;
-      this.context.arc(cX, cY, r, aTheta, aTheta - d);
+      this.context.arc(
+        coordinates.cartesianCenter.x,
+        coordinates.cartesianCenter.y,
+        coordinates.polar.radius,
+        coordinates.polar.aTheta,
+        coordinates.polar.aTheta - d
+      );
     } else if (this.arc.fromProgress < 100) {
-      var d = thetaStep * this.arc.fromProgress;
+      // Animate line leaving
+      var d = dTheta * this.arc.fromProgress;
       this.arc.fromProgress += 2;
-      this.context.arc(cX, cY, r, aTheta - d, bTheta);
+      this.context.arc(
+        coordinates.cartesianCenter.x,
+        coordinates.cartesianCenter.y,
+        coordinates.polar.radius,
+        coordinates.polar.aTheta - d,
+        coordinates.polar.bTheta
+      );
     }
     this.context.stroke();
   };
 
   Canvas.prototype.drawDot = function (dot, time) {
-    dot.updatePosition(time);
     this.context.fillStyle = dot.color;
     this.context.beginPath();
     this.context.arc(dot.x, dot.y, dot.d, 0, Math.PI * 2, false);
@@ -102,10 +86,15 @@
       return;
     }
 
+    // Clear the frame for the new render
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+    // Update the position of each dot and render them
     _.forEach(this.dots, function (dot, i) {
+      dot.updatePosition(time);
       this.drawDot(dot, time);
+
+      // If a dot falls off the screen, trash it and create a new dot
       if (this.isDotOutOfBounds(dot)) {
         this.dots[i] = new Dot(
           Math.round(Math.random() * this.canvas.width),
@@ -114,11 +103,11 @@
       }
     }.bind(this));
 
-    this.drawArc();
-
-
-    if (this.arc.isComplete() && time - this.lastArc > 1000 * 3) {
-
+    if (!this.arc.isComplete()) {
+      // Draw an arc between two dots
+      this.drawArc();
+    } else if (time - this.lastArc > 1000 * 3) {
+      // After the last arc expires, create a new arc.
       var dots = _.shuffle(this.dots);
       var nextArc;
       for (var i = 0; i < dots.length - 1; i++) {
@@ -132,12 +121,6 @@
           }
         }
       }
-
-      var a = Math.floor(this.dots.length * Math.random());
-      var b = Math.floor(this.dots.length * Math.random());
-      this.arc.a.color = COLOR;
-      this.arc.b.color = COLOR;
-
       this.arc = nextArc;
       this.lastArc = time;
     }
@@ -164,30 +147,49 @@
   function Arc (a, b) {
     this.a = a;
     this.b = b;
-
-    // a.color = 'blue';
-    // b.color = 'red';
-
     this.toProgress = 0;
     this.fromProgress = 0;
-
-    this.x = a.x;
-    this.y = a.y;
   }
 
   Arc.prototype.isComplete = function () {
     return this.toProgress >= 100 && this.fromProgress >= 100;
-  }
+  };
 
+  Arc.prototype.getCoordinates = function () {
+    // Center between two points
+    var cX = (this.a.x + this.b.x) / 2;
+    var cY = (this.a.y + this.b.y) / 2;
 
+    // Distance between two points
+    var dX = this.b.x - this.a.x;
+    var dY = this.b.y - this.a.y;
 
+    // Arc radius
+    var r = Math.sqrt(Math.pow(dX, 2) + Math.pow(dY, 2)) / 2;
+
+    // Cartesian to polar points.
+    // Also construct a relative point system based on the center of the polar region.
+    var aTheta = Math.PI + Math.atan((this.a.y - cY) / (this.a.x - cX));
+    var bTheta = Math.atan((this.b.y - cY) / (this.b.x - cX));
+
+    return {
+      cartesianCenter: {
+        x: cX,
+        y: cY
+      },
+      polar: {
+        radius: r,
+        aTheta: aTheta,
+        bTheta: bTheta
+      }
+    };
+  };
 
   function Dot (x, y) {
     this.x = x;
     this.y = y;
     this.originalX = x;
     this.d = Math.max(5, Math.random() * MAX_DIAMETER);
-    this.dx = generateRandomVelocity(VELOCITY);
     this.dy = generateRandomVelocity(VELOCITY);
     this.color = COLOR;
     this.speed = 1000 + Math.random() * 1000;
@@ -196,7 +198,7 @@
 
   Dot.prototype.updatePosition = function (timestamp) {
     this.x = this.wander * Math.sin(timestamp / this.speed) + this.originalX;
-    this.x += this.dx;
+    // this.x += this.dx;
     this.y += this.dy;
   };
 
