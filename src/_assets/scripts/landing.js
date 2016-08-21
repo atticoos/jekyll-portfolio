@@ -1,8 +1,9 @@
 (function ($) {
 
   var MAX_DIAMETER = 30;
-  var VELOCITY = 0.7;
+  var VELOCITY = 0.8;
   var DOT_COUNT = 30;
+  var COLOR = '#eaf0f8';
 
   function Canvas ($container) {
     this.$container = $container;
@@ -48,15 +49,16 @@
 
     var r = Math.sqrt(Math.pow(dX, 2) + Math.pow(dY, 2)) / 2;
 
+    // Cartesian to polar point
     var aTheta = Math.PI + Math.atan((this.arc.a.y - cY) / (this.arc.a.x - cX));
     var bTheta = Math.atan((this.arc.b.y - cY) / (this.arc.b.x - cX));
 
-
+    // Theta delta
     var dTheta = bTheta - aTheta;
     var thetaStep = dTheta / 100;
 
     this.context.beginPath();
-    this.context.strokeStyle = 'lightgray';
+    this.context.strokeStyle = COLOR;
     this.context.lineWidth = 4;
     if (this.arc.toProgress < 100) {
       var d = thetaStep * this.arc.toProgress;
@@ -115,7 +117,7 @@
     this.drawArc();
 
 
-    if (this.arc.isComplete() && time - this.lastArc > 1000 * 2) {
+    if (this.arc.isComplete() && time - this.lastArc > 1000 * 3) {
 
       var dots = _.shuffle(this.dots);
       var nextArc;
@@ -133,8 +135,8 @@
 
       var a = Math.floor(this.dots.length * Math.random());
       var b = Math.floor(this.dots.length * Math.random());
-      this.arc.a.color = 'lightgray';
-      this.arc.b.color = 'lightgray';
+      this.arc.a.color = COLOR;
+      this.arc.b.color = COLOR;
 
       this.arc = nextArc;
       this.lastArc = time;
@@ -187,7 +189,7 @@
     this.d = Math.max(5, Math.random() * MAX_DIAMETER);
     this.dx = generateRandomVelocity(VELOCITY);
     this.dy = generateRandomVelocity(VELOCITY);
-    this.color = 'lightgray';
+    this.color = COLOR;
     this.speed = 1000 + Math.random() * 1000;
     this.wander = Math.random() * 100;
   }
@@ -199,6 +201,7 @@
   };
 
   function buildCanvas (element) {
+    element.height($(window).innerHeight());
     var canvas = new Canvas(element);
     canvas.start();
   }

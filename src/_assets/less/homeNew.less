@@ -1,12 +1,36 @@
 section.landing {
   height: 960px;
-  padding: 60px 0;
+  // padding: 60px 0;
 
 
   .content {
     width: 80%;
-    margin: 120px auto;
+    margin: auto;
+    top: 40%;
+    transform: translate(-40% 0);
     text-align: center;
+    position: relative;
+
+    h1 {
+      margin: 0 auto;
+      font-size: 62px;
+      font-weight: 600;
+      color: @blue;
+    }
+    h2 {
+      color: @blue;
+    }
+
+    .links {
+      display: inline-block;
+      margin: auto;
+      a {
+        font-size: 36px;
+        color: @black;
+        display: inline-block;
+        margin: 0 10px;
+      }
+    }
   }
 
   canvas {
@@ -15,6 +39,15 @@ section.landing {
     left: 0;
     right: 0;
     bottom: 0;
+  }
+
+  .nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    display: none;
   }
 
 }
