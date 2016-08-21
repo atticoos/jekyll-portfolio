@@ -3,7 +3,7 @@
   var MAX_DIAMETER = 30;
   var VELOCITY = 0.8;
   var DOT_COUNT = 30;
-  var COLOR = '#eaf0f8';
+  var COLOR = '#e0e6ed';
 
   function Canvas ($container) {
     this.$container = $container;
