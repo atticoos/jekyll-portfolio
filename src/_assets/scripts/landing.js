@@ -21,6 +21,7 @@
     this.$container.prepend(this.canvas);
     this.animating = false;
     this.lastArc = Date.now();
+    this.render = this.render.bind(this);
   }
 
   Canvas.prototype.drawArc = function () {
@@ -73,6 +74,7 @@
 
   Canvas.prototype.start = function () {
     this.animating = true;
+    this.time = Date.now();
     this.render();
   };
 
@@ -80,11 +82,12 @@
     this.animating = false;
   }
 
-  Canvas.prototype.render = function () {
-    var time = Date.now();
+  Canvas.prototype.render = function (time) {
     if (!this.animating) {
       return;
     }
+    time = this.time + time;
+    // console.log(time, Date.n/ow());
 
     // Clear the frame for the new render
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -125,9 +128,7 @@
       this.lastArc = time;
     }
 
-    requestAnimationFrame(function () {
-      this.render();
-    }.bind(this));
+    requestAnimationFrame(this.render);
   }
 
   function generateRandomVelocity (maxVelocity) {
