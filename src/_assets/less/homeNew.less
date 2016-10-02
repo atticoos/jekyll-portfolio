@@ -54,8 +54,8 @@ section.landing {
   .content {
     width: 80%;
     margin: auto;
-    top: 40%;
-    transform: translate(-40% 0);
+    top: 50%;
+    transform: translateY(-50%);
     text-align: center;
     position: relative;
 
@@ -85,27 +85,36 @@ section.landing {
     position: absolute;
     bottom: 50px;
     left: 50%;
-    margin-left:-20px;
-    width: 16px;
-    height: 20px;
-    animation: bounce 1.5s infinite;
+    height: 50px;
+    width: 50px;
+    margin-left: -25px;
 
-    &:before,
-    &:after {
-      content: ' ';
-      position: absolute;
+    .arrow {
       display: block;
-      background-color: @blue;
-      width: 3px;
+      position: relative;
+      animation: bounce 1.5s infinite;
+      width: 16px;
       height: 20px;
-    }
-    &:before {
-      transform: rotate(-45deg);
-      left: 0;
-    }
-    &:after {
-      transform: rotate(45deg);
-      right: 0;
+      top: 5px;
+      margin-left: 17px;
+
+      &:before,
+      &:after {
+        content: ' ';
+        position: absolute;
+        display: block;
+        background-color: @blue;
+        width: 3px;
+        height: 20px;
+      }
+      &:before {
+        transform: rotate(-45deg);
+        left: 0;
+      }
+      &:after {
+        transform: rotate(45deg);
+        right: 0;
+      }
     }
   }
 
@@ -118,9 +127,9 @@ section.landing {
   }
 
   @keyframes bounce {
-    0% {margin-bottom: 0; }
-    50% {margin-bottom: 20px; }
-    100% {margin-bottom: 0; }
+    0% {margin-top: 0; }
+    50% {margin-top: 20px; }
+    100% {margin-top: 0; }
   }
 
   @keyframes fadeIn {
@@ -155,11 +164,15 @@ section.landing {
 
 }
 
-.site-header {
-  background-color: transparent;
-  display: none;
+.page-index {
 
-  a {
-    color: @textColor;
+  .site-header {
+    background-color: #fff;
+    display: none;
+
+    a {
+      color: @textColor;
+    }
   }
+
 }

@@ -22,6 +22,13 @@
     this.animating = false;
     this.lastArc = Date.now();
     this.render = this.render.bind(this);
+    $(window).on('resize', function () {
+      var width = $(window).width();
+      var height = $(window).height();
+      this.canvas.width = width;
+      this.canvas.height = height;
+      $container.height(height);
+    }.bind(this));
   }
 
   Canvas.prototype.drawArc = function () {
