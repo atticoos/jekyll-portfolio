@@ -19,12 +19,12 @@
       </div>
     </div>
     <div class="build">
-      {% if site.circle_sha && site.circle_build_number %}
+      {% if site.env.CIRCLE_SHA && site.env.CIRCLE_BUILD_NUM %}
       <span class="build-link">
         Build
-        <a href="https://circleci.com/gh/ajwhite/jekyll-portfolio/{{ site.circle_build_number }}"
+        <a href="https://circleci.com/gh/ajwhite/jekyll-portfolio/{{ site.env.CIRCLE_BUILD_NUM }}"
           title="CircleCI build status"
-          target="_blank">{{ site.circle_sha }}:{{ site.circle_build_number}}</a>
+          target="_blank">{{ site.env.CIRCLE_SHA }}:{{ site.env.CIRCLE_BUILD_NUM }}</a>
       </span>
       {% endif %}
       <span class="build-desc">
@@ -37,13 +37,13 @@
 </footer>
 
 <script>window.site_api_url = "{{ site.api_url }}";</script>
-<script type="text/javascript" src="{{ "/dist/vendor.js" | append: '?' | append: site.circle_sha | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/dist/vendor.js" | append: '?' | append: site.env.CIRCLE_SHA | prepend: site.baseurl }}"></script>
 <script type="text/javascript">
 window.initMaps = function () {};
 Raven.config('https://e0a74360af9e49b7ad43b4ded11a4359@app.getsentry.com/70270').install();
 // InstantClick.init();
 </script>
-<script type="text/javascript" src="{{ "/dist/site.js" | append: '?' | append: site.circle_sha | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/dist/site.js" | append: '?' | append: site.env.CIRCLE_SHA | prepend: site.baseurl }}"></script>
 <script async
         defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6ZwkIYqNwq2SYGbqZ7_h1ws9FyCxpepE&callback=initMaps">
