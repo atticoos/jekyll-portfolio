@@ -11,9 +11,6 @@ dependencies:
     - "node_modules/"
     - "bower_components/"
 
-test:
-  post:
-    - bundle exec htmlproof ./public --disable-external
 
 deployment:
   production:
