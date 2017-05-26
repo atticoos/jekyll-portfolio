@@ -1,0 +1,20 @@
+{
+  "name": "create-next-example-app",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "glamor": "^2.20.25",
+    "glamorous": "^3.17.0",
+    "jquery": "^3.2.1",
+    "konva": "^1.6.3",
+    "lodash": "^4.17.4",
+    "next": "^2.4.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-icons": "^2.2.5",
+    "react-konva": "^1.1.3"
+  }
+}
