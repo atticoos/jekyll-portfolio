@@ -69,6 +69,7 @@ const Wrapper = glamorous.div({
 });
 
 const Container = glamorous.div({
-  height: 70
+  height: 70,
+  zIndex: 10
 })
 

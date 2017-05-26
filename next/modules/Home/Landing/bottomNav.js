@@ -1,7 +1,7 @@
 import React from 'react'
 import glamorous, {View} from 'glamorous'
-import A from '../../components/anchor'
-import Colors from '../../constants/colors'
+import A from '../../../components/anchor'
+import Colors from '../../../constants/colors'
 import DownArrow from './downArrow'
 
 export default ({style}) => (

@@ -1,18 +1,18 @@
 import Link from 'next/link'
-import Colors from '../../constants/colors'
+import Colors from '../../../constants/colors'
 import glamorous, {Div, Span} from 'glamorous'
-import Row from '../../components/row'
-import A from '../../components/anchor'
+import Row from '../../../components/row'
+import A from '../../../components/anchor'
 import BottomNav from './bottomNav'
 import ColorfulBand from './colorfulBand'
-import withWindowDimensions from '../../utils/withWindowDimensions'
+import withWindowDimensions from '../../../utils/withWindowDimensions'
 import * as FontAwesome from 'react-icons/lib/fa'
 
 
 export default function Introduction () {
   const Decorated = withWindowDimensions(windowProps => (
     <Div
-      height={windowProps.windowHeight}
+      height={windowProps.windowHeight || 900}
       position="relative"
       display="flex"
       flexDirection="column"
