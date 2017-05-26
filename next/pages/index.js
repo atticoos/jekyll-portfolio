@@ -41,6 +41,16 @@ export default () => (
     {isClient && <DotCanvas />}
     <Div position="relative" backgroundColor="transparent" zIndex={2}>
       {false && <NavBar />}
+      <Div
+        position="absolute"
+        top={0}
+        right={0}
+        bottom={0}
+        left={0}
+        backgroundColor="rgba(255,255,255,0.75)"
+        zIndex={1}
+        filter="blur(20px)"
+      />
 
       <Landing />
 

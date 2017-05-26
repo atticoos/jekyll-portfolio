@@ -4,6 +4,7 @@ import glamorous, {Div, Span} from 'glamorous'
 import Row from '../../components/row'
 import A from '../../components/anchor'
 import BottomNav from './bottomNav'
+import ColorfulBand from './colorfulBand'
 import withWindowDimensions from '../../utils/withWindowDimensions'
 import * as FontAwesome from 'react-icons/lib/fa'
 
@@ -18,6 +19,7 @@ export default function Introduction () {
       alignItems="center"
       justifyContent="center"
       backgroundColor="transparent"
+      zIndex={5}
     >
       <Card width={500}>
         <IntroTitle>Atticus White</IntroTitle>
@@ -25,6 +27,16 @@ export default function Introduction () {
         <Byline>
           Turning ideas into digital application
         </Byline>
+
+        <ColorfulBand
+          count={10}
+          type="dashes"
+          opacity={0.75}
+          marginTop={40}
+          marginBottom={20}
+          alignSelf="stretch"
+        />
+
         <Row justifyContent="space-around" alignSelf="stretch" marginTop={20}>
           <SocialLink href="https://twitter.com/atticoos">
             <FontAwesome.FaTwitter />
@@ -57,14 +69,14 @@ const Card = glamorous.div({
   justifyContent: 'center',
   display: 'flex',
   flexDirection: 'column',
-  boxShadow: '0px 0px 13px 0px rgba(0,0,0,0.25)',
+  boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.25)',
   borderRight: 4
 })
 Card.propsAreCssOverrides = true
 
 const SocialLink = glamorous(A)({
   fontSize: 42,
-  color: Colors.Gray.LIGHT,
+  color: Colors.Black.NORMAL,
   marginLeft: 5,
   marginRight: 5
 })
@@ -73,19 +85,19 @@ SocialLink.propsAreCssOverrides = true
 const IntroTitle = glamorous.div({
   fontSize: 62,
   fontWeight: 600,
-  marginBottom: 10,
-  color: Colors.Blue.NORMAL
+  marginBottom: 20,
+  color: Colors.Black.NORMAL
 })
 
 const IntroSubtitle = glamorous.div({
   fontSize: 32,
   marginBottom: 20,
-  color: Colors.Blue.NORMAL
+  color: Colors.Black.NORMAL
 })
 
 const Byline = glamorous.div({
   fontSize: 16,
   marginTop: 10,
   marginBottom: 10,
-  color: Colors.Gray.NORMAL
+  color: Colors.Black.NORMAL
 })

@@ -8,5 +8,8 @@ export default {
   },
   Blue: {
     NORMAL: '#31a2d4'
+  },
+  Black: {
+    NORMAL: '#32383e'
   }
 }
