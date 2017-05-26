@@ -1,5 +1,9 @@
 import glamorous from 'glamorous'
 
-export default glamorous.a({
+const A = glamorous.a({
   textDecoration: 'none'
 })
+
+A.propsAreCssOverrides = true
+
+export default A
