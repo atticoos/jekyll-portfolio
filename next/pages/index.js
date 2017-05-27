@@ -15,9 +15,7 @@ import ScrollReveal from '../modules/behavioral/scrollReveal'
 import withWindowDimensions from '../utils/withWindowDimensions'
 import * as FontAwesome from 'react-icons/lib/fa'
 
-
 const isClient = typeof window !== 'undefined'
-
 
 export default () => (
   <div>

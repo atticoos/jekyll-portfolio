@@ -25,7 +25,7 @@ export default function Introduction () {
         <IntroTitle>Atticus White</IntroTitle>
         <IntroSubtitle>Software Developer</IntroSubtitle>
         <Byline>
-          Turning ideas into digital application
+          Turning ideas into digital applications
         </Byline>
 
         <ColorfulBand
