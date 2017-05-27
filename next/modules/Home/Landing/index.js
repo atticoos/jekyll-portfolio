@@ -4,7 +4,7 @@ import glamorous, {Div, Span} from 'glamorous'
 import Row from '../../../components/row'
 import A from '../../../components/anchor'
 import BottomNav from './bottomNav'
-import ColorfulBand from './colorfulBand'
+import ColorfulBand from '../../../components/colorfulBand'
 import withWindowDimensions from '../../../utils/withWindowDimensions'
 import * as FontAwesome from 'react-icons/lib/fa'
 

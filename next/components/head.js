@@ -30,6 +30,7 @@ const Head = (props) => (
         padding: 0;
         margin: 0;
         font-family: 'Open Sans', sans-serif;
+        background-color: #FAFAFA;
       }
       * {
         box-sizing: border-box;

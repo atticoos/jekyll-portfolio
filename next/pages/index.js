@@ -6,7 +6,11 @@ import Colors from '../constants/colors'
 import glamorous, {Div, Span} from 'glamorous'
 import Row from '../components/row'
 import A from '../components/anchor'
-import Landing from '../modules/Home/Landing';
+import {
+  Landing,
+  OpenSource,
+  FeaturedWork
+} from '../modules/Home'
 import ScrollReveal from '../modules/behavioral/scrollReveal'
 import withWindowDimensions from '../utils/withWindowDimensions'
 import * as FontAwesome from 'react-icons/lib/fa'
@@ -28,7 +32,6 @@ export default () => (
         left={0}
         backgroundColor="rgba(255,255,255,0.75)"
         zIndex={1}
-        filter="blur(20px)"
       />
     <Div position="relative" backgroundColor="transparent" zIndex={2}>
       <Landing />
@@ -37,6 +40,8 @@ export default () => (
         <NavBar />
       </ScrollReveal>
 
+      <FeaturedWork />
+      <OpenSource />
 
       <Div height={900} backgroundColor="gray" marginVertical={10} />
       <Div height={900} backgroundColor="lightgray" marginVertical={10} />
@@ -47,13 +52,17 @@ export default () => (
 
 class DotCanvas extends React.Component {
   componentDidMount() {
-    require('../components/dots').default();
+    if (!this.loaded) {
+      require('../components/dots').default();
+    }
+    this.loaded = true
   }
 
   render() {
     return (
       <Div
         className="dots-canvas"
+        backgroundColor="white"
         position="absolute"
         top={0}
         left={0}

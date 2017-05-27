@@ -49,8 +49,8 @@ const NavLink = glamorous(
   {rootEl: 'a'}
 )({
   fontSize: 18,
-  marginRight: 5,
-  marginLeft: 5,
+  marginRight: 20,
+  marginLeft: 20,
   color: Colors.Gray.NORMAL
 });
 

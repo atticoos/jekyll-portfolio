@@ -9,7 +9,7 @@ export default (function ($) {
   function Canvas ($container) {
     this.$container = $container;
     this.canvas = document.createElement('canvas');
-    this.canvas.style="filter:blur(3px)"
+    // this.canvas.style="filter:blur(3px)"
     this.canvas.width = $container.outerWidth();
     this.canvas.height = $container.outerHeight();
     this.context = this.canvas.getContext('2d');
@@ -225,9 +225,9 @@ export default (function ($) {
   }
 
   $(document).ready(function () {
-    $('.dots-canvas').each(function () {
-      buildCanvas($(this));
-    });
+    // $('.dots-canvas').each(function () {
+    //   buildCanvas($(this));
+    // });
   });
 
   return () => {

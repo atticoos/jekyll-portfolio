@@ -1,7 +1,7 @@
-import 'glamor/reset'
 import React from 'react'
 import Document, {Head, Main, NextScript} from 'next/document'
 import {renderStatic} from 'glamor/server'
+import 'glamor/reset'
 
 export default class MyDcoument extends Document {
   static async getInitialProps({renderPage, ...rest}) {
