@@ -1,9 +1,9 @@
 import React from 'react'
+import glamorous, {Div} from 'glamorous'
 import Colors from '../../../constants/colors'
-import {H1, A} from '../../../components/Text'
+import {H1, A, Span} from '../../../components/Text'
 import {Container, Row, Column, Horizontal} from '../../../components/Layout'
 import {Circle} from '../../../components/Shapes'
-import glamorous, {Div, Span} from 'glamorous'
 import {FaBars, FaStar, FaCodeFork} from 'react-icons/lib/fa'
 import {GoRepoForked} from 'react-icons/lib/go'
 
@@ -16,7 +16,7 @@ export default function Repository({name, description, url, stars, forks, ...res
         <ProjectLink href="#">{name}</ProjectLink>
       </Horizontal>
 
-      <ProjectDescription>{description}</ProjectDescription>
+      <ProjectDescription ellipsis>{description}</ProjectDescription>
 
       <Horizontal>
         <ProjectMeta>

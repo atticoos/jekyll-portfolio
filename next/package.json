@@ -1,5 +1,5 @@
 {
-  "name": "create-next-example-app",
+  "name": "atticoos-portfolio",
   "scripts": {
     "dev": "next",
     "build": "next build",

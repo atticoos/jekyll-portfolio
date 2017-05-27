@@ -11,5 +11,10 @@ export default {
   },
   Black: {
     NORMAL: '#32383e'
+  },
+  Orange: {
+    NORMAL: '#FF9900'
   }
 }
+
+// var COLORS = ['#FF9900', '#424242', '#BCBCBC', '#3299BB'];

@@ -29,6 +29,7 @@ export default class ScrollReveal extends React.Component {
   componentDidMount() {
     if (isClient) {
       window.addEventListener('scroll', this.onScroll)
+      this.onScroll()
     }
   }
 

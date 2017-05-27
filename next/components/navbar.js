@@ -6,13 +6,13 @@ import Colors from '../constants/colors'
 
 export default function NavBar () {
   return (
-    <Container>
+    // <Container>
       <Wrapper>
         <ProfilePicture />
         <NavLinks />
         <ProfilePicture />
       </Wrapper>
-    </Container>
+    // </Container>
   );
 }
 
@@ -60,12 +60,17 @@ const Wrapper = glamorous.div({
   alignItems: 'center',
   justifyContent: 'space-between',
   backgroundColor: Colors.White.NORMAL,
+  // borderBottomColor: Colors.Gray.LIGHT,
+  // borderBottomWidth: 1,
+  // borderBottomStyle: 'solid',
+  boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.3)',
   paddingLeft: 20,
   paddingRight: 20,
   height: 70,
   top: 0,
   left: 0,
-  right: 0
+  right: 0,
+  zIndex: 10
 });
 
 const Container = glamorous.div({

@@ -25,8 +25,6 @@ const Container = glamorous.div({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-around',
-  // paddingLeft: 60,
-  // paddingRight: 60,
   left: 0,
   right: 0,
   bottom: 0
