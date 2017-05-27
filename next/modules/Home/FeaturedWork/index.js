@@ -17,6 +17,7 @@ const Separator = () => (
     marginLeft="auto"
     marginRight="auto"
     type="dots"
+    shuffle={true}
     opacity={0.75}
     marginTop={100}
     marginBottom={160}

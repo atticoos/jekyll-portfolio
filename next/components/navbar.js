@@ -1,19 +1,39 @@
 import Link from 'next/link'
 import glamorous, {Div, Img, Span} from 'glamorous'
+import {Motion, spring} from 'react-motion'
 import A from './anchor';
 import Row from './row'
 import Colors from '../constants/colors'
 
-export default function NavBar () {
-  return (
-    // <Container>
-      <Wrapper>
-        <ProfilePicture />
-        <NavLinks />
-        <ProfilePicture />
-      </Wrapper>
-    // </Container>
-  );
+
+export default class NavBar extends React.Component {
+  state = {
+    animateIn: false
+  }
+
+  componentDidMount() {
+    this.setState({
+      animateIn: true
+    })
+  }
+
+  render() {
+    return (
+      // <Container>
+      <Motion style={{y: spring(this.state.animateIn ? 0 : -70)}}>
+        {({y}) => (
+          <Wrapper style={{
+            transform: `translate(0, ${y}px)`
+          }}>
+            <ProfilePicture />
+            <NavLinks />
+            <ProfilePicture />
+          </Wrapper>
+        )}
+      </Motion>
+      // </Container>
+    );
+  }
 }
 
 function ProfilePicture () {
@@ -39,7 +59,7 @@ function NavLinks () {
       <NavLink href='/'>Home</NavLink>
       <NavLink href='/hello'>Portfolio</NavLink>
       <NavLink href='/hello'>Labs</NavLink>
-      <NavLink href='/hello'>Blog</NavLink>
+      <NavLink href='/hello'>Writing</NavLink>
     </Row>
   )
 }
@@ -59,7 +79,7 @@ const Wrapper = glamorous.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  backgroundColor: Colors.White.NORMAL,
+  backgroundColor: 'rgba(255,255,255,0.95)', //Colors.White.NORMAL,
   // borderBottomColor: Colors.Gray.LIGHT,
   // borderBottomWidth: 1,
   // borderBottomStyle: 'solid',

@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Head from '../components/head'
-import Nav from '../components/nav'
 import NavBar from '../components/navbar'
 import Colors from '../constants/colors'
 import glamorous, {Div, Span} from 'glamorous'

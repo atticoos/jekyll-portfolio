@@ -9,7 +9,7 @@ export default ({style}) => (
     <NavItem>Projects</NavItem>
     <NavItem>Labs</NavItem>
     <DownArrow color={Colors.Blue.NORMAL} size={20} />
-    <NavItem>Blog</NavItem>
+    <NavItem>Writing</NavItem>
     <NavItem>Contact</NavItem>
   </Container>
 )

@@ -4,17 +4,21 @@ import _ from 'lodash'
 
 var COLORS = ['#FF9900', '#424242', '#BCBCBC', '#3299BB'];
 
-export default ({count, type, ...rest}) => (
+export default ({count, type, shuffle = false, ...rest}) => {
+  const colors = shuffle ? _.shuffle(COLORS) : COLORS;
+  return (
+
   <Container {...rest}>
     {Array.from(Array(count)).map((n, i) => (
       <BandItem
         key={i}
         type={type}
-        color={COLORS[i % COLORS.length]}
+        color={colors[i % colors.length]}
       />
     ))}
   </Container>
 )
+}
 
 function BandItem ({type, color}) {
   if (type === 'dashes') {

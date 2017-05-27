@@ -21,9 +21,13 @@ export default function Introduction () {
       backgroundColor="transparent"
       zIndex={5}
     >
-      <Card width={500}>
-        <IntroTitle>Atticus White</IntroTitle>
-        <IntroSubtitle>Software Developer</IntroSubtitle>
+      <Card width={470}>
+        <PortraitPhoto
+          height={430}
+          url="https://pbs.twimg.com/profile_images/378800000310470879/b66c49481eb365dae8ea695031b60be7_400x400.jpeg"
+        />
+        <IntroTitle fontSize={42} marginBottom={10}>Atticus White</IntroTitle>
+        <IntroSubtitle fontSize={30} marginBottom={10}>Software Developer</IntroSubtitle>
         <Byline>
           Turning ideas into digital applications
         </Byline>
@@ -62,8 +66,19 @@ export default function Introduction () {
   )
 }
 
+function PortraitPhoto ({url, ...rest}) {
+  return (
+    <glamorous.Img
+      src={url}
+      height={200}
+      marginBottom={20}
+      {...rest}
+    />
+  )
+}
+
 const Card = glamorous.div({
-  padding: 40,
+  padding: 20,
   backgroundColor: 'rgba(255, 255, 255, 0.75)',
   alignItems: 'center',
   justifyContent: 'center',
@@ -88,12 +103,14 @@ const IntroTitle = glamorous.div({
   marginBottom: 20,
   color: Colors.Black.NORMAL
 })
+IntroTitle.propsAreCssOverrides = true
 
 const IntroSubtitle = glamorous.div({
   fontSize: 32,
   marginBottom: 20,
   color: Colors.Black.NORMAL
 })
+IntroSubtitle.propsAreCssOverrides = true
 
 const Byline = glamorous.div({
   fontSize: 16,
@@ -101,3 +118,4 @@ const Byline = glamorous.div({
   marginBottom: 10,
   color: Colors.Black.NORMAL
 })
+Byline.propsAreCssOverrides = true
