@@ -5,6 +5,7 @@ import Row from '../../../components/row'
 import A from '../../../components/anchor'
 import BottomNav from './bottomNav'
 import ColorfulBand from '../../../components/colorfulBand'
+import Arrow from '../../../components/Shapes/arrow';
 import withWindowDimensions from '../../../utils/withWindowDimensions'
 import * as FontAwesome from 'react-icons/lib/fa'
 
@@ -23,7 +24,7 @@ export default function Introduction () {
     >
       <Card width={470}>
         <PortraitPhoto
-          height={430}
+          height={300}
           url="https://pbs.twimg.com/profile_images/378800000310470879/b66c49481eb365dae8ea695031b60be7_400x400.jpeg"
         />
         <IntroTitle fontSize={42} marginBottom={10}>Atticus White</IntroTitle>
@@ -57,7 +58,15 @@ export default function Introduction () {
         </Row>
       </Card>
 
-      <BottomNav />
+      <Arrow
+        bottom={30}
+        position="absolute"
+        onClick={() => {
+          window.scrollTo(0, windowProps.windowHeight || 900)
+        }}
+      />
+
+      {/* <BottomNav /> */}
     </Div>
   ));
 

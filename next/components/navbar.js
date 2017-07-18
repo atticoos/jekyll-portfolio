@@ -59,7 +59,7 @@ function NavLinks () {
       <NavLink href='/'>Home</NavLink>
       <NavLink href='/hello'>Portfolio</NavLink>
       <NavLink href='/hello'>Labs</NavLink>
-      <NavLink href='/hello'>Writing</NavLink>
+      <NavLink href='/blog'>Writing</NavLink>
     </Row>
   )
 }

@@ -5,6 +5,13 @@ module.exports = {
       fs: 'empty'
     }
 
+    config.module.rules.push(
+      {
+        test: /\.css$/,
+        use: ['babel-loader', 'raw-loader']
+      }
+    )
+
     return config
   }
 }

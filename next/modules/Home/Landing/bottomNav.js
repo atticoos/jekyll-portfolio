@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import glamorous, {View} from 'glamorous'
 import A from '../../../components/anchor'
 import Colors from '../../../constants/colors'
@@ -9,7 +10,7 @@ export default ({style}) => (
     <NavItem>Projects</NavItem>
     <NavItem>Labs</NavItem>
     <DownArrow color={Colors.Blue.NORMAL} size={20} />
-    <NavItem>Writing</NavItem>
+    <Link href="/blog"><NavItem>Writing</NavItem></Link>
     <NavItem>Contact</NavItem>
   </Container>
 )
