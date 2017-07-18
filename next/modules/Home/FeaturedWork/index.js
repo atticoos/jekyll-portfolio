@@ -4,6 +4,7 @@ import {H1, H2, P, A} from '../../../components/Text'
 import {Container, Row, Column} from '../../../components/Layout'
 import Title from '../title'
 import ColorfulBand from '../../../components/colorfulBand'
+import WebPreview from '../../../components/Previews/Web';
 import glamorous, {Img, Div} from 'glamorous'
 
 const SectionRow = glamorous(Row)({
@@ -67,6 +68,11 @@ export default () => (
       subtitle="A game played during the 2011 NFL Playoffs on NBCSports"
       image="https://atticuswhite.com/dist/images/projects/tweetdrive/tweetdrive1.jpg"
       blurb={`TweetDrive was a trivia game hosted on NBCSports.com during the 2011 NFL playoffs. I built the web application that allows users to engage in the game through either twitter or the web application itself. A series of questions are posted every quarter of the game and users can response with their predictions - "How many yards will Brady throw in the first quarter". The speed in which a user responds along with the accuracy of their prediction awards them pointage in terms of yards (out of 100). Every 100 yards is a touchdown. The players with the highest touchdowns (total yards) wins.`}
+      renderPreview={preview => (
+        <WebPreview width={500}>
+          {preview}
+        </WebPreview>
+      )}
     />
 
 
@@ -85,7 +91,15 @@ export default () => (
 
 
 
-function ProjectSection ({title, subtitle, image, blurb, projectUrl, odd}) {
+function ProjectSection ({
+  title,
+  subtitle,
+  image,
+  blurb,
+  projectUrl,
+  renderPreview = preview => preview,
+  odd
+}) {
   const infoColumn = (
     <Column>
       <H1 marginTop={20}>{title}</H1>
@@ -99,15 +113,17 @@ function ProjectSection ({title, subtitle, image, blurb, projectUrl, odd}) {
 
   const imageColumn = (
     <Column>
-      <Img
-        src={image}
-        display="block"
-        width="auto"
-        height="auto"
-        maxWidth="100%"
-        maxHeight="500px"
-        objectFit="contain"
-      />
+      {renderPreview(
+        <Img
+          src={image}
+          display="block"
+          width="auto"
+          height="auto"
+          maxWidth="100%"
+          maxHeight="500px"
+          objectFit="contain"
+        />
+      )}
     </Column>
   )
 
