@@ -113,7 +113,7 @@ When we do `this::somePrivateMethod`, that takes the left hand argument and uses
 
 ### Function-bind compiled
 
-Using the <a href="https://babeljs.io/repl/#?experimental=true&evaluate=true&loose=true&spec=false&code=class%20Counter%20%7B%0A%20%20constructor()%20%7B%0A%20%20%20%20this.count%20%3D%200%3B%0A%20%20%7D%0A%20%20add()%20%7B%0A%20%20%20%20this.count%2B%2B%3B%0A%20%20%20%20this%3A%3AsomePrivateMethod()%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20privateMethod()%20%7B%0A%20%20console.log('count%20updated'%2C%20this.count)%3B%0A%7D" target="_blank" title="Babel REPL">Babel REPL</a>, we can see this is true
+Using the <a href="https://babeljs.io/repl/#?experimental=true&evaluate=true&loose=true&spec=false&code=class%20Counter%20%7B%0A%20%20constructor()%20%7B%0A%20%20%20%20this.count%20%3D%200%3B%0A%20%20%7D%0A%20%20add()%20%7B%0A%20%20%20%20this.count%2B%2B%3B%0A%20%20%20%20this%3A%3AsomePrivateMethod()%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20somePrivateMethod()%20%7B%0A%20%20console.log('count%20updated'%2C%20this.count)%3B%0A%7D" target="_blank" title="Babel REPL">Babel REPL</a>, we can see this is true
 
 {% highlight javascript %}
 function _classCallCheck(instance, constructor) { ... }
@@ -131,7 +131,7 @@ var Counter = (function () {
   return Counter;
 })();
 
-function privateMethod() {
+function somePrivateMethod() {
   console.log('count updated', this.count);
 }
 {% endhighlight %}
