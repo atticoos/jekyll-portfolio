@@ -29,6 +29,28 @@
         scrollTop: position + 'px'
       });
     });
+
+    // show/hide header
+    $(window).on('scroll', function (e) {
+      var threshold = $(window).height() - 50;
+      var scrollTop = $(window).scrollTop();
+      var $header = $('.site-header');
+      var visible = $header.is(':visible');
+      if (scrollTop > threshold && !visible) {
+        $('.site-header').show();
+      } else if (scrollTop < threshold && visible){
+        $('.site-header').hide();
+      }
+    });
+
+    // Bouncing down arrow
+    $('.landing .down').click(function () {
+      $('html,body').animate({
+        scrollTop: $('.intro').offset().top
+      });
+      return false;
+    });
+
     $('#view-more-portfolio').click(function () {
       $('.featured-portfolio-items').hide();
       $('.portfolio-items').fadeIn();

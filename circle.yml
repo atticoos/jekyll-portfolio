@@ -11,9 +11,6 @@ dependencies:
     - "node_modules/"
     - "bower_components/"
 
-test:
-  post:
-    - bundle exec htmlproof ./public --disable-external
 
 deployment:
   production:
@@ -24,3 +21,7 @@ deployment:
     branch: develop
     commands:
       - shipit develop deploy
+  pull_request:
+    branch: /^((?!master|develop).)*$/
+    commands:
+      - shipit pull_request deploy
